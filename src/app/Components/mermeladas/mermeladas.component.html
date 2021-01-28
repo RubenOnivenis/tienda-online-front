@@ -1,15 +1,7 @@
 <div id="mermeladasMostrar">
-    <h2 class="animated-fast" style="text-align: center;">Mermeladas caseras</h2>
+    <h2 class="animated-fast" style="text-align: center;">Productos caseros disponibles</h2>
     <hr />
     <div class="card-columns">
-        <div class="card" *ngFor="let mermelada of mermelada; let i = index">
-            <img class="card-img-top" src="{{mermelada.imagen}}" alt="{{mermelada.nombre}}">
-            <div class="card-body">
-            <h5 class="card-title">{{mermelada.nombre}}</h5>
-            <p class="card-text">{{mermelada.descr | slice:0:this.NUM_CARACTERES}}{{puntos_suspensivos(i)}}</p>
-            <p class="card-text"><small class="text-muted">{{mermelada.precio | currency:'EUR'}}</small></p>
-            </div>
-            <button class="btn-outline-secondary btn-block" [routerLink]="['/mermelada', i]" (click)="verMermelada(i)">Información</button>
-        </div>
+        <app-mermelada-tarjeta *ngFor="let foo of mermeladas; let i = index" [mermelada]="foo" [index]="i" ></app-mermelada-tarjeta>
     </div>
 </div>

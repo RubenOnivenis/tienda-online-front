@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermeladas-lista/mermeladas_lista.service';
 
@@ -9,26 +9,19 @@ import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermel
 })
 export class MermeladasComponent implements OnInit {
 
-  mermelada!:mermeladasDatos[];
-  NUM_CARACTERES:number;
-
+  mermeladas!:mermeladasDatos[];
+  
   constructor(
     private _mermeladasListaService:MermeladasListaService,
-    private router:Router
-  ) { 
-    this.NUM_CARACTERES = 200;
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.mermelada = this._mermeladasListaService.getMermeladasDatos();
+    this.mermeladas = this._mermeladasListaService.getMermeladasDatos();
   }
 
   public verMermelada(id:number){
-    this.router.navigate(['/mermelada', id]);
+    //this.router.navigate(['/mermelada', id]);
+    console.log(this._mermeladasListaService.getMermelada(id));
   }
 
-  public puntos_suspensivos(id:number):string{
-    if(this.mermelada[id].descr.length > this.NUM_CARACTERES) return "...";
-    return "";
-  }
 }

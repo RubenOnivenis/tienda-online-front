@@ -8,12 +8,16 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTING } from './app.routes';
 import { SectionComponent } from './Components/section/section.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { ElaboracionComponent } from './Components/elaboracion/elaboracion.component';
 import { MermeladasComponent } from './Components/mermeladas/mermeladas.component';
 import { MermeladasListaService } from './services/mermeladas-lista/mermeladas_lista.service';
 import { registerLocaleData } from '@angular/common';
 import localEs from '@angular/common/locales/es';
 import { MermeladaComponent } from './Components/mermelada/mermelada.component';
+import { BuscadorComponent } from './Components/buscador/buscador.component';
+import { CrearUsuarioComponent } from './Components/crear-usuario/crear-usuario.component';
+import { IniciarSesionComponent } from './Components/iniciar-sesion/iniciar-sesion.component';
+import { PerfilComponent } from './Components/perfil/perfil.component';
+import { MermeladaTarjetaComponent } from './Components/mermelada-tarjeta/mermelada-tarjeta.component';
 registerLocaleData(localEs);
 
 
@@ -24,9 +28,13 @@ registerLocaleData(localEs);
     HomeComponent,
     SectionComponent,
     FooterComponent,
-    ElaboracionComponent,
     MermeladasComponent,
-    MermeladaComponent
+    MermeladaComponent,
+    BuscadorComponent,
+    CrearUsuarioComponent,
+    IniciarSesionComponent,
+    PerfilComponent,
+    MermeladaTarjetaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,37 @@
-<h1>{{mermelada.nombre | uppercase}} <small>{{mermelada.precio | currency:'EUR'}}</small></h1>
-<div class="row">
-  <div class="col-md-4">
-    <img src="{{mermelada.imagen}}" />
-    <br/><br/>
-    <button class="btn btn-outline-secondary btn-block" [routerLink]="['/mermeladas']" >Volver</button>
-  </div>
-  <div class="col-md-8">
-    <h3>{{mermelada.nombre}}</h3>
-    <hr/>
-    <p>
-      {{mermelada.descr}}
-    </p>
-    <div>
-     Fecha de elaboracion: {{mermelada.fecha_elaboracion | date:'dd/MM/y'}}<br/>
-     Días de consumición preferentes: {{mermelada.dias_consumicion_preferente}}
+<div id="mermeladaInfo">
+  <h1 style="margin:10px 0px 20px 20px ;">{{mermelada.nombre | uppercase}} <small>{{mermelada.precio | currency:'EUR'}}</small></h1>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{mermelada.imagen}}" class="img-fluid" />
+      <br/><br/>
+      <button class="btn btn-outline-secondary btn-block" [routerLink]="['/mermeladas']" >Volver</button>
     </div>
+    <div class="col-md-5 offset-1" id="infoM">
+      <h3>{{mermelada.nombre}}</h3>
+      <hr/>
+      <p>
+        {{mermelada.descr}}
+      </p>
+      <div>
+        <p>
+          Fecha de elaboracion: <b>{{mermelada.fecha_elaboracion | date:'dd/MM/y'}}</b><br/>
+        </p>
+        <p>
+          Días de consumición preferentes: <b>{{mermelada.dias_consumicion_preferente}}</b> días
+        </p>
+        <ul>
+          <li>
+            {{mermelada.ingredientes}}
+          </li>
+        </ul>
+        <input type="button" class="btn btn-outline-primary" value="Comprar producto" style="margin-top: 20px;" />
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <h4>Comentar</h4>
+    <textarea class="form-control" rows="4"></textarea><br/>
+    <input type="button" class="btn btn-outline-primary" value="Enviar comentario" />
   </div>
 </div>

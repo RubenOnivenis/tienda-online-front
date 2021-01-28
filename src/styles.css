@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-#navegacion, section, #quienes, footer, #mermeladasMostrar, #elaboracion{
-    font-family: 'Times New Roman', Times, serif;
+#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
-#quienes{
+#quienes, #crearUsuario, #iniciarSesion{
     margin-top: 20px;
+}
+#infoM{
+    font-size: large;
 }

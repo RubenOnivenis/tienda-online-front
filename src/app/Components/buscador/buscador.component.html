@@ -1,0 +1,5 @@
+<h1 class="animated-fast">Buscador: <small>{{textoBuscado}}</small></h1>
+<hr />
+<div class="card-columns">
+    <app-mermelada-tarjeta *ngFor="let foo of encontrarMermelada; let i = index" [mermelada]="foo" [id]="foo.id"></app-mermelada-tarjeta>
+</div>
