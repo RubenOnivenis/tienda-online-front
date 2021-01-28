@@ -1,0 +1,19 @@
+<h1>{{mermelada.nombre | uppercase}} <small>{{mermelada.precio | currency:'EUR'}}</small></h1>
+<div class="row">
+  <div class="col-md-4">
+    <img src="{{mermelada.imagen}}" />
+    <br/><br/>
+    <button class="btn btn-outline-secondary btn-block" [routerLink]="['/mermeladas']" >Volver</button>
+  </div>
+  <div class="col-md-8">
+    <h3>{{mermelada.nombre}}</h3>
+    <hr/>
+    <p>
+      {{mermelada.descr}}
+    </p>
+    <div>
+     Fecha de elaboracion: {{mermelada.fecha_elaboracion | date:'dd/MM/y'}}<br/>
+     Días de consumición preferentes: {{mermelada.dias_consumicion_preferente}}
+    </div>
+  </div>
+</div>

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "tienda-mermelada"
+  "defaultProject": "tienda-mermelada",
+  "cli": {
+    "analytics": "85b9c01c-cc03-48f3-a47c-8311ea2a58a2"
+  }
 }
