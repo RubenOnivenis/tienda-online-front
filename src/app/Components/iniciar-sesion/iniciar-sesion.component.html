@@ -7,5 +7,8 @@
         <label for="disabledSelect">Contraseña</label>
         <input type="text" id="disabledTextInput" class="form-control" placeholder="Contraseña">
     </div>
-    <button class="btn btn-outline-primary">Iniciar sesión</button>
-  </form>
+    <div>
+        <label>¿No tienes cuenta creada? pulsa <a [routerLink]="['/crearUsuario']">aquí</a></label><br/>
+        <button class="btn btn-outline-primary" [routerLink]="['/perfil']">Iniciar sesión</button>
+    </div>
+</form>

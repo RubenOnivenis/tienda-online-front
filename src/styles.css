@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 #navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #quienes, #crearUsuario, #iniciarSesion{
     margin-top: 20px;
