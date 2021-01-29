@@ -12,7 +12,7 @@ export class MermeladaTarjetaComponent implements OnInit {
 
   @Input() mermelada!:mermeladasDatos;
   NUM_CARACTERES:number;
-  @Input() index!:number|undefined;
+  @Input() index!:number | undefined;
 
   constructor(
     private router:Router

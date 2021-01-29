@@ -47,7 +47,7 @@ export class MermeladasListaService
         ingredientes: "1kg de mangos (preferiblemente dulces y maduros), 500g de azúcar, 1 taza de agua, zumo de un limón, envases de vidrio con tapa esterilizados (para envasar)."
     },
     {
-        nombre:"Miel de floración de azahar de naranjo",
+        nombre:"Miel de floración de azahar",
         precio:3.75,
         imagen:"assets/img/miel.png",
         descr:"Es muy aromática por la fragancia que agregan los naranjos, es suave al paladar por lo que es de sabor dulce; producida por las abejas a partir del néctar de las flores. Es de color ámbar claro, transparente cuando está líquida, con granulación fina y con una cristalización regular. Tiene propiedades antiespasmódicas y está recomendada como calmante.",
