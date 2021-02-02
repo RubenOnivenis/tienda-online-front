@@ -1,11 +1,32 @@
-<form id="iniciarSesion">
+<form id="iniciarSesion" autocomplete="off" (ngSubmit)="iniciar(forma)" #forma="ngForm">
     <div class="form-group">
         <label for="disabledTextInput">E-mail</label>
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="E-mail">
+        <input type="text" 
+               name="correo"
+               id="disabledTextInput" 
+               class="form-control" 
+               placeholder="E-mail"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+               ngModel
+               [class.invalid]="correo.invalid && correo.touched"
+               #correo="ngModel"
+               required
+               >
+        <small class="form-text text-danger" *ngIf="correo.invalid && correo.touched">Debe estar rellenado y escrito correctamente</small>
     </div>
     <div class="form-group">
         <label for="disabledSelect">Contraseña</label>
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="Contraseña">
+        <input type="text" 
+               name="contrasenia"
+               id="disabledTextInput" 
+               class="form-control" 
+               placeholder="Contraseña"
+               ngModel
+               [class.invalid]="contrasenia.invalid && contrasenia.touched"
+               #contrasenia="ngModel"
+               required
+               >
+        <small class="form-text text-danger" *ngIf="contrasenia.invalid && contrasenia.touched">Debe estar rellenado y escrito correctamente</small>
     </div>
     <div>
         <label>¿No tienes cuenta creada? pulsa <a [routerLink]="['/crearUsuario']">aquí</a></label><br/>

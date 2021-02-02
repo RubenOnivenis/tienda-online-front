@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
 
 var hoy:Date = new Date;
 var maniana:Date = new Date(hoy.setDate(hoy.getDate()+1));
@@ -17,7 +18,9 @@ export interface mermeladasDatos {
 @Injectable()
 export class MermeladasListaService
 {
-    constructor(){}
+    constructor(
+        private http:HttpClient
+    ){}
     private mermeladaDato: mermeladasDatos[] = [
     {
         nombre:"Fresa",
@@ -74,6 +77,10 @@ export class MermeladasListaService
         ingredientes: "2 tazas de piña picada finamente, 4 cucharaditas de jugo de limón, 2 tazas de azúcar, 1 taza de agua."
     }
     ];
+
+    getLocalidad(){
+        return this.http.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=ccaa&facet=provincia");
+    }
 
     getMermeladasDatos():mermeladasDatos[]{
         return this.mermeladaDato;
