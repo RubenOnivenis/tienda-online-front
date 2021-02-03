@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #FFE6CC;
+}
 #navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#quienes, #crearUsuario, #iniciarSesion{
+#quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar{
     margin-top: 20px;
 }
 #infoM{

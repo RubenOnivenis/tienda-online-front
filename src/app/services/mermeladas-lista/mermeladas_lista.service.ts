@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup } from "@angular/forms";
 
 var hoy:Date = new Date;
 var maniana:Date = new Date(hoy.setDate(hoy.getDate()+1));
@@ -104,4 +105,25 @@ export class MermeladasListaService
         return encontrarMermelada;
     }
 
+    passwordsIguales(pass1:string, pass2:string){
+        return (formGroup:FormGroup) =>{
+          const pass1control = formGroup.controls[pass1];
+          const pass2control = formGroup.controls[pass2];
+          if (pass1control.value === pass2control.value)
+            pass2control.setErrors(null);
+          else
+            pass2control.setErrors({noEsIgual:true});
+        }
+      }
+
+    /*existeUsuario(control:FormControl): Promise<errorValidate> | Observable<errorValidate>{
+        return new Promise( (resolve:any, reject) => {
+            setTimeout(() =>{
+            if (control.value === "Rubén")
+                resolve({ existe: true })
+            else
+                resolve(null);
+            }, 2000);
+        });
+    }*/
 }
