@@ -18,8 +18,8 @@ import { CrearUsuarioComponent } from './Components/crear-usuario/crear-usuario.
 import { IniciarSesionComponent } from './Components/iniciar-sesion/iniciar-sesion.component';
 import { PerfilComponent } from './Components/perfil/perfil.component';
 import { MermeladaTarjetaComponent } from './Components/mermelada-tarjeta/mermelada-tarjeta.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localEs);
 
 
@@ -39,6 +39,7 @@ registerLocaleData(localEs);
     MermeladaTarjetaComponent
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
     BrowserModule,
