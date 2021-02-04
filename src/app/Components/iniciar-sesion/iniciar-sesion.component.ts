@@ -27,7 +27,7 @@ export class IniciarSesionComponent implements OnInit {
       pass:['', Validators.required]
     })
   }
-
+  
   iniciar(){
     console.log(this.forma);
     if(this.forma.invalid){

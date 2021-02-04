@@ -1,7 +1,7 @@
 <form id="crearUsuario" autocomplete="off" (ngSubmit)="registrarse()" [formGroup]="forma">
     <!--Email-->
   <div class="form-group">
-      <label for="disabledTextInput">E-mail</label>
+      <label for="disabledTextInput">E-mail*</label>
       <input type="email" 
              class="form-control" 
              placeholder="E-mail"
@@ -13,7 +13,7 @@
   <!--Contraseña-->
   <div class="row">
     <div class="form-group col-6">
-      <label for="disabledSelect">Contraseña</label>
+      <label for="disabledSelect">Contraseña*</label>
       <input type="password" 
               class="form-control" 
               placeholder="Contraseña"
@@ -23,7 +23,7 @@
       <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe estar rellenado y escrito correctamente</small>
     </div>
     <div class="form-group col-6">
-      <label for="disabledSelect">Repetir Contraseña</label>
+      <label for="disabledSelect">Repetir Contraseña*</label>
       <input type="password" 
             class="form-control" 
             placeholder="Contraseña"
@@ -102,10 +102,12 @@
       <label for="inputState">Localidad*</label>
       <select id="inputState" 
               class="form-control"
-              name="localidad">
-        <option></option>
-        
+              name="localidad"
+              formControlName="localidad"
+              [class.is-invalid]="!valido('localidad')">
+        <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
       </select>
+      <small class="form-text text-danger" *ngIf="!valido('localidad')">Debes seleccionar una localidad</small>
     </div>
     <!--Código postal-->
     <div class="form-group col-md-2">
@@ -142,15 +144,14 @@
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" 
+              name="aceptar"
               type="checkbox" 
-              value="O"
-              fromControlName="condiciones"
-              [class.is-invalid]="!valido('condiciones')"/>
+              value="aceptar"
+              (click)="aceptarCondiciones()"/>
       <label class="form-check-label" for="gridCheck">
         Confirmar los términos y condiciones.
       </label>
-      <small *ngIf="!valido('condiciones')" class="form-text text-danger">Se deben aceptar los términos y condiciones</small>
     </div>
   </div>
-  <input type="submit" class="btn btn-outline-primary" name="enviar" value="Registrarse"  />
+  <input type="submit" class="btn btn-outline-primary" name="enviar" value="Registrarse" [disabled]="!condicionesAceptadas"/>
 </form>

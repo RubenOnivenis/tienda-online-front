@@ -43,7 +43,17 @@
           <a class="nav-link" [routerLink]="['/mermeladas']">PRODUCTOS</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/iniciarSesion']">PERFIL</a>
+          <div class="btn-group">
+            <button type="button" class="btn btn-dark nav-link" [routerLink]="['/perfil']" style="color: white;"><b>PERFIL</b></button>
+            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item nav-link" [routerLink]="['/iniciarSesion']" style="color: black;">Iniciar sesión</a>
+              <a class="dropdown-item nav-link" [routerLink]="['/crearUsuario']" style="color: black;">Crear cuenta de usuario</a>
+            </div>
+          </div>
+          <!--<a class="nav-link" [routerLink]="['/iniciarSesion']">PERFIL</a>-->
         </li>
       </ul>
       <img src="assets/img/compra.png" style="margin-right: 20px;" />

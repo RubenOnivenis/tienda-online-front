@@ -80,7 +80,7 @@ export class MermeladasListaService
     ];
 
     getLocalidad(){
-        return this.http.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=texto");
+        return this.http.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=ccaa&facet=provincia");
     }
 
     getMermeladasDatos():mermeladasDatos[]{

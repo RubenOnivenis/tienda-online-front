@@ -11,12 +11,16 @@ import { MermeladasListaService } from 'src/app/services/mermeladas-lista/mermel
 export class CrearUsuarioComponent implements OnInit {
 
   forma!:FormGroup;
+  condicionesAceptadas:boolean = false;
 
-  /*usuario = {
-    localidad: ""
-  }*/
-
-  //localidades: any [] = [];
+  localidades: any = {  //Hay que decirle que existe facet_groups y facets porque sino lo busca al principio del programa y no lo encuentra
+                        //porque solo existe cuando lo devuelve el get
+    facet_groups:[
+      "", {
+        facets:[]
+      }
+    ]
+  };
 
   constructor(
     private formBuilder:FormBuilder,
@@ -26,14 +30,14 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*this._mermeladasListaService.getLocalidad()
+    this._mermeladasListaService.getLocalidad()
     .subscribe( (localidades:any) => {
       console.log(localidades);
-      this.localidades = localidades;
-      this.localidades.unshift({
-        texto:'[Seleccione localidad]',
+      localidades.facet_groups[1].facets.unshift({
+        name:'[Seleccione localidad]'
       })
-    })*/
+      this.localidades = localidades;
+    })
   }
 
   formularioCrear(){
@@ -47,29 +51,25 @@ export class CrearUsuarioComponent implements OnInit {
       direccion: ['', Validators.required],
       telefono: ['', Validators.pattern("[0-9]{9}")],
       ciudad: ['', Validators.required],
-      //localidad: ['', Validators.required],
+      localidad: ['0', [Validators.required, Validators.min(1)]],
       cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
-      tarjeta: ['', Validators.pattern("5[1-5][0-9]{14}$")],  //MASTERCARD
-                                                            //Visa, master y discover: 
-                                                            //^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$
-      condiciones: ['', Validators.required]
+      tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
     },{
       validators:this._mermeladasListaService.passwordsIguales('pass1', 'pass2')
     })
   }
 
-  public registrarse(){
-    console.log(this.forma);
-    if(this.forma.invalid){
-      Object.values(this.forma.controls).forEach(control => {
-        if (control instanceof FormGroup)
-          Object.values(control.controls).forEach(control => control.markAsTouched());
-        else
-          control.markAsTouched();
-      })
-      return;
-    }
-    this.forma.reset({});
+  registrarse(){
+    if (this.forma.invalid)
+      this.recursivaRegistrarse(this.forma);
+  }
+
+  recursivaRegistrarse(item: FormGroup): any{
+    Object.values(item.controls).forEach(control =>{
+      if(control instanceof FormGroup)
+        this.recursivaRegistrarse(control);
+      control.markAsTouched()});
+    return;
   }
 
   valido(texto:string){
@@ -87,5 +87,12 @@ export class CrearUsuarioComponent implements OnInit {
     const pass1:any = this.forma.get('pass1')!.value;
     const pass2:any = this.forma.get('pass2')!.value;
     return (pass1 === pass2) ? true : false;
+  }
+
+  aceptarCondiciones(){
+    if((<HTMLInputElement>document.getElementsByName("aceptar")[0]).checked)
+      this.condicionesAceptadas = true;
+    else  
+      this.condicionesAceptadas = false;
   }
 }
