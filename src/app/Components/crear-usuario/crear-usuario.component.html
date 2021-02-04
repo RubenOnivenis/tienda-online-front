@@ -1,5 +1,5 @@
 <form id="crearUsuario" autocomplete="off" (ngSubmit)="registrarse()" [formGroup]="forma">
-    <!--Email-->
+  <!--Email-->
   <div class="form-group">
       <label for="disabledTextInput">E-mail*</label>
       <input type="email" 
@@ -12,7 +12,7 @@
   </div>
   <!--Contraseña-->
   <div class="row">
-    <div class="form-group col-6">
+    <div class="form-group col-md-6 col-12">
       <label for="disabledSelect">Contraseña*</label>
       <input type="password" 
               class="form-control" 
@@ -22,7 +22,7 @@
               >
       <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe estar rellenado y escrito correctamente</small>
     </div>
-    <div class="form-group col-6">
+    <div class="form-group col-md-6 col-12">
       <label for="disabledSelect">Repetir Contraseña*</label>
       <input type="password" 
             class="form-control" 
@@ -36,7 +36,7 @@
   </div>
   <!--Nombre-->
   <div class="row">
-    <div class="form-group col-4">
+    <div class="form-group col-md-4 col-12">
       <label for="inputAddress">Nombre*</label>
       <input class="form-control"
             type="text"
@@ -46,7 +46,7 @@
         <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
     </div>
     <!--Apellidos-->
-    <div class="form-group col-4">
+    <div class="form-group col-md-4 col-12">
       <label for="inputAddress">Apellidos*</label>
       <input class="form-control"
             type="text"
@@ -56,7 +56,7 @@
         <small class="form-text text-danger" *ngIf="!valido('apellido')">Debe tener al menos 5 carácteres</small>
     </div>
     <!--Nombre de usuario-->
-    <div class="form-group col-4">
+    <div class="form-group col-md-4 col-12">
       <label for="inputAddress">Nombre de usuario*</label>
       <input class="form-control"
               type="text"
@@ -67,61 +67,89 @@
     </div>
   </div>
   <!--Direcciones-->
-  <div class="row">
-    <div class="form-group col-6">
+  <div class="row" formGroupName="vivienda">
+    <div class="form-group col-md-6 col-12">
       <label for="inputAddress">Dirección*</label>
       <input type="text" 
               class="form-control" 
               formControlName="direccion"
               placeholder="Calle inventada, Nº XX"
-              [class.is-invalid]="!valido('direccion')">
-              <small class="form-text text-danger" *ngIf="!valido('direccion')">Debe rellenarese correctamente el campo</small>
+              [class.is-invalid]="!valido('vivienda.direccion')">
+              <small class="form-text text-danger" *ngIf="!valido('vivienda.direccion')">Debe rellenarese correctamente el campo</small>
     </div>
-    <div class="form-group col-6">
-      <label for="inputAddress2">Dirección 2</label>
-      <input type="text" 
-              class="form-control" 
-              id="inputAddress2" 
-              placeholder="Calle inventada, Nº XX">
-    </div>
-  </div>
-  <!--Ciudad-->
-  <div class="form-row">
-    <div class="form-group col-md-6">
+    <!--Ciudad-->
+    <div class="form-group col-md-6 col-12">
       <label for="inputCity">Ciudad*</label>
       <input type="text" 
               class="form-control" 
               id="inputCity" 
               placeholder="Ciudad, municipio, pueblo..."
               formControlName="ciudad"
-              [class.is-invalid]="!valido('ciudad')">
-      <small class="form-text text-danger" *ngIf="!valido('ciudad') && !valido('ciudad')">Debe completarse el campo ciudad correctamente</small>
+              [class.is-invalid]="!valido('vivienda.ciudad')">
+      <small class="form-text text-danger" *ngIf="!valido('vivienda.ciudad') && !valido('vivienda.ciudad')">Debe completarse el campo ciudad correctamente</small>
     </div>
     <!--Localidad-->
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4 col-12">
       <label for="inputState">Localidad*</label>
       <select id="inputState" 
               class="form-control"
               name="localidad"
               formControlName="localidad"
-              [class.is-invalid]="!valido('localidad')">
+              [class.is-invalid]="!valido('vivienda.localidad')">
         <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
       </select>
-      <small class="form-text text-danger" *ngIf="!valido('localidad')">Debes seleccionar una localidad</small>
+      <small class="form-text text-danger" *ngIf="!valido('vivienda.localidad')">Debes seleccionar una localidad</small>
     </div>
     <!--Código postal-->
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3 col-12">
       <label for="inputZip">Código postal*</label>
       <input type="text" 
               class="form-control"  
               placeholder="Código postal"
               formControlName="cod_postal"
-              [class.is-invalid]="!valido('cod_postal')">
-      <small class="form-text text-danger" *ngIf="!valido('cod_postal')">El código postal no es válido</small>
+              [class.is-invalid]="!valido('vivienda.cod_postal')">
+      <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
     </div>
+    <!--Dirección 2º-->
+    <div class="form-group col-md-5 col-12">
+      <label for="inputAddress2">Dirección 2º (opcional)</label>
+      <input type="text" 
+              class="form-control" 
+              id="inputAddress2" 
+              placeholder="Calle inventada, Nº XX">
+    </div>
+    <!--Ciudad 2º-->
+    <div class="form-group col-md-4 col-12">
+      <label for="inputCity">Ciudad 2º (opcional)</label>
+      <input type="text" 
+              class="form-control" 
+              id="inputCity" 
+              placeholder="Ciudad, municipio, pueblo...">
+    </div>
+    <!--Localidad 2º-->
+    <div class="form-group col-md-4 col-12">
+      <label for="inputState">Localidad 2º (opcional)</label>
+      <select id="inputState" 
+              class="form-control"
+              name="localidad2">
+        <option *ngFor="let localidad2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad2.name}}</option>
+      </select>
+    </div>
+    <!--Código postal 2º-->
+    <div class="form-group col-md-4 col-12">
+      <label for="inputZip">Código postal 2º (opcional)</label>
+      <input type="text" 
+              class="form-control"  
+              placeholder="Código postal"
+              formControlName="cod_postal2"
+              [class.is-invalid]="!valido('vivienda.cod_postal2')">
+      <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
+    </div>
+  </div>
+  <div class="row">
     <!--Teléfono-->
-    <div class="form-group col-md-6">
-      <label for="inputAddress2">Teléfono</label>
+    <div class="form-group col-md-6 col-12">
+      <label for="inputAddress2">Teléfono (opcional)</label>
       <input type="text" 
               class="form-control" 
               formControlName="telefono"
@@ -130,8 +158,8 @@
       <small class="form-text text-danger" *ngIf="!valido('telefono')">Debe completarse el campo teléfono correctamente</small>
     </div>
     <!--Tarjeta de crédito-->
-    <div class="form-group col-md-6">
-      <label for="inputZip">Tarjeta de crédito</label>
+    <div class="form-group col-md-6 col-12">
+      <label for="inputZip">Tarjeta de crédito (opcional)</label>
       <input type="text" 
               class="form-control" 
               placeholder="Tarjeta de crédito"

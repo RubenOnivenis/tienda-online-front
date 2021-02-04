@@ -50,11 +50,18 @@ export class CrearUsuarioComponent implements OnInit {
       nombre:['', [Validators.required, Validators.minLength(3)]],
       apellido:['', [Validators.required, Validators.minLength(5)]],
       usuario: ['', [Validators.required, Validators.minLength(3)]],
+      vivienda: this.formBuilder.group({
+        direccion: ['', Validators.required],
+        ciudad: ['', Validators.required],
+        localidad: ['0', [Validators.required, Validators.min(1)]],
+        cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
+        cod_postal2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
+      }),
       direccion: ['', Validators.required],
-      telefono: ['', Validators.pattern("[0-9]{9}")],
       ciudad: ['', Validators.required],
       localidad: ['0', [Validators.required, Validators.min(1)]],
       cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
+      telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
     },{
       validators:this._usuariosService.passwordsIguales('pass1', 'pass2')
@@ -68,8 +75,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   recursivaRegistrarse(item: FormGroup): any{
     Object.values(item.controls).forEach(control =>{
-      if(control instanceof FormGroup)
-        this.recursivaRegistrarse(control);
+      if(control instanceof FormGroup) this.recursivaRegistrarse(control);
       control.markAsTouched()});
     return;
   }
