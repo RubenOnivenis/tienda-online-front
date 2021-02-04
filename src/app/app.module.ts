@@ -9,7 +9,7 @@ import { APP_ROUTING } from './app.routes';
 import { SectionComponent } from './Components/section/section.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MermeladasComponent } from './Components/mermeladas/mermeladas.component';
-import { MermeladasListaService } from './services/mermeladas-lista/mermeladas_lista.service';
+import { MermeladasListaService } from './services/mermeladas_lista.service';
 import { registerLocaleData } from '@angular/common';
 import localEs from '@angular/common/locales/es';
 import { MermeladaComponent } from './Components/mermelada/mermelada.component';
@@ -20,6 +20,7 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
 import { MermeladaTarjetaComponent } from './Components/mermelada-tarjeta/mermelada-tarjeta.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario.service';
 registerLocaleData(localEs);
 
 
@@ -46,7 +47,9 @@ registerLocaleData(localEs);
     RouterModule,
     APP_ROUTING
   ],
-  providers: [MermeladasListaService, 
+  providers: [
+    MermeladasListaService, 
+    UsuarioService,
     {
       provide: LOCALE_ID,
       useValue:'es'

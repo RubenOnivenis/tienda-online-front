@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { MermeladasListaService } from 'src/app/services/mermeladas-lista/mermeladas_lista.service';
+import { MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -24,13 +25,14 @@ export class CrearUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder:FormBuilder,
-    private _mermeladasListaService: MermeladasListaService
+    private _mermeladasListaService: MermeladasListaService,
+    private _usuariosService: UsuarioService
   ) { 
     this.formularioCrear();
   }
 
   ngOnInit(): void {
-    this._mermeladasListaService.getLocalidad()
+    this._usuariosService.getLocalidad()
     .subscribe( (localidades:any) => {
       console.log(localidades);
       localidades.facet_groups[1].facets.unshift({
@@ -55,7 +57,7 @@ export class CrearUsuarioComponent implements OnInit {
       cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
       tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
     },{
-      validators:this._mermeladasListaService.passwordsIguales('pass1', 'pass2')
+      validators:this._usuariosService.passwordsIguales('pass1', 'pass2')
     })
   }
 

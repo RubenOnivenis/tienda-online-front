@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: #FFE2CC;
+    background-color: #FFF2CC;
 }
 #navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -10,4 +10,10 @@ body{
 }
 #infoM{
     font-size: large;
+}
+.dropdown-menu{
+    padding: 0px 0px 0px 0px
+}
+.dropdown-item:hover{
+    background-color: #5d6670;
 }
