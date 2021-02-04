@@ -25,7 +25,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder:FormBuilder,
-    private _mermeladasListaService: MermeladasListaService,
+    //private _mermeladasListaService: MermeladasListaService,
     private _usuariosService: UsuarioService
   ) { 
     this.formularioCrear();
