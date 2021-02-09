@@ -6,6 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styles: [
+
   ]
 })
 export class CrearUsuarioComponent implements OnInit {
@@ -31,13 +32,12 @@ export class CrearUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this._usuariosService.getLocalidad()
-    .subscribe( (localidades:any) => {
-      console.log(localidades);
-      localidades.facet_groups[1].facets.unshift({
-        name:'[Seleccione localidad]'
+      .subscribe( (localidades:any) => {
+        localidades.facet_groups[1].facets.unshift({
+          name:'[Seleccione localidad]'
+        })
+        this.localidades = localidades;
       })
-      this.localidades = localidades;
-    })
   }
 
   formularioCrear(){

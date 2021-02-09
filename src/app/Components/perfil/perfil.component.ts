@@ -29,7 +29,6 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this._usuariosService.getLocalidad()
     .subscribe( (localidades:any) => {
-      console.log(localidades);
       localidades.facet_groups[1].facets.unshift({
         name:'[Seleccione localidad]'
       })

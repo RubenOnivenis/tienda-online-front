@@ -1,17 +1,27 @@
 <form id="crearUsuario" autocomplete="off" (ngSubmit)="registrarse()" [formGroup]="forma">
-  <!--Email-->
-  <div class="form-group">
-      <label for="disabledTextInput">E-mail*</label>
-      <input type="email" 
-             class="form-control" 
-             placeholder="E-mail"
-             formControlName="email"
-             [class.is-invalid]="!valido('email')"
-             >
-      <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
-  </div>
-  <!--Contraseñas-->
   <div class="row">
+    <!--Email-->
+    <div class="form-group col-md-6 col-12">
+        <label for="disabledTextInput">E-mail*</label>
+        <input type="email" 
+              class="form-control" 
+              placeholder="E-mail"
+              formControlName="email"
+              [class.is-invalid]="!valido('email')"
+              >
+        <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
+    </div>
+    <!--Nombre de usuario-->
+    <div class="form-group col-md-6 col-12">
+      <label for="inputAddress">Nombre de usuario*</label>
+      <input class="form-control"
+              type="text"
+              placeholder="Nombre de usuario"
+              formControlName="usuario"
+              [class.is-invalid]="!valido('usuario')">
+        <small class="form-text text-danger" *ngIf="!valido('usuario')">Debe tener al menos 5 carácteres</small>
+    </div>
+    <!--Contraseñas-->
     <div class="form-group col-md-6 col-12">
       <label for="disabledSelect">Contraseña*</label>
       <input type="password" 
@@ -36,7 +46,7 @@
   </div>
   <!--Nombre-->
   <div class="row">
-    <div class="form-group col-md-4 col-12">
+    <div class="form-group col-md-6 col-12">
       <label for="inputAddress">Nombre*</label>
       <input class="form-control"
             type="text"
@@ -46,7 +56,7 @@
         <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
     </div>
     <!--Apellidos-->
-    <div class="form-group col-md-4 col-12">
+    <div class="form-group col-md-6 col-12">
       <label for="inputAddress">Apellidos*</label>
       <input class="form-control"
             type="text"
@@ -54,16 +64,6 @@
             formControlName="apellido"
             [class.is-invalid]="!valido('apellido')">
         <small class="form-text text-danger" *ngIf="!valido('apellido')">Debe tener al menos 5 carácteres</small>
-    </div>
-    <!--Nombre de usuario-->
-    <div class="form-group col-md-4 col-12">
-      <label for="inputAddress">Nombre de usuario*</label>
-      <input class="form-control"
-              type="text"
-              placeholder="Nombre de usuario"
-              formControlName="usuario"
-              [class.is-invalid]="!valido('usuario')">
-        <small class="form-text text-danger" *ngIf="!valido('usuario')">Debe tener al menos 5 carácteres</small>
     </div>
   </div>
   <!--Direcciones-->
