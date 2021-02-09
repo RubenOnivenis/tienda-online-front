@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body,  #modificarDatos{
     background-color: #FFF2CC;
 }
 #navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
@@ -17,7 +17,14 @@ body{
 .dropdown-item:hover{
     background-color: #5d6670;
 }
-.img-thumb {
+.img-pulgar {
     width: 35px;
     height: 35px;
+}
+.img-pulgar_x_2 {
+    width: 80px;
+    height: 80px;
+}
+.perfil, .modal-header, .modal-footer{
+    background-color: #FFD966;
 }

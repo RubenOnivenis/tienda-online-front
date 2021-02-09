@@ -10,7 +10,7 @@
              >
       <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
   </div>
-  <!--Contraseña-->
+  <!--Contraseñas-->
   <div class="row">
     <div class="form-group col-md-6 col-12">
       <label for="disabledSelect">Contraseña*</label>
@@ -63,7 +63,7 @@
               placeholder="Nombre de usuario"
               formControlName="usuario"
               [class.is-invalid]="!valido('usuario')">
-        <small class="form-text text-danger" *ngIf="!valido('usuario')">Debe tener al menos 3 carácteres</small>
+        <small class="form-text text-danger" *ngIf="!valido('usuario')">Debe tener al menos 5 carácteres</small>
     </div>
   </div>
   <!--Direcciones-->

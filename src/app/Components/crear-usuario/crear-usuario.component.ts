@@ -47,7 +47,7 @@ export class CrearUsuarioComponent implements OnInit {
       pass2:['', Validators.required],
       nombre:['', [Validators.required, Validators.minLength(3)]],
       apellido:['', [Validators.required, Validators.minLength(5)]],
-      usuario: ['', [Validators.required, Validators.minLength(3)]],
+      usuario: ['', [Validators.required, Validators.minLength(5)]],
       vivienda: this.formBuilder.group({
         direccion: ['', Validators.required],
         ciudad: ['', Validators.required],
