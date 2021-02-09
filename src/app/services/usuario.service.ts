@@ -7,6 +7,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class UsuarioService {
 
+  forma!:FormGroup;
+
   constructor(
     private http:HttpClient
   ) { }

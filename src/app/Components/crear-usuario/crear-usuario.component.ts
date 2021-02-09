@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -25,7 +24,6 @@ export class CrearUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder:FormBuilder,
-    //private _mermeladasListaService: MermeladasListaService,
     private _usuariosService: UsuarioService
   ) { 
     this.formularioCrear();
