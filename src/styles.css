@@ -16,6 +16,7 @@ body,  #modificarDatos{
 }
 .dropdown-item:hover{
     background-color: #5d6670;
+    transition: background-color .5s;
 }
 .img-pulgar {
     width: 35px;
@@ -27,4 +28,19 @@ body,  #modificarDatos{
 }
 .perfil, .modal-header, .modal-footer{
     background-color: #FFD966;
+}
+.elementos_menu:hover{
+    background-color: #5d6670;
+    transition: background-color .5s;  
+    border-radius: 25%;
+}
+.carousel-inner{
+    max-height: 470px; 
+    overflow: hidden;
+}
+#carrito:hover{
+    transition: width, height .1s;  
+    border-radius: 10%;
+    width: 45px;
+    height: 45px;
 }

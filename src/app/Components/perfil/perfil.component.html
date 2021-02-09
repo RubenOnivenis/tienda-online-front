@@ -107,9 +107,8 @@
                                 class="form-control" 
                                 placeholder="E-mail"
                                 formControlName="email"
-                                [class.is-invalid]="!valido('email')"
-                                >
-                          <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
+                                [class.is-invalid]="!valido('email')">
+                          <small class="form-text text-danger" *ngIf="!valido('email')">El e-mail no es válido</small>
                         </div>
                         <!--Nombre de usuario-->
                         <div class="form-group col-md-6 col-12">
@@ -147,9 +146,7 @@
                           <input type="password" 
                                   class="form-control" 
                                   placeholder="Contraseña"
-                                  formControlName="pass1"
-                                  [class.is-invalid]="!valido('pass1')"
-                                  >
+                                  formControlName="pass1">
                           <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe estar rellenado y escrito correctamente</small>
                         </div>
                         <div class="form-group col-md-6 col-12">
@@ -158,9 +155,7 @@
                                 class="form-control" 
                                 placeholder="Contraseña"
                                 formControlName="pass2"
-                                [class.is-invalid]="!valido('pass2')"
-                                >
-                          <!--<small class="form-text text-danger" *ngIf="!valido('pass2')">Debe estar rellenado y escrito correctamente</small>-->
+                                [class.is-invalid]="!valido('pass2')">
                           <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
                         </div>
                       </div>
@@ -170,10 +165,7 @@
                           <label for="inputAddress">Dirección</label>
                           <input type="text" 
                                   class="form-control" 
-                                  formControlName="direccion"
-                                  placeholder="Calle inventada, Nº XX"
-                                  [class.is-invalid]="!valido('vivienda.direccion')">
-                                  <small class="form-text text-danger" *ngIf="!valido('vivienda.direccion')">Debe rellenarese correctamente el campo</small>
+                                  placeholder="Calle inventada, Nº XX">
                         </div>
                         <!--Ciudad-->
                         <div class="form-group col-md-6 col-12">
@@ -181,22 +173,16 @@
                           <input type="text" 
                                   class="form-control" 
                                   id="inputCity" 
-                                  placeholder="Novelda del guadiana"
-                                  formControlName="ciudad"
-                                  [class.is-invalid]="!valido('vivienda.ciudad')">
-                          <small class="form-text text-danger" *ngIf="!valido('vivienda.ciudad') && !valido('vivienda.ciudad')">Debe completarse el campo ciudad correctamente</small>
+                                  placeholder="Novelda del guadiana">
                         </div>
                         <!--Localidad-->
                         <div class="form-group col-md-6 col-12">
                           <label for="inputState">Localidad</label>
                           <select id="inputState" 
                                   class="form-control"
-                                  name="localidad"
-                                  formControlName="localidad"
-                                  [class.is-invalid]="!valido('vivienda.localidad')">
+                                  name="localidad">
                             <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
                           </select>
-                          <small class="form-text text-danger" *ngIf="!valido('vivienda.localidad')">Debes seleccionar una localidad</small>
                         </div>
                         <!--Código postal-->
                         <div class="form-group col-md-6 col-12">
@@ -253,7 +239,7 @@
                                   formControlName="telefono"
                                   placeholder="654 321 987"
                                   [class.is-invalid]="!valido('telefono')">
-                          <small class="form-text text-danger" *ngIf="!valido('telefono')">Debe completarse el campo teléfono correctamente</small>
+                          <small class="form-text text-danger" *ngIf="!valido('telefono')">El teléfono no es válido</small>
                         </div>
                         <!--Tarjeta de crédito-->
                         <div class="form-group col-md-6 col-12">
