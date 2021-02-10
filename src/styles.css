@@ -37,6 +37,7 @@ body,  #modificarDatos{
 }
 .carousel-inner{
     max-height: 470px; 
+    /*142*/
     overflow: hidden;
 }
 #carrito:hover{
@@ -45,6 +46,19 @@ body,  #modificarDatos{
     width: 45px;
     height: 45px;
 }
-input[type=number]{
-    
+#productos_cesta, #tramitar_pedido{
+    background-color: #ffd96654; border-radius: 5%;
+}
+#tramitar_pedido{
+    height: 220px; width: 25px;
+}
+@media (max-width: 992px) {
+    .carousel-inner {
+      max-height: 142px;
+    }
+}
+@media (min-width:993px) and (max-width: 1024px) {
+    .carousel-inner {
+      max-height: 390px;
+    }
 }
