@@ -19,9 +19,9 @@ export class MermeladasComponent implements OnInit {
     this.mermeladas = this._mermeladasListaService.getMermeladasDatos();
   }
 
-  public verMermelada(id:number){
+  /*public verMermelada(id:number){
     //this.router.navigate(['/mermelada', id]);
     console.log(this._mermeladasListaService.getMermelada(id));
-  }
+  }*/
 
 }

@@ -39,7 +39,7 @@ export class PerfilComponent implements OnInit {
   formulario_modificar(){
     this.forma = this.formBuilder.group({
       email:['', Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")],
-      pass1:[''],
+      pass1:['', Validators.minLength(5)],
       pass2:[''],
       nombre:['', Validators.minLength(3)],
       apellido:['', Validators.minLength(5)],

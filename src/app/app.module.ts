@@ -21,6 +21,8 @@ import { MermeladaTarjetaComponent } from './Components/mermelada-tarjeta/mermel
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
+import { NoImagePipe } from './pipes/no-image.pipe';
+import { CompraComponent } from './Components/compra/compra.component';
 registerLocaleData(localEs);
 
 
@@ -37,7 +39,9 @@ registerLocaleData(localEs);
     CrearUsuarioComponent,
     IniciarSesionComponent,
     PerfilComponent,
-    MermeladaTarjetaComponent
+    MermeladaTarjetaComponent,
+    NoImagePipe,
+    CompraComponent
   ],
   imports: [
     ReactiveFormsModule,

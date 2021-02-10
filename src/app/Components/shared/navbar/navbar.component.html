@@ -55,7 +55,9 @@
           </div>
         </li>
       </ul>
-      <img src="assets/img/carrito.png" class="img-fluid img-pulgar mr-5" id="carrito" />
+      <a class="nav-link mr-5" [routerLink]="['/compra']">
+        <img src="assets/img/carrito.png" class="img-fluid img-pulgar" id="carrito" />
+      </a>
       <form class="form-inline my-2 my-lg-0" onsubmit="return false">
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search" (keyup.enter)="buscarMermelada(buscarTexto.value)" #buscarTexto>
         <button class="btn btn-outline-warning my-2 my-sm-0" (click)="buscarMermelada(buscarTexto.value)" >Buscar</button>

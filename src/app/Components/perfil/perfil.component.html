@@ -5,7 +5,7 @@
         <div class="card perfil" >
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="assets/img/perfil2.png" alt="Admin" class="rounded-circle" width="150">
+              <img [src]="'assets/img/perfil2.png' | noImage:true" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-2">
                 <h4>Rubén Onivenis Muñoz</h4>
               </div>
@@ -102,10 +102,10 @@
                       <div class="row">
                         <!--Email-->
                         <div class="form-group col-md-6 col-12">
-                          <label for="disabledTextInput">E-mail*</label>
+                          <label for="disabledTextInput">E-mail</label>
                           <input type="email" 
                                 class="form-control" 
-                                placeholder="E-mail"
+                                placeholder="rubenom11@gmail.com"
                                 formControlName="email"
                                 [class.is-invalid]="!valido('email')">
                           <small class="form-text text-danger" *ngIf="!valido('email')">El e-mail no es válido</small>
@@ -125,7 +125,7 @@
                           <label for="inputAddress">Nombre</label>
                           <input class="form-control"
                                 type="text"
-                                placeholder="Rubén"
+                                value="Rubén"
                                 formControlName="nombre"
                                 [class.is-invalid]="!valido('nombre')">
                             <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
@@ -147,7 +147,7 @@
                                   class="form-control" 
                                   placeholder="Contraseña"
                                   formControlName="pass1">
-                          <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe estar rellenado y escrito correctamente</small>
+                          <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe tener más de 5 carácteres</small>
                         </div>
                         <div class="form-group col-md-6 col-12">
                           <label for="disabledSelect">Repetir contraseña nueva</label>

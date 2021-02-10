@@ -6,7 +6,7 @@ var maniana:Date = new Date(hoy.setDate(hoy.getDate()+1));
 export interface mermeladasDatos {
     nombre:string,
     precio:number,
-    imagen:string,
+    imagen?:string,
     descr:string,
     fecha_elaboracion?:Date,
     dias_consumicion_preferente:number,

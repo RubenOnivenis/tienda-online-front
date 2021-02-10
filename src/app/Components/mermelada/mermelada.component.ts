@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
 
 @Component({
@@ -10,9 +10,11 @@ import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermel
 })
 export class MermeladaComponent implements OnInit {
 
-  mermelada!:mermeladasDatos;
+  @Input() mermelada!:mermeladasDatos;
+  //@Input() index!:number | undefined;
 
   constructor(
+    //private router:Router,
     private activatedRoute: ActivatedRoute,
     private _mermeladaListaService:MermeladasListaService
   ) {
@@ -23,5 +25,9 @@ export class MermeladaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /*public anadirCesta(){
+    this.router.navigate(['/compra', this.index]);
+  }*/
 
 }

@@ -43,7 +43,7 @@ export class CrearUsuarioComponent implements OnInit {
   formularioCrear(){
     this.forma = this.formBuilder.group({
       email:['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
-      pass1:['', Validators.required],
+      pass1:['', [Validators.required, Validators.minLength(5)]],
       pass2:['', Validators.required],
       nombre:['', [Validators.required, Validators.minLength(3)]],
       apellido:['', [Validators.required, Validators.minLength(5)]],
