@@ -1,6 +1,6 @@
-<div class="card bg-light mb-3" >
-    <div style="background-color: #FFD966;">
-        <img class="card-img-top" [src]="mermelada.imagen | noImage" [alt]="mermelada.nombre" >
+<div class="card bg-light mb-3 p-md-0" >
+    <div id="productos_cartas"> 
+        <img class="card-img-top p-3" [src]="mermelada.imagen | noImage" [alt]="mermelada.nombre" >
         <div class="card-body">
             <h5 class="card-title">{{mermelada.nombre}}</h5>
             <p class="card-text">{{mermelada.descr | slice:0:this.NUM_CARACTERES}}{{puntos_suspensivos()}}</p>

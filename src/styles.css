@@ -3,7 +3,7 @@
 body,  #modificarDatos{
     background-color: #FFF2CC;
 }
-#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, #perfil{
+#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, .perfil{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar{
@@ -27,8 +27,8 @@ body,  #modificarDatos{
     width: 80px;
     height: 80px;
 }
-.perfil, .modal-header, .modal-footer, #pedidosInfo{
-    background-color: #FFD966;
+.perfil, .modal-header, .modal-footer, #pedidosInfo, #productos_cartas{
+    background-color: #FFD966; 
 }
 .elementos_menu:hover{
     background-color: #5d6670;
@@ -61,6 +61,9 @@ body,  #modificarDatos{
 }
 #crearUsuario{
     background-color: #ffd96654; 
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.perfil, #pedidos{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #tablaPedidos{

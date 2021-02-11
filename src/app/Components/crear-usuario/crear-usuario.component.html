@@ -169,6 +169,7 @@
         <label for="inputZip">CVV (opcional)</label>
         <input type="text" 
                 class="form-control" 
+                maxlength="3"
                 placeholder="CVV"
                 formControlName="cvv"
                 [class.is-invalid]="!valido('cvv')">
@@ -178,7 +179,7 @@
         <label for="inputZip">Fecha de caducidad (opcional)</label>
         <input type="text" 
                 class="form-control" 
-                placeholder="Fecha de caducidad"
+                placeholder="Fecha de caducidad (mm/YY)"
                 formControlName="caducidad"
                 [class.is-invalid]="!valido('caducidad')">
         <small class="form-text text-danger" *ngIf="!valido('caducidad')">La fecha de caducidad no es válida</small>

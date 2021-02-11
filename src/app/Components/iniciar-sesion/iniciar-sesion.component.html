@@ -1,5 +1,6 @@
 <div class="d-flex flex-column align-items-center">
     <form id="iniciarSesion" autocomplete="off" (ngSubmit)="iniciar()" [formGroup]="forma" class="mb-4 mt-5 p-3">
+        <!--EMAIL-->
         <div class="form-group">
             <label for="disabledTextInput">E-mail</label>
             <input type="email" 
@@ -9,6 +10,7 @@
                 [class.invalid]="!valido('email')">
             <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
         </div>
+        <!--CONTRASEÑA-->
         <div class="form-group">
             <label for="disabledSelect">Contraseña</label>
             <input type="password" 
