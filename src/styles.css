@@ -33,7 +33,8 @@ body,  #modificarDatos{
 .elementos_menu:hover{
     background-color: #5d6670;
     transition: background-color .5s;  
-    border-radius: 25%;
+    border-radius: 15%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .carousel-inner{
     max-height: 470px; 
@@ -63,7 +64,7 @@ body,  #modificarDatos{
     background-color: #ffd96654; 
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.perfil, #pedidos{
+.perfil, #pedidos, #videoYT{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #tablaPedidos{
