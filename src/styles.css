@@ -88,7 +88,9 @@ body,  #modificarDatos{
       width: 100%;
     }
 }
-/*MODAL MODIFICAR DATOS*/
-
-
-
+/*TABLA PEDIDOS*/
+@media (max-width: 720px) {
+    .fch_entrega, .fch_envio {
+        display: none; 
+    }
+}
