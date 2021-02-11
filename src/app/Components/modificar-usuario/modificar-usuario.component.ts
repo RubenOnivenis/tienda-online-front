@@ -20,6 +20,19 @@ export class ModificarUsuarioComponent implements OnInit {
   ]
 };
 
+  email:string = 'rubenom11@gmail.com';
+  nombre:string = 'Rubén';
+  nombre_usuario:string = 'Rubenom11';
+  apellidos:string = 'Onivenis Muñoz';
+  direccion:string = 'Calle inventada, Nº XX';
+  ciudad:string = 'Novelda del guadiana';
+  cod_postal:string = '06183';
+  direccion2:string = 'Calle inventada, Nº XX';
+  ciudad2:string = 'Badajoz';
+  cod_postal2:string = '06000';
+  telefono:string = '654321987';
+  tarjeta:string = '************7899'
+
   constructor(
     private formBuilder:FormBuilder,
     private _usuariosService: UsuarioService

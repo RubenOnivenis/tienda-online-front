@@ -5,8 +5,9 @@
       <label for="disabledTextInput">E-mail</label>
       <input type="email" 
             class="form-control" 
-            placeholder="rubenom11@gmail.com"
+            [(ngModel)]="email"
             formControlName="email"
+            placeholder="E-mail"
             [class.is-invalid]="!valido('email')">
       <small class="form-text text-danger" *ngIf="!valido('email')">El e-mail no es válido</small>
     </div>
@@ -15,7 +16,8 @@
       <label for="inputAddress">Nombre de usuario</label>
       <input class="form-control"
               type="text"
-              placeholder="Rubenom11"
+              [(ngModel)]="nombre_usuario"
+              placeholder="Nombre de usuario"
               formControlName="usuario"
               [class.is-invalid]="!valido('usuario')">
         <small class="form-text text-danger" *ngIf="!valido('usuario')">Debe tener al menos 5 carácteres</small>
@@ -25,7 +27,8 @@
       <label for="inputAddress">Nombre</label>
       <input class="form-control"
             type="text"
-            placeholder="Rubén"
+            [(ngModel)]="nombre"
+            placeholder="Nombre"
             formControlName="nombre"
             [class.is-invalid]="!valido('nombre')">
         <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
@@ -35,7 +38,8 @@
       <label for="inputAddress">Apellidos</label>
       <input class="form-control"
             type="text"
-            placeholder="Onivenis Muñoz"
+            [(ngModel)]="apellidos"
+            placeholder="Apellidos"
             formControlName="apellido"
             [class.is-invalid]="!valido('apellido')">
         <small class="form-text text-danger" *ngIf="!valido('apellido')">Debe tener al menos 5 carácteres</small>
@@ -53,7 +57,7 @@
       <label for="disabledSelect">Repetir contraseña nueva</label>
       <input type="password" 
             class="form-control" 
-            placeholder="Contraseña"
+            placeholder="Repetir contraseña"
             formControlName="pass2"
             [class.is-invalid]="!valido('pass2')">
       <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
@@ -65,9 +69,10 @@
     <div class="form-group col-md-6 col-12">
       <label for="inputAddress">Dirección</label>
       <input type="text" 
+            [(ngModel)]="direccion"
             class="form-control"
             formControlName="direccion" 
-            placeholder="Calle inventada, Nº XX">
+            placeholder="Dirección">
     </div>
     <!--Ciudad-->
     <div class="form-group col-md-6 col-12">
@@ -75,8 +80,9 @@
       <input type="text" 
             class="form-control" 
             id="inputCity" 
+            [(ngModel)]="ciudad"
             formControlName="ciudad"
-            placeholder="Novelda del guadiana">
+            placeholder="Ciudad, municipio, pueblo...">
     </div>
     <!--Localidad-->
     <div class="form-group col-md-6 col-12">
@@ -92,7 +98,8 @@
       <label for="inputZip">Código postal</label>
       <input type="text" 
               class="form-control"  
-              placeholder="06183"
+              placeholder="Código postal"
+              [(ngModel)]="cod_postal"
               formControlName="cod_postal"
               [class.is-invalid]="!valido('vivienda.cod_postal')">
       <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
@@ -103,8 +110,9 @@
       <input type="text" 
               class="form-control" 
               id="inputAddress2" 
+              [(ngModel)]="direccion2"
               formControlName="direccion2"
-              placeholder="Calle inventada, Nº XX">
+              placeholder="Dirección">
     </div>
     <!--Ciudad 2º-->
     <div class="form-group col-md-6 col-12">
@@ -112,8 +120,9 @@
       <input type="text" 
               class="form-control" 
               id="inputCity" 
+              [(ngModel)]="ciudad2"
               formControlName="ciudad2"
-              placeholder="Badajoz">
+              placeholder="Ciudad, municipio, pueblo...">
     </div>
     <!--Localidad 2º-->
     <div class="form-group col-md-6 col-12">
@@ -129,7 +138,8 @@
       <label for="inputZip">Código postal 2º</label>
       <input type="text" 
               class="form-control"  
-              placeholder="06000"
+              placeholder="Código postal"
+              [(ngModel)]="cod_postal2"
               formControlName="cod_postal2"
               [class.is-invalid]="!valido('vivienda.cod_postal2')">
       <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
@@ -142,7 +152,8 @@
       <input type="text" 
               class="form-control" 
               formControlName="telefono"
-              placeholder="654 321 987"
+              placeholder="Teléfono"
+              [(ngModel)]="telefono"
               [class.is-invalid]="!valido('telefono')">
       <small class="form-text text-danger" *ngIf="!valido('telefono')">El teléfono no es válido</small>
     </div>
@@ -153,6 +164,7 @@
               class="form-control" 
               placeholder="Tarjeta de crédito"
               formControlName="tarjeta"
+              [(ngModel)]="tarjeta"
               [class.is-invalid]="!valido('tarjeta')">
       <small class="form-text text-danger" *ngIf="!valido('tarjeta')">La tarjeta de credito no es válida</small>
     </div>
