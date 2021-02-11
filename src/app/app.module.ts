@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { CompraComponent } from './Components/compra/compra.component';
+import { ModificarUsuarioComponent } from './Components/modificar-usuario/modificar-usuario.component';
 registerLocaleData(localEs);
 
 
@@ -41,7 +42,8 @@ registerLocaleData(localEs);
     PerfilComponent,
     MermeladaTarjetaComponent,
     NoImagePipe,
-    CompraComponent
+    CompraComponent,
+    ModificarUsuarioComponent
   ],
   imports: [
     ReactiveFormsModule,
