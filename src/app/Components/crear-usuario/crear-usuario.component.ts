@@ -57,6 +57,8 @@ export class CrearUsuarioComponent implements OnInit {
       }),
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
+      cvv: ["", Validators.pattern(/^[0-9]{3}$/)],
+      caducidad: ["", Validators.pattern(/^\d{2}\/\d{2}$/)]
     },{
       validators:this._usuariosService.passwordsIguales('pass1', 'pass2')
     })
@@ -97,4 +99,5 @@ export class CrearUsuarioComponent implements OnInit {
     else  
       this.condicionesAceptadas = false;
   }
+
 }

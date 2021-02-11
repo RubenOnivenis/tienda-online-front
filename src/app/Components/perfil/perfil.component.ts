@@ -45,7 +45,13 @@ export class PerfilComponent implements OnInit {
       apellido:['', Validators.minLength(5)],
       usuario: ['', Validators.minLength(5)],
       vivienda: this.formBuilder.group({
+        direccion:[''],
+        ciudad:[''],
+        localidad:[''],
         cod_postal: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")],
+        direccion2:[''],
+        ciudad2:[''],
+        localidad2:[''],
         cod_postal2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
       }),
       telefono: ['', Validators.pattern("[0-9]{9}")],
@@ -56,8 +62,7 @@ export class PerfilComponent implements OnInit {
   }
 
   modificar(){
-    if (this.forma.invalid)
-      this.recursivaModificar(this.forma);
+    if (this.forma.invalid) this.recursivaModificar(this.forma);
   }
 
   recursivaModificar(item: FormGroup): any{
@@ -77,6 +82,23 @@ export class PerfilComponent implements OnInit {
     }
     return !(elemento.invalid && elemento.touched);
   }
+
+  /*datosPorDefecto(){
+    this.forma.setValue({
+      email: "Rubenom11@gmail.com",
+      usuario: "Rubenom11",
+      nombre: "Rubén",
+      apellido: "Onivenis Muñoz",
+      direccion: "Calle inventada, Nº XX",
+      ciudad: "Novelda del Guadiana",
+      cod_postal: "06183",
+      direccion2: "Calle inventada, Nº XX",
+      ciudad2: "Badajoz",
+      cod_postal2: "06000",
+      telefono: "660108592",
+      tarejta: "************7899",
+    })
+  }*/
 
   get pass2Valido() {
     const pass1:any = this.forma.get('pass1')!.value;

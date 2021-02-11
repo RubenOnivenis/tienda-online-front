@@ -26,6 +26,10 @@ export class MermeladaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  alertaCarrito(){
+
+  }
+
   /*public anadirCesta(){
     this.router.navigate(['/compra', this.index]);
   }*/

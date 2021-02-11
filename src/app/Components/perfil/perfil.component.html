@@ -106,7 +106,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma">
+                <form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma" >
                   <div class="modal-body">
                       <div class="row">
                         <!--Email-->
@@ -134,7 +134,7 @@
                           <label for="inputAddress">Nombre</label>
                           <input class="form-control"
                                 type="text"
-                                value="Rubén"
+                                placeholder="Rubén"
                                 formControlName="nombre"
                                 [class.is-invalid]="!valido('nombre')">
                             <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
@@ -153,9 +153,9 @@
                         <div class="form-group col-md-6 col-12">
                           <label for="disabledSelect">Contraseña nueva</label>
                           <input type="password" 
-                                  class="form-control" 
-                                  placeholder="Contraseña"
-                                  formControlName="pass1">
+                                 class="form-control" 
+                                 placeholder="Contraseña"
+                                 formControlName="pass1">
                           <small class="form-text text-danger" *ngIf="!valido('pass1')">Debe tener más de 5 carácteres</small>
                         </div>
                         <div class="form-group col-md-6 col-12">
@@ -168,21 +168,24 @@
                           <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
                         </div>
                       </div>
-                      <!--Direcciones-->
+                      <!--Vivienda-->
                       <div class="row" formGroupName="vivienda">
+                        <!--Direccion-->
                         <div class="form-group col-md-6 col-12">
                           <label for="inputAddress">Dirección</label>
                           <input type="text" 
-                                  class="form-control" 
-                                  placeholder="Calle inventada, Nº XX">
+                                 class="form-control"
+                                 formControlName="direccion" 
+                                 placeholder="Calle inventada, Nº XX">
                         </div>
                         <!--Ciudad-->
                         <div class="form-group col-md-6 col-12">
                           <label for="inputCity">Ciudad</label>
                           <input type="text" 
-                                  class="form-control" 
-                                  id="inputCity" 
-                                  placeholder="Novelda del guadiana">
+                                 class="form-control" 
+                                 id="inputCity" 
+                                 formControlName="ciudad"
+                                 placeholder="Novelda del guadiana">
                         </div>
                         <!--Localidad-->
                         <div class="form-group col-md-6 col-12">
@@ -209,6 +212,7 @@
                           <input type="text" 
                                   class="form-control" 
                                   id="inputAddress2" 
+                                  formControlName="direccion2"
                                   placeholder="Calle inventada, Nº XX">
                         </div>
                         <!--Ciudad 2º-->
@@ -217,6 +221,7 @@
                           <input type="text" 
                                   class="form-control" 
                                   id="inputCity" 
+                                  formControlName="ciudad2"
                                   placeholder="Badajoz">
                         </div>
                         <!--Localidad 2º-->
