@@ -1,5 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
-import * as EventEmitter from 'events';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -22,9 +21,9 @@ export class CookiesComponent implements OnInit {
 
   visible: boolean = true;
 
-  @Output() close:any = new EventEmitter();
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
-  onGRDP(){
+  aceptarCookies(){
     this.visible = !this.visible;
     if(this.visible){
       this.close.emit(null);
