@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-4">
       <img [src]="mermelada.imagen | noImage" class="img-fluid" /><br/>
-      <b>Valoración media:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-4" />
+      <b>Valoración media:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-4" style="cursor: pointer;"/>
       <br/><br/>
       <button class="btn btn-outline-success btn-block mb-3" (click)="alertaCarrito" >Volver</button>
     </div>
@@ -37,7 +37,7 @@
   <div>
     <h4>Comentar</h4>
     <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
-    <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" /><br/>
+    <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
     <input type="button" class="btn btn-outline-primary" value="Enviar comentario" />
   </div>
 </div>

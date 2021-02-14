@@ -43,21 +43,16 @@
           <a class="btn-dark nav-link elementos_menu" [routerLink]="['/mermeladas']"><b>PRODUCTOS</b></a>
         </li>
         <li class="nav-item active">
-          <div class="btn-group">
-            <button type="button" class="btn btn-dark nav-link elementos_menu" [routerLink]="['/perfil']" style="color: white;"><b>PERFIL</b></button>
-            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split elementos_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only"></span>
-            </button>
-            <div class="dropdown-menu" style="background-color:#343A40; border:2px solid #FFF2CC;">
-              <a class="dropdown-item nav-link" [routerLink]="['/iniciarSesion']" style="color: white;"><b>Iniciar sesión</b></a>
-              <a class="dropdown-item nav-link" [routerLink]="['/crearUsuario']" style="color: white;"><b>Crear cuenta de usuario</b></a>
-            </div>
-          </div>
+          <a class="btn-dark nav-link elementos_menu" [routerLink]="['/iniciarSesion']"><b>INICIAR SESIÓN</b></a>
         </li>
       </ul>
+      <!--Perfil-->
+      <a class="nav-link imagenes_navbar" [routerLink]="['/perfil']">
+        <img src="assets/img/perfil_navbar.png" class="img-fluid img-pulgar" />
+      </a>
       <!--Carrito-->
-      <a class="nav-link mr-5" [routerLink]="['/compra']">
-        <img src="assets/img/carrito.png" class="img-fluid img-pulgar" id="carrito" />
+      <a class="nav-link mr-3 imagenes_navbar" [routerLink]="['/compra']">
+        <img src="assets/img/carrito.png" class="img-fluid img-pulgar" />
       </a>
       <!--Buscar-->
       <form class="form-inline my-2 my-lg-0" onsubmit="return false">

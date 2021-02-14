@@ -3,7 +3,7 @@
 body,  #modificarDatos{
     background-color: #FFF2CC;
 }
-#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, .perfil{
+#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, .perfil, #infoM{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar{
@@ -37,15 +37,14 @@ body,  #modificarDatos{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .carousel-inner{
-    max-height: 470px; 
-    /*142*/
+    max-height: 435px; 
     overflow: hidden;
 }
-#carrito:hover{
-    transition: width, height .1s;  
+.imagenes_navbar:hover{
+    background-color: #5d6670;
+    transition: background-color .5s;  
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10%;
-    width: 45px;
-    height: 45px;
 }
 #productos_cesta, #tramitar_pedido{
     background-color: #ffd96654; 
@@ -70,6 +69,22 @@ body,  #modificarDatos{
 #tablaPedidos{
     width: 100%;
 }
+
+/*COOKIES*/
+.grdp{
+    position: fixed;
+    color: black;
+    top: 120px;
+    left: 30%;
+    width: 40%;
+    z-index: 100000;
+    border: 6px #343A40 solid;
+    text-align: justify;
+}
+.bcgrdp{
+    cursor: pointer;
+}
+
 /*Carrousel*/
 @media (max-width: 992px) {
     .carousel-inner {

@@ -26,7 +26,6 @@ export class BuscadorComponent implements OnInit {
     this.activatedRoute.params.subscribe(parametros => {
       this.encontrarMermelada = this._mermeladasListaService.buscarMermelada(parametros["texto"]);
       this.textoBuscado = parametros["texto"];
-      console.log(this.encontrarMermelada);
     })
   }
 

@@ -24,6 +24,8 @@ import { UsuarioService } from './services/usuario.service';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { CompraComponent } from './Components/compra/compra.component';
 import { ModificarUsuarioComponent } from './Components/modificar-usuario/modificar-usuario.component';
+import { CookiesComponent } from './Components/cookies/cookies.component';
+import { CookieService } from 'ngx-cookie-service';
 registerLocaleData(localEs);
 
 
@@ -43,7 +45,8 @@ registerLocaleData(localEs);
     MermeladaTarjetaComponent,
     NoImagePipe,
     CompraComponent,
-    ModificarUsuarioComponent
+    ModificarUsuarioComponent,
+    CookiesComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -54,6 +57,7 @@ registerLocaleData(localEs);
     APP_ROUTING
   ],
   providers: [
+    CookieService,
     MermeladasListaService, 
     UsuarioService,
     {
