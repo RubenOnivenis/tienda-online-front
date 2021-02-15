@@ -1,0 +1,52 @@
+<div class="d-flex flex-column align-items-center row">
+    <form id="devolucion" autocomplete="off" (ngSubmit)="enviar()" [formGroup]="forma" class="p-md-3">
+      <div class="row col-12">
+            <!--Nº de pedido-->
+            <div class="form-group col-md-6 col-12">
+                <label for="disabledTextInput">Nº de pedido*</label>
+                <input type="text" 
+                    class="form-control" 
+                    placeholder="Nº de pedido"
+                    formControlName="n_pedido"
+                    maxlength="4"
+                    [class.is-invalid]="!valido('n_pedido')">
+                <small class="form-text text-danger" *ngIf="!valido('n_pedido')">Este campo debe ser estar correcto</small>
+            </div>
+            <!--Dirección de recogida-->
+            <div class="form-group col-md-6 col-12">
+                <label for="inputAddress">Dirección de recogida*</label>
+                <select class="form-control"
+                        formControlName="direccion"
+                        [class.is-invalid]="!valido('direccion')">
+                    <option>Novelda del guadiana, Badajoz, Calle inventada Nº XX, 06183</option> <!--Dirección 1º-->
+                    <option>Badajoz, Badajoz, Calle inventada Nº XX, 06000</option><!--Dircción 2º-->
+                </select>
+                <small class="form-text text-danger" *ngIf="!valido('direccion')">Debes seleccionar una de las direcciones guardadas</small>
+            </div>
+            <!--Motivo de la devolución-->
+            <div class="form-group col-md-6 col-12">
+                <label for="disabledSelect">Motivo de la devolución*</label>
+                <select class="form-control"
+                        formControlName="motivo"
+                        [class.is-invalid]="!valido('motivo')">
+                    <option>Defectuoso</option>
+                    <option>Abierto con anterioridad</option>
+                    <option>Embase deteriorado</option>
+                    <option>Caducado</option>
+                    <option>Producto diferente al pedido</option>
+                    <option>Otro</option>
+                </select>
+                <small class="form-text text-danger" *ngIf="!valido('motivo')">Debes seleccionar uno de los motivos</small>
+            </div>
+            <!--COMENTARIO-->
+            <div class="form-group col-md-6 col-12">
+                <label for="disabledSelect">Comentario</label>
+                <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-outline-primary" name="enivar" value="Enviar">
+        </div>
+    </form>
+</div>
+        

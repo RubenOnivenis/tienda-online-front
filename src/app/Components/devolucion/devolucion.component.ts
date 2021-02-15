@@ -1,34 +1,34 @@
-import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-iniciar-sesion',
-  templateUrl: './iniciar-sesion.component.html',
+  selector: 'app-devolucion',
+  templateUrl: './devolucion.component.html',
   styles: [
   ]
 })
-export class IniciarSesionComponent implements OnInit {
+export class DevolucionComponent implements OnInit {
 
   forma!:FormGroup;
 
   constructor(
     private formBuilder:FormBuilder
-  ) {
-    this.formularioInicio();
-   }
+  ) { 
+    this.formularioDevolucion();
+  }
 
   ngOnInit(): void {
   }
 
-  formularioInicio(){
+  formularioDevolucion(){
     this.forma = this.formBuilder.group({
-      email:['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
-      pass:['', Validators.required]
+      n_pedido:['', Validators.required],
+      direccion:['', Validators.required],
+      motivo:['', Validators.required]
     })
   }
-  
-  iniciar(){
+
+  enviar(){
     if(this.forma.invalid){
       Object.values(this.forma.controls).forEach(control => {
         if (control instanceof FormGroup)
@@ -49,7 +49,6 @@ export class IniciarSesionComponent implements OnInit {
       }
     }
     return !(elemento.invalid && elemento.touched);
-
   }
 
 }

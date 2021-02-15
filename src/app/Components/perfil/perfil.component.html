@@ -128,8 +128,8 @@
         Abrir/Cerrar tabla de pedidos
       </button>
     </p>
-    <div class="collapse show" id="collapseExample">
-      <div class="card card-body">
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body tabla_pedidos">
         <h3>Pedidos</h3>
         <div class="row mt-4" id="pedidos">
           <table class="table table-striped col-md-12" id="tablaPedidos">
@@ -144,17 +144,17 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="id_pedido">1</th>
+                <th scope="row" class="id_pedido">#1A</th>
                 <td class="fch_envio">11/1/2021</td>
                 <td class="fch_entrega">21/1/2021</td>
                 <td>Entregado</td>
                 <td>
-                  <button type="button" class="btn btn-link p-0">Detalles</button> |
-                  <button type="button" class="btn btn-link p-0" style="color: red;">Cancelar/Devolver</button>
+                  <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button> |
+                  <button type="button" class="btn btn-link p-0" [routerLink]="['/devolucion']" style="color: red;">Cancelar/Devolver</button>
                 </td>
               </tr>
               <tr>
-                <th scope="row" class="id_pedido">2</th>
+                <th scope="row" class="id_pedido">#2A</th>
                 <td class="fch_envio">20/1/2021</td>
                 <td class="fch_entrega"> - </td>
                 <td>Cancelado</td>
@@ -163,7 +163,7 @@
                 </td>
               </tr>
               <tr>
-                <th scope="row" class="id_pedido">3</th>
+                <th scope="row" class="id_pedido">#3A</th>
                 <td class="fch_envio">23/1/2021</td>
                 <td class="fch_entrega">02/02/2021</td>
                 <td>Devuelto</td>
@@ -172,18 +172,38 @@
                 </td>
               </tr>
               <tr>
-                <th scope="row" class="id_pedido">4</th>
+                <th scope="row" class="id_pedido">#4A</th>
                 <td class="fch_envio">11/02/2021</td>
                 <td class="fch_entrega">21/02/2021</td>
                 <td>En tramite</td>
                 <td>
                   <button type="button" class="btn btn-link p-0">Detalles</button> | 
-                  <button type="button" class="btn btn-link p-0" style="color: red;">Cancelar/Devolver</button>
+                  <button type="button" class="btn btn-link p-0" [routerLink]="['/devolucion']" style="color: red;">Cancelar/Devolver</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--MODAL DETALLES DEL PRODUCTO-->
+<div class="modal fade bd-example-modal-lg" id="detalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content" id="modificarDatos">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">Detalles del pedido</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-detalles-producto></app-detalles-producto> <!--Modificar-usuario-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" name="modificar">Guardar cambios</button>
       </div>
     </div>
   </div>

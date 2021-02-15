@@ -3,6 +3,7 @@ import { HomeComponent } from 'src/app/Components/home/home.component';
 import { BuscadorComponent } from './Components/buscador/buscador.component';
 import { CompraComponent } from './Components/compra/compra.component';
 import { CrearUsuarioComponent } from './Components/crear-usuario/crear-usuario.component';
+import { DevolucionComponent } from './Components/devolucion/devolucion.component';
 import { IniciarSesionComponent } from './Components/iniciar-sesion/iniciar-sesion.component';
 import { MermeladaComponent } from './Components/mermelada/mermelada.component';
 import { MermeladasComponent } from './Components/mermeladas/mermeladas.component';
@@ -16,6 +17,7 @@ const APP_ROUTES: Routes =
     { path: 'iniciarSesion', component: IniciarSesionComponent },
     { path: 'perfil', component: PerfilComponent },
     { path: 'compra', component: CompraComponent},
+    { path: 'devolucion', component: DevolucionComponent },
     { path: 'mermelada/:id', component:MermeladaComponent },
     { path: 'buscar/:texto', component:BuscadorComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }

@@ -26,6 +26,8 @@ import { CompraComponent } from './Components/compra/compra.component';
 import { ModificarUsuarioComponent } from './Components/modificar-usuario/modificar-usuario.component';
 import { CookiesComponent } from './Components/cookies/cookies.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DetallesProductoComponent } from './Components/detalles-producto/detalles-producto.component';
+import { DevolucionComponent } from './Components/devolucion/devolucion.component';
 registerLocaleData(localEs);
 
 
@@ -46,7 +48,9 @@ registerLocaleData(localEs);
     NoImagePipe,
     CompraComponent,
     ModificarUsuarioComponent,
-    CookiesComponent
+    CookiesComponent,
+    DetallesProductoComponent,
+    DevolucionComponent
   ],
   imports: [
     ReactiveFormsModule,

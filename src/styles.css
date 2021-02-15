@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-body,  #modificarDatos{
+body,  #modificarDatos, .tabla_pedidos{
     background-color: #FFF2CC;
 }
-#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #iniciarSesion, .perfil, #infoM{
+.tabla_pedidos{
+    border: 0;
+}
+#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #devolucion, #iniciarSesion, .perfil, #infoM{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar{
+#quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar, #devolucion{
     margin-top: 20px;
 }
 #infoM{
@@ -56,11 +59,15 @@ body,  #modificarDatos{
 #iniciarSesion{
     background-color: #ffd96654; 
     width: 350px;
-    height: 330px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #crearUsuario{
     background-color: #ffd96654; 
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#devolucion{
+    background-color: #ffd96654; 
+    width: 650px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .perfil, #pedidos, #videoYT{
@@ -71,7 +78,7 @@ body,  #modificarDatos{
 }
 
 /*COOKIES*/
-.grdp{
+.cuadro_cookies{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     position: fixed;
     color: black;
@@ -82,7 +89,7 @@ body,  #modificarDatos{
     border: 6px #343A40 solid;
     text-align: justify;
 }
-.bcgrdp{
+.boton_aceptar{
     cursor: pointer;
 }
 
@@ -112,5 +119,13 @@ body,  #modificarDatos{
 @media (max-width: 720px) {
     .fch_entrega, .fch_envio {
         display: none; 
+    }
+}
+/*CUADRO COOKIES*/
+@media (max-width: 750px) {
+    .cuadro_cookies{
+        width: 80%; 
+        left: 10%;
+        right: 10%;
     }
 }
