@@ -1,29 +1,25 @@
 <div id="mermeladaInfo">
-  <h1 style="margin:10px 0px 20px 20px ;">{{mermelada.nombre | uppercase}} <small>{{mermelada.precio | currency:'EUR'}}</small></h1>
+  <h1 style="margin:10px 0px 20px 20px ;">{{mermelada.nombre | uppercase}} 
+    <small *ngIf="!mermelada.imagen_oferta">{{mermelada.precio | currency:'EUR'}}</small>
+    <small *ngIf="mermelada.imagen_oferta"><s>{{mermelada.precio | currency:'EUR'}}</s></small>
+    <small *ngIf="mermelada.imagen_oferta" class="ml-2">{{mermelada.precio_oferta | currency:'EUR'}}</small>
+  </h1>
   <div class="row">
     <div class="col-md-4">
       <img [src]="mermelada.imagen | noImage" class="img-fluid" /><br/>
       <b>Valoración media:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-4" style="cursor: pointer;"/>
       <br/><br/>
-      <button class="btn btn-outline-success btn-block mb-3" (click)="alertaCarrito" >Volver</button>
+      <button class="btn btn-outline-success btn-block mb-3" [routerLink]="['/mermeladas']">Volver</button>
     </div>
     <div class="col-md-5 offset-1" id="infoM">
       <h3>{{mermelada.nombre}}</h3>
       <hr/>
-      <p>
-        {{mermelada.descr}}
-      </p>
+      <p>{{mermelada.descr}}</p>
       <div>
-        <p>
-          Fecha de elaboracion: <b>{{mermelada.fecha_elaboracion | date:'dd/MM/y'}}</b><br/>
-        </p>
-        <p>
-          Días de consumición preferentes: <b>{{mermelada.dias_consumicion_preferente}}</b> días
-        </p>
+        <p>Fecha de elaboracion: <b>{{mermelada.fecha_elaboracion | date:'dd/MM/y'}}</b><br/></p>
+        <p>Días de consumición preferentes: <b>{{mermelada.dias_consumicion_preferente}}</b> días</p>
         <ul>
-          <li>
-            {{mermelada.ingredientes}}
-          </li>
+          <li>{{mermelada.ingredientes}}</li>
         </ul>
         <input type="button" 
                class="btn btn-outline-primary" 
