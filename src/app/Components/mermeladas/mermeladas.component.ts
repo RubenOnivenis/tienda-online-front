@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
+import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-mermeladas',
@@ -12,11 +12,11 @@ export class MermeladasComponent implements OnInit {
   mermeladas!:mermeladasDatos[];
   
   constructor(
-    private _mermeladasListaService:MermeladasListaService,
+    private _producosService:productosService
   ) { }
 
   ngOnInit(): void {
-    this.mermeladas = this._mermeladasListaService.getMermeladasDatos();
+    this.mermeladas = this._producosService.getMermeladasDatos();
   }
 
   /*public verMermelada(id:number){

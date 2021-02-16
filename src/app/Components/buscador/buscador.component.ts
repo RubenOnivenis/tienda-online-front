@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
+import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-buscador',
@@ -15,7 +15,7 @@ export class BuscadorComponent implements OnInit {
   NUM_CARACTERES:number;
 
   constructor(
-    private _mermeladasListaService:MermeladasListaService,
+    private _productosService:productosService,
     private router:Router,
     private activatedRoute:ActivatedRoute
   ) {
@@ -24,7 +24,7 @@ export class BuscadorComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(parametros => {
-      this.encontrarMermelada = this._mermeladasListaService.buscarMermelada(parametros["texto"]);
+      this.encontrarMermelada = this._productosService.buscarMermelada(parametros["texto"]);
       this.textoBuscado = parametros["texto"];
     })
   }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mermeladasDatos } from 'src/app/services/mermeladas_lista.service';
+import { mermeladasDatos } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-mermelada-tarjeta',

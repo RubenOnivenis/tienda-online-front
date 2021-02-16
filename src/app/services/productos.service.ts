@@ -15,7 +15,7 @@ export interface mermeladasDatos {
 }
 
 @Injectable()
-export class MermeladasListaService
+export class productosService
 {
     constructor(){}
     private mermeladaDato: mermeladasDatos[] = [

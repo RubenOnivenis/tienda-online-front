@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mermeladasDatos, MermeladasListaService } from 'src/app/services/mermeladas_lista.service';
+import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-mermelada',
@@ -16,10 +16,10 @@ export class MermeladaComponent implements OnInit {
   constructor(
     //private router:Router,
     private activatedRoute: ActivatedRoute,
-    private _mermeladaListaService:MermeladasListaService
+    private _productosService:productosService
   ) {
     this.activatedRoute.params.subscribe(parametros => {
-      this.mermelada = this._mermeladaListaService.getMermelada(parametros["id"]);
+      this.mermelada = this._productosService.getMermelada(parametros["id"]);
     })
    }
 

@@ -9,7 +9,6 @@ import { APP_ROUTING } from './app.routes';
 import { SectionComponent } from './Components/section/section.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MermeladasComponent } from './Components/mermeladas/mermeladas.component';
-import { MermeladasListaService } from './services/mermeladas_lista.service';
 import { registerLocaleData } from '@angular/common';
 import localEs from '@angular/common/locales/es';
 import { MermeladaComponent } from './Components/mermelada/mermelada.component';
@@ -28,6 +27,7 @@ import { CookiesComponent } from './Components/cookies/cookies.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DetallesProductoComponent } from './Components/detalles-producto/detalles-producto.component';
 import { DevolucionComponent } from './Components/devolucion/devolucion.component';
+import { productosService } from './services/productos.service';
 registerLocaleData(localEs);
 
 
@@ -62,7 +62,7 @@ registerLocaleData(localEs);
   ],
   providers: [
     CookieService,
-    MermeladasListaService, 
+    productosService, 
     UsuarioService,
     {
       provide: LOCALE_ID,
