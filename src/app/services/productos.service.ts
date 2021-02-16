@@ -11,7 +11,9 @@ export interface mermeladasDatos {
     fecha_elaboracion?:Date,
     dias_consumicion_preferente:number,
     ingredientes:string,
-    id?:number
+    id?:number,
+    imagen_oferta?:string,
+    precio_oferta?:number
 }
 
 @Injectable()
@@ -26,7 +28,9 @@ export class productosService
         descr: "La mermelada de fresa tiene un sabor delicado, con dulzor natural, pues está hecha con fresas maduras en la mata, y cuyos aroma se aprecian cuando se consume pero que ya se atisban durante el proceso de elaboración.",
         fecha_elaboracion: maniana,
         dias_consumicion_preferente:70,
-        ingredientes: "1 kg. de fresas maduras, 1 manzana y 1 limón (en ambos casos tienen mucha pectina y ayudará a espesar), 6 hojas de gelatina de 2 g cada una, edulcorante al gusto (debes usar un edulcorante que soporte altas temperaturas sin perder propiedades, yo solo he usado el Sucralin que tiene un sabor bastante conseguido aunque es carillo)."
+        ingredientes: "1 kg. de fresas maduras, 1 manzana y 1 limón (en ambos casos tienen mucha pectina y ayudará a espesar), 6 hojas de gelatina de 2 g cada una, edulcorante al gusto (debes usar un edulcorante que soporte altas temperaturas sin perder propiedades, yo solo he usado el Sucralin que tiene un sabor bastante conseguido aunque es carillo).",
+        imagen_oferta: "assets/img/oferta.png",
+        precio_oferta: 1.99
     },
     {
         nombre:"Melocotón",
@@ -35,7 +39,9 @@ export class productosService
         descr:"Esta deliciosa mermelada extra realza el aroma y sabor natural del melocotón. Elaborada a mano de forma artesanal se presenta en trozos para obtener una apropiada textura, aroma y sabor. Exquisita para su consumo en estado natural, y como valioso ingrediente para realzar platos y sabrosos postres.",
         fecha_elaboracion: maniana,
         dias_consumicion_preferente:62,
-        ingredientes: "1.5kg de melocotón ya pelado y cortado, 500g de azúcar, 15ml de zumo de limón, gelificante para mermeladas o pectina (opcional)."
+        ingredientes: "1.5kg de melocotón ya pelado y cortado, 500g de azúcar, 15ml de zumo de limón, gelificante para mermeladas o pectina (opcional).",
+        imagen_oferta: "assets/img/oferta.png",
+        precio_oferta: 0.99
     },
     {
         nombre:"Mango",
@@ -53,7 +59,9 @@ export class productosService
         descr:"Es muy aromática por la fragancia que agregan los naranjos, es suave al paladar por lo que es de sabor dulce; producida por las abejas a partir del néctar de las flores. Es de color ámbar claro, transparente cuando está líquida, con granulación fina y con una cristalización regular. Tiene propiedades antiespasmódicas y está recomendada como calmante.",
         fecha_elaboracion: maniana,
         dias_consumicion_preferente:30,
-        ingredientes: "Miel, 1.5kg y medio de azucar, 1L de agua, canela en rama, zumo de limón, dos cucharadas de té verde o cualquier otro, a elección, agua de azahar."
+        ingredientes: "Miel, 1.5kg y medio de azucar, 1L de agua, canela en rama, zumo de limón, dos cucharadas de té verde o cualquier otro, a elección, agua de azahar.",
+        imagen_oferta: "assets/img/oferta.png",
+        precio_oferta: 2.10
     },
     {
         nombre:"Arándanos",
