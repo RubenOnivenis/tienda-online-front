@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+//import { AgmCoreModule } from '@agm/core';
+
 import { NavbarComponent } from './Components/shared/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule } from '@angular/router';

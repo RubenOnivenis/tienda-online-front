@@ -3,7 +3,7 @@
         <div class="row">
             <img class="card-img-top col-8 mt-3 offset-2" [src]="mermelada.imagen | noImage" *ngIf="!mermelada.imagen_oferta">
             <img class="card-img-top col-8 offset-2 mt-3" [src]="mermelada.imagen | noImage" *ngIf="mermelada.imagen_oferta">
-            <img class="card-img-top img-oferta col-6 mt-3 oferta" [src]="mermelada.imagen_oferta" *ngIf="mermelada.imagen_oferta">
+            <img class="card-img-top img-oferta col-4 mt-3 oferta" [src]="mermelada.imagen_oferta" *ngIf="mermelada.imagen_oferta">
         </div>
         <div class="card-body">
             <h5 class="card-title">{{mermelada.nombre}}</h5>
