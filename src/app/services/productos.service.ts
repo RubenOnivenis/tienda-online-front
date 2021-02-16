@@ -34,7 +34,7 @@ export class productosService
     },
     {
         nombre:"Melocotón",
-        precio:1.80,
+        precio:1.90,
         imagen:"assets/img/melocoton.png",
         descr:"Esta deliciosa mermelada extra realza el aroma y sabor natural del melocotón. Elaborada a mano de forma artesanal se presenta en trozos para obtener una apropiada textura, aroma y sabor. Exquisita para su consumo en estado natural, y como valioso ingrediente para realzar platos y sabrosos postres.",
         fecha_elaboracion: maniana,

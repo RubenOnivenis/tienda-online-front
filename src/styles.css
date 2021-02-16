@@ -103,7 +103,13 @@ body,  #modificarDatos, .tabla_pedidos{
 .boton_aceptar{
     cursor: pointer;
 }
-
+.cookies{
+    height: 100%;
+    top: 0px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.349);
+    position: fixed;
+}
 /*Carrousel*/
 @media (max-width: 992px) {
     .carousel-inner {
