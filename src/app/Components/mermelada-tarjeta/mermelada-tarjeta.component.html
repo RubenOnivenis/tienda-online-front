@@ -1,19 +1,19 @@
 <div class="card bg-light mb-3 p-md-0" >
     <div id="productos_cartas"> 
         <div class="row">
-            <img class="card-img-top col-8" [src]="mermelada.imagen | noImage" [alt]="mermelada.nombre" *ngIf="mermelada.imagen_oferta">
-            <img class="card-img-top col-8 offset-2" [src]="mermelada.imagen | noImage" [alt]="mermelada.nombre" *ngIf="!mermelada.imagen_oferta">
-            <img class="card-img-top img-oferta col-4" [src]="mermelada.imagen_oferta" *ngIf="mermelada.imagen_oferta">
+            <img class="card-img-top col-8 mt-3 offset-2" [src]="mermelada.imagen | noImage" *ngIf="!mermelada.imagen_oferta">
+            <img class="card-img-top col-8 offset-2 mt-3" [src]="mermelada.imagen | noImage" *ngIf="mermelada.imagen_oferta">
+            <img class="card-img-top img-oferta col-6 mt-3 oferta" [src]="mermelada.imagen_oferta" *ngIf="mermelada.imagen_oferta">
         </div>
         <div class="card-body">
             <h5 class="card-title">{{mermelada.nombre}}</h5>
             <p class="card-text">{{mermelada.descr | slice:0:this.NUM_CARACTERES}}{{puntos_suspensivos()}}</p>
             <p class="card-text">
+                <b *ngIf="!mermelada.imagen_oferta" class="text-muted">{{mermelada.precio | currency:'EUR'}}</b>
                 <small class="text-muted">
-                    <b *ngIf="!mermelada.imagen_oferta">{{mermelada.precio | currency:'EUR'}}</b>
                     <b *ngIf="mermelada.imagen_oferta"><s>{{mermelada.precio | currency:'EUR'}}</s></b>
-                    <b *ngIf="mermelada.imagen_oferta" class="ml-4">{{mermelada.precio_oferta | currency:'EUR'}}</b>
                 </small>
+                <b *ngIf="mermelada.imagen_oferta" class="ml-3 text-muted">{{mermelada.precio_oferta | currency:'EUR'}}</b>
             </p>
         </div>
     </div>

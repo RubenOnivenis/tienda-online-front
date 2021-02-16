@@ -36,6 +36,11 @@ body,  #modificarDatos, .tabla_pedidos{
     height: 80px;
 }
 /****/
+/*OFERTA*/
+.oferta{
+    position: absolute;
+}    
+/****/
 .perfil, .modal-header, .modal-footer, #pedidosInfo, #productos_cartas{
     background-color: #FFD966; 
 }
