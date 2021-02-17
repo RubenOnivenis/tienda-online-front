@@ -13,9 +13,9 @@
                 <small class="text-muted">
                     <b *ngIf="mermelada.imagen_oferta"><s>{{mermelada.precio | currency:'EUR'}}</s></b>
                 </small>
-                <b *ngIf="mermelada.imagen_oferta" class="ml-3 text-muted">{{mermelada.precio_oferta | currency:'EUR'}}</b>
+                <b *ngIf="mermelada.imagen_oferta" class="ml-3 text-muted">{{mermelada.precio*0.5 | currency:'EUR'}}</b>
             </p>
         </div>
     </div>
-    <button class="btn-success btn-block" (click)="verMermelada()" style="cursor: pointer;">Información</button>
+    <button class="btn-primary btn-block" (click)="verMermelada()" style="cursor: pointer;">Información</button>
 </div>

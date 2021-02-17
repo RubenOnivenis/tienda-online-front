@@ -2,7 +2,7 @@
   <h1 style="margin:10px 0px 20px 20px ;">{{mermelada.nombre | uppercase}} 
     <small *ngIf="!mermelada.imagen_oferta">{{mermelada.precio | currency:'EUR'}}</small>
     <small *ngIf="mermelada.imagen_oferta" class="text-muted"><s>{{mermelada.precio | currency:'EUR'}}</s></small>
-    <span *ngIf="mermelada.imagen_oferta" class="ml-2">{{mermelada.precio_oferta | currency:'EUR'}}</span>
+    <span *ngIf="mermelada.imagen_oferta" class="ml-2">{{mermelada.precio*0.5 | currency:'EUR'}}</span>
   </h1>
   <div class="row">
     <div class="col-md-4">
@@ -10,7 +10,7 @@
       <b>Valoración media:</b> 
       <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-4" style="cursor: pointer;"/>
       <br/><br/>
-      <button class="btn btn-outline-success btn-block" [routerLink]="['/mermeladas']">Volver</button>
+      <button class="btn btn-outline-primary btn-block" [routerLink]="['/mermeladas']">Volver</button>
     </div>
     <div class="col-md-5 offset-1" id="infoM">
       <h3>{{mermelada.nombre}}</h3>
@@ -23,7 +23,7 @@
           <li>{{mermelada.ingredientes}}</li>
         </ul>
         <input type="button" 
-               class="btn btn-outline-success" 
+               class="btn btn-outline-primary" 
                [routerLink]="['/compra']" 
                value="Añadir a la cesta" 
                style="margin-top: 20px;"/>
@@ -35,6 +35,6 @@
     <h4>Comentar</h4>
     <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
     <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
-    <input type="button" class="btn btn-outline-success" value="Enviar comentario" />
+    <input type="button" class="btn btn-outline-primary" value="Enviar comentario" />
   </div>
 </div>

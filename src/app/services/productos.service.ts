@@ -12,8 +12,7 @@ export interface mermeladasDatos {
     dias_consumicion_preferente:number,
     ingredientes:string,
     id?:number,
-    imagen_oferta?:string,
-    precio_oferta?:number
+    imagen_oferta?:string
 }
 
 @Injectable()
@@ -29,8 +28,7 @@ export class productosService
         fecha_elaboracion: maniana,
         dias_consumicion_preferente:70,
         ingredientes: "1 kg. de fresas maduras, 1 manzana y 1 limón (en ambos casos tienen mucha pectina y ayudará a espesar), 6 hojas de gelatina de 2 g cada una, edulcorante al gusto (debes usar un edulcorante que soporte altas temperaturas sin perder propiedades, yo solo he usado el Sucralin que tiene un sabor bastante conseguido aunque es carillo).",
-        imagen_oferta: "assets/img/oferta.png",
-        precio_oferta: 1.99
+        imagen_oferta: "assets/img/oferta.png"
     },
     {
         nombre:"Melocotón",
@@ -40,8 +38,7 @@ export class productosService
         fecha_elaboracion: maniana,
         dias_consumicion_preferente:62,
         ingredientes: "1.5kg de melocotón ya pelado y cortado, 500g de azúcar, 15ml de zumo de limón, gelificante para mermeladas o pectina (opcional).",
-        imagen_oferta: "assets/img/oferta.png",
-        precio_oferta: 0.99
+        imagen_oferta: "assets/img/oferta.png"
     },
     {
         nombre:"Mango",
@@ -61,7 +58,6 @@ export class productosService
         dias_consumicion_preferente:30,
         ingredientes: "Miel, 1.5kg y medio de azucar, 1L de agua, canela en rama, zumo de limón, dos cucharadas de té verde o cualquier otro, a elección, agua de azahar.",
         imagen_oferta: "assets/img/oferta.png",
-        precio_oferta: 2.10
     },
     {
         nombre:"Arándanos",
