@@ -96,7 +96,7 @@
           </div>
         </div>
         <div>
-          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modificar">
+          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modificar">
             Modificar datos
           </button>
           <div class="modal" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,8 +112,8 @@
                   <app-modificar-usuario></app-modificar-usuario> <!--Modificar-usuario-->
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" name="modificar">Guardar cambios</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-success" name="modificar">Guardar cambios</button>
                 </div>
               </div>
             </div>
@@ -123,8 +123,8 @@
       </div>
     </div>
     <hr />
-    <p id="">
-      <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+    <p>
+      <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
         Abrir/Cerrar tabla de pedidos
       </button>
     </p>
@@ -159,7 +159,7 @@
                 <td class="fch_entrega"> - </td>
                 <td>Cancelado</td>
                 <td>
-                  <button type="button" class="btn btn-link p-0">Detalles</button>
+                  <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button>
                 </td>
               </tr>
               <tr>
@@ -168,7 +168,7 @@
                 <td class="fch_entrega">02/02/2021</td>
                 <td>Devuelto</td>
                 <td>
-                  <button type="button" class="btn btn-link p-0">Detalles</button>
+                  <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button>
                 </td>
               </tr>
               <tr>
@@ -202,8 +202,8 @@
         <app-detalles-producto></app-detalles-producto> <!--Modificar-usuario-->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" name="modificar">Guardar cambios</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" name="modificar">Guardar cambios</button>
       </div>
     </div>
   </div>
