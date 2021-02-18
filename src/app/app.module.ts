@@ -8,8 +8,8 @@ import { NavbarComponent } from './Components/shared/navbar/navbar.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTING } from './app.routes';
-import { SectionComponent } from './Components/section/section.component';
-import { FooterComponent } from './Components/footer/footer.component';
+import { SectionComponent } from './Components/shared/section/section.component';
+import { FooterComponent } from './Components/shared/footer/footer.component';
 import { MermeladasComponent } from './Components/mermeladas/mermeladas.component';
 import { registerLocaleData } from '@angular/common';
 import localEs from '@angular/common/locales/es';
@@ -30,6 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DetallesProductoComponent } from './Components/detalles-producto/detalles-producto.component';
 import { DevolucionComponent } from './Components/devolucion/devolucion.component';
 import { productosService } from './services/productos.service';
+
 registerLocaleData(localEs);
 
 
