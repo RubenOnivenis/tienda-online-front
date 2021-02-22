@@ -1,28 +1,28 @@
-<div id="mermeladaInfo">
-  <h1 style="margin:10px 0px 20px 20px ;">{{mermelada.nombre | uppercase}} 
-    <small *ngIf="!mermelada.imagen_oferta">{{mermelada.precio | currency:'EUR'}}</small>
-    <small *ngIf="mermelada.imagen_oferta" class="text-muted"><s>{{mermelada.precio | currency:'EUR'}}</s></small>
-    <span *ngIf="mermelada.imagen_oferta" class="ml-2">{{mermelada.precio*0.5 | currency:'EUR'}}</span>
+<div id="mermeladaInfo" *ngIf="producto">
+  <h1 style="margin:10px 0px 20px 20px ;">{{producto.nombre | uppercase}} 
+    <small *ngIf="!producto.imagen_oferta">{{producto.precio | currency:'EUR'}}</small>
+    <small *ngIf="producto.imagen_oferta" class="text-muted"><s>{{producto.precio | currency:'EUR'}}</s></small>
+    <span *ngIf="producto.imagen_oferta" class="ml-2">{{producto.precio*0.5 | currency:'EUR'}}</span>
   </h1>
   <div class="row">
     <div class="col-md-4">
-      <img [src]="mermelada.imagen | noImage" class="img-fluid mb-md-2"/><br/>
+      <img [src]="producto.imagen | noImage" class="img-fluid mb-md-2"/><br/>
       <b>Valoración media:</b> 
       <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-4" style="cursor: pointer;"/>
       <br/><br/>
       <button class="btn btn-outline-primary btn-block" [routerLink]="['/mermeladas']">Volver</button>
     </div>
     <div class="col-md-5 offset-1" id="infoM">
-      <h3>{{mermelada.nombre}}</h3>
+      <h3>{{producto.nombre}}</h3>
       <hr/>
-      <p>{{mermelada.descr}}</p>
+      <p>{{producto.descr}}</p>
       <div>
-        <p>Fecha de elaboracion: <b>{{mermelada.fecha_elaboracion | date:'dd/MM/y'}}</b><br/></p>
-        <p>Días de consumición preferentes: <b>{{mermelada.dias_consumicion_preferente}}</b> días</p>
+        <p>Fecha de elaboracion: <b>{{producto.fecha_elaboracion | date:'dd/MM/y'}}</b><br/></p>
+        <p>Días de consumición preferentes: <b>{{producto.dias_consumicion_preferente}}</b> días</p>
         <ul>
-          <li>{{mermelada.ingredientes}}</li>
+          <li>{{producto.ingredientes}}</li>
         </ul>
-        <input type="button" 
+        <input type="button"
                class="btn btn-outline-primary" 
                [routerLink]="['/compra']" 
                value="Añadir a la cesta" 

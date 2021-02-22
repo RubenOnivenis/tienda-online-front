@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
+import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-buscador',
@@ -10,7 +10,7 @@ import { mermeladasDatos, productosService } from 'src/app/services/productos.se
 })
 export class BuscadorComponent implements OnInit {
 
-  encontrarMermelada!:mermeladasDatos[];
+  encontrarMermelada!:productosDatos[];
   textoBuscado!:string;
   NUM_CARACTERES:number;
 
@@ -23,10 +23,10 @@ export class BuscadorComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(parametros => {
-      this.encontrarMermelada = this._productosService.buscarMermelada(parametros["texto"]);
+    /*this.activatedRoute.params.subscribe(parametros => {
+      //this.encontrarMermelada = this._productosService.buscarMermelada(parametros["texto"]);
       this.textoBuscado = parametros["texto"];
-    })
+    })*/
   }
 
   public verMermelada(i:number){

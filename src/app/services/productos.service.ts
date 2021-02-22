@@ -1,9 +1,12 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 var hoy:Date = new Date;
 var maniana:Date = new Date(hoy.setDate(hoy.getDate()+1));
 
-export interface mermeladasDatos {
+export interface productosDatos {
+    id?:number,
     nombre:string,
     precio:number,
     imagen?:string,
@@ -11,15 +14,28 @@ export interface mermeladasDatos {
     fecha_elaboracion?:Date,
     dias_consumicion_preferente:number,
     ingredientes:string,
-    id?:number,
     imagen_oferta?:string
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class productosService
 {
-    constructor(){}
-    private mermeladaDato: mermeladasDatos[] = [
+    API_URL = 'http://localhost:8080/api/';
+
+    constructor(
+        private http:HttpClient
+    ){}
+
+    getProductos(){
+        return this.http.get(`${this.API_URL}/productos`);
+    }
+
+    getProducto(id: number){
+        return this.http.get(`${this.API_URL}/producto/${id}`);
+    }
+    /*private mermeladaDato: mermeladasDatos[] = [
     {
         nombre:"Fresa",
         precio:2.80,
@@ -77,17 +93,17 @@ export class productosService
         dias_consumicion_preferente:43,
         ingredientes: "2 tazas de piña picada finamente, 4 cucharaditas de jugo de limón, 2 tazas de azúcar, 1 taza de agua."
     }
-    ];
+    ];*/
 
-    getMermeladasDatos():mermeladasDatos[]{
+    /*getMermeladasDatos():mermeladasDatos[]{
         return this.mermeladaDato;
     }
 
     getMermelada(id:number):mermeladasDatos{
         return this.mermeladaDato[id];
-    }
+    }*/
 
-    public buscarMermelada(texto:string): mermeladasDatos[]{
+    /*public buscarMermelada(texto:string): mermeladasDatos[]{
         let encontrarMermelada: mermeladasDatos[] = [];
         texto = texto.toLowerCase();
         for(let i=0;i<this.mermeladaDato.length;i++){
@@ -99,6 +115,6 @@ export class productosService
             }
         }
         return encontrarMermelada;
-    }
+    }*/
 
 }

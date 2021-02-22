@@ -1,29 +1,31 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
+import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-mermelada',
   templateUrl: './mermelada.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class MermeladaComponent implements OnInit {
 
-  @Input() mermelada!:mermeladasDatos;
-  //@Input() index!:number | undefined;
+  producto:any = {};
 
   constructor(
-    //private router:Router,
     private activatedRoute: ActivatedRoute,
-    private _productosService:productosService
-  ) {
-    this.activatedRoute.params.subscribe(parametros => {
-      this.mermelada = this._productosService.getMermelada(parametros["id"]);
-    })
-   }
+    private _productosService: productosService
+  ) {}
 
   ngOnInit(): void {
+    this._productosService.getProducto(this.activatedRoute.snapshot.params.id)
+      .subscribe(respuesta => {
+        this.producto = respuesta;
+        console.log(respuesta);
+      },
+      (err) => {
+        err="ERROR";
+        console.log(err);
+      } );
   }
 
   /*public anadirCesta(){

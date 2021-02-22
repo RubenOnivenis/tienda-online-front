@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mermeladasDatos, productosService } from 'src/app/services/productos.service';
+import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-compra',
@@ -10,7 +10,7 @@ import { mermeladasDatos, productosService } from 'src/app/services/productos.se
 })
 export class CompraComponent implements OnInit {
 
-  @Input() mermelada!:mermeladasDatos;
+  @Input() mermelada!:productosDatos;
   //NUM_CARACTERES:number;
   //@Input() index!:number | undefined;
 
@@ -21,7 +21,7 @@ export class CompraComponent implements OnInit {
   ) { 
     //this.NUM_CARACTERES = 120;
     this.activatedRoute.params.subscribe(parametros => {
-      this.mermelada = this._productosService.getMermelada(parametros.id);
+      //this.mermelada = this._productosService.getProducto(parametros.id);
     })
   }
 

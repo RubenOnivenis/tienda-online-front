@@ -1,16 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mermeladasDatos } from 'src/app/services/productos.service';
+import { productosDatos } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-mermelada-tarjeta',
   templateUrl: './mermelada-tarjeta.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class MermeladaTarjetaComponent implements OnInit {
 
-  @Input() mermelada!:mermeladasDatos;
+  @Input() producto!:productosDatos;
   NUM_CARACTERES:number;
   @Input() index!:number | undefined;
 
@@ -22,12 +21,12 @@ export class MermeladaTarjetaComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public verMermelada(){
+  public verProducto(){
     this.router.navigate(['/mermelada', this.index]);
   }
 
   public puntos_suspensivos():string{
-    if(this.mermelada.descr.length > this.NUM_CARACTERES) return "...";
+    if(this.producto.descr.length > this.NUM_CARACTERES) return "...";
     return "";
   }
 
