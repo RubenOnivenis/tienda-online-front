@@ -22,18 +22,18 @@ export interface productosDatos {
 })
 export class productosService
 {
-    API_URL = 'http://localhost:8080/api/';
+    API_URI = 'http://localhost:8080/api/';
 
     constructor(
         private http:HttpClient
     ){}
 
     getProductos(){
-        return this.http.get(`${this.API_URL}/productos`);
+        return this.http.get(`${this.API_URI}/productos`);
     }
 
     getProducto(id: number){
-        return this.http.get(`${this.API_URL}/producto/${id}`);
+        return this.http.get(`${this.API_URI}/producto/${id}`);
     }
     /*private mermeladaDato: mermeladasDatos[] = [
     {
