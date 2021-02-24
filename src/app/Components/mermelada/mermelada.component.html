@@ -17,13 +17,12 @@
       <hr/>
       <p>{{producto.descr}}</p>
       <div>
-        <!--<p>Fecha de elaboracion: <b>{{producto.fecha_elaboracion | date:'dd/MM/y'}}</b><br/></p>-->
-        <p>Días de consumición preferentes: <b>{{producto.dias_consumicion_preferente}}</b> días</p>
+        <p>Días de consumición preferente: <b>{{producto.diasConsumicion}}</b> días</p>
         <ul>
           <li>{{producto.ingredientes}}</li>
         </ul>
         <input type="button"
-               class="btn btn-outline-primary" 
+               class="btn btn-outline-dark" 
                [routerLink]="['/compra']" 
                value="Añadir a la cesta" 
                style="margin-top: 20px;"/>
@@ -35,6 +34,6 @@
     <h4>Comentar</h4>
     <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
     <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
-    <input type="button" class="btn btn-outline-primary" value="Enviar comentario" />
+    <input type="button" class="btn btn-outline-dark" value="Enviar comentario" />
   </div>
 </div>

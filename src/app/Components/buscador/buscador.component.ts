@@ -10,7 +10,7 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class BuscadorComponent implements OnInit {
 
-  encontrarMermelada!:productosDatos[];
+  productos: any [] = [];
   textoBuscado!:string;
   NUM_CARACTERES:number;
 
@@ -23,10 +23,15 @@ export class BuscadorComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    /*this.activatedRoute.params.subscribe(parametros => {
-      //this.encontrarMermelada = this._productosService.buscarMermelada(parametros["texto"]);
-      this.textoBuscado = parametros["texto"];
-    })*/
+    this._productosService.buscador(this.activatedRoute.snapshot.params.nombre)
+      .subscribe((respuesta:any) => {
+        this.productos = respuesta;
+        console.log(respuesta);
+      },
+      (err) => {
+        err = 'ERROR';
+        console.log(err);
+      });
   }
 
   public verMermelada(i:number){
@@ -34,7 +39,7 @@ export class BuscadorComponent implements OnInit {
   }
 
   public puntos_suspensivos(id:number):string{
-    if(this.encontrarMermelada[id].descr.length > this.NUM_CARACTERES) return "...";
+    if(this.productos[id].descr.length > this.NUM_CARACTERES) return "...";
     return "";
   }
 }
