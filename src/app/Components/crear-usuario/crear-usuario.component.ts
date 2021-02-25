@@ -104,6 +104,8 @@ export class CrearUsuarioComponent implements OnInit {
 
       this.rellenar();
       this.usuarioNuevo();
+      location.reload();
+      //Vaciar inputs /////////////////////////////////////////////////////////////////////////////////
     }
   }
 
