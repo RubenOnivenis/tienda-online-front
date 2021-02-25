@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 20px;" id="perfil">
+<div class="container" style="margin-top: 20px;" id="perfil" *ngIf="usuario">
   <div class="main-body" >
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
@@ -27,7 +27,7 @@
                 <h6 class="mb-0"><b>Nombre de usuario:</b></h6>
               </div>
               <div class="col-sm-9">
-                Rubenom11
+                {{usuario.nombre_usuario}}
               </div>
             </div>
             <hr>
@@ -36,7 +36,7 @@
                 <h6 class="mb-0"><b>Nombre:</b></h6>
               </div>
               <div class="col-sm-9">
-                Rubén
+                {{usuario.nombre}}
               </div>
             </div>
             <hr>
@@ -45,7 +45,7 @@
                 <h6 class="mb-0"><b>Apellidos:</b></h6>
               </div>
               <div class="col-sm-9">
-                Onivenis Muñoz
+                {{usuario.apellido}}
               </div>
             </div>
             <hr>
@@ -54,7 +54,7 @@
                 <h6 class="mb-0"><b>E-mail:</b></h6>
               </div>
               <div class="col-sm-9">
-                correo@inventado.com
+                {{usuario.correo}}
               </div>
             </div>
             <hr>
@@ -63,7 +63,7 @@
                 <h6 class="mb-0"><b>Nº de tarjeta:</b></h6>
               </div>
               <div class="col-sm-9">
-                ************7899
+                {{usuario.tarjeta_credito}}
               </div>
             </div>
             <hr>
@@ -72,7 +72,7 @@
                 <h6 class="mb-0"><b>teléfono:</b></h6>
               </div>
               <div class="col-sm-9">
-                654 321 987
+                {{usuario.telefono}}
               </div>
             </div>
             <hr>
@@ -81,7 +81,7 @@
                 <h6 class="mb-0"><b>Dirección:</b></h6>
               </div>
               <div class="col-sm-9">
-                Novelda del Guadiana, Badajoz, Calle inventada Nº XX, 06183
+                {{usuario.localidad}}, {{usuario.provincia}}, {{usuario.domicilio}}, {{usuario.cod_postal}}
               </div>
             </div>
             <hr>
@@ -90,7 +90,7 @@
                 <h6 class="mb-0"><b>Dirección 2ª:</b></h6>
               </div>
               <div class="col-sm-9">
-                Badajoz, Badajoz, Calle inventada Nº XX, 06000
+                {{usuario.localidad_2}}, {{usuario.provincia_2}}, {{usuario.domicilio_2}}, {{usuario.cod_postal_2}}
               </div>
             </div>
           </div>

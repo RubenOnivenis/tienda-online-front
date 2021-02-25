@@ -15,7 +15,7 @@ const APP_ROUTES: Routes =
     { path: 'mermeladas', component: MermeladasComponent },
     { path: 'crearUsuario', component: CrearUsuarioComponent },
     { path: 'iniciarSesion', component: IniciarSesionComponent },
-    { path: 'perfil', component: PerfilComponent },
+    { path: 'perfil/:id', component: PerfilComponent },
     { path: 'compra', component: CompraComponent},
     { path: 'devolucion', component: DevolucionComponent },
     { path: 'mermelada/:id', component:MermeladaComponent },
