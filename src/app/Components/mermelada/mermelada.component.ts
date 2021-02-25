@@ -20,7 +20,6 @@ export class MermeladaComponent implements OnInit {
     this._productosService.getProducto(this.activatedRoute.snapshot.params.id)
       .subscribe(respuesta => {
         this.producto = respuesta;
-        console.log(respuesta);
       },
       (err) => {
         err="ERROR";
