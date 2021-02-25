@@ -17,7 +17,7 @@ export interface productosDatos {
 })
 export class productosService
 {
-    API_URI = 'http://localhost:8080/api/';
+    API_URI = 'http://localhost:8080/api';
 
     constructor(
         private http:HttpClient
@@ -31,7 +31,8 @@ export class productosService
         return this.http.get(`${this.API_URI}/producto/${id}`);
     }
 
-    buscador(nombre: String){
+    buscador(nombre:String){
+        console.log(`${this.API_URI}/producto/nombre/${nombre}`);
         return this.http.get(`${this.API_URI}/producto/nombre/${nombre}`);
     }
 

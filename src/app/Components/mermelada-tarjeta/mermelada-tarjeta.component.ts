@@ -11,7 +11,6 @@ export class MermeladaTarjetaComponent implements OnInit {
 
   @Input() producto!:productosDatos;
   NUM_CARACTERES:number;
-  @Input() index!:number | undefined;
 
   constructor(
     private router:Router
@@ -22,7 +21,7 @@ export class MermeladaTarjetaComponent implements OnInit {
   ngOnInit(): void {}
 
   public verProducto(){
-    this.router.navigate(['/mermelada', this.index]);
+    this.router.navigate(['/mermelada', this.producto.id]);
   }
 
   public puntos_suspensivos():string{

@@ -1,5 +1,5 @@
 <h1 class="animated-fast">Buscador: <small>{{textoBuscado}}</small></h1>
 <hr />
 <div class="card-deck row">
-    <app-mermelada-tarjeta class="col-md-4" *ngFor="let foo of productos;"></app-mermelada-tarjeta>
+    <app-mermelada-tarjeta class="col-md-4" *ngFor="let foo of productos;" [producto]="foo"></app-mermelada-tarjeta>
 </div>

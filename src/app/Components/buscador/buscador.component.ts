@@ -5,12 +5,11 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class BuscadorComponent implements OnInit {
 
-  productos: any [] = [];
+  productos: any = [];
   textoBuscado!:string;
   NUM_CARACTERES:number;
 
@@ -23,15 +22,16 @@ export class BuscadorComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._productosService.buscador(this.activatedRoute.snapshot.params.nombre)
+    this.activatedRoute.params.subscribe((resp: any) =>{
+      this._productosService.buscador(resp["nombre"])
       .subscribe((respuesta:any) => {
         this.productos = respuesta;
-        console.log(respuesta);
       },
       (err) => {
         err = 'ERROR';
         console.log(err);
       });
+    })
   }
 
   public verMermelada(i:number){

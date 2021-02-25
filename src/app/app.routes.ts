@@ -19,7 +19,7 @@ const APP_ROUTES: Routes =
     { path: 'compra', component: CompraComponent},
     { path: 'devolucion', component: DevolucionComponent },
     { path: 'mermelada/:id', component:MermeladaComponent },
-    { path: 'buscar/:texto', component:BuscadorComponent },
+    { path: 'buscar/:nombre', component:BuscadorComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
