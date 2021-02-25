@@ -38,8 +38,11 @@ export class UsuarioService {
   }
 
   crearUsuario(usuario: usuariosDatos){
-    console.log(usuario);
     return this.http.post(`${this.API_URI}/usuarios`, usuario);
+  }
+
+  modificarUsuario(usuario: usuariosDatos, id:number){
+    return this.http.put(`${this.API_URI}/usuarios/${id}`, usuario);
   }
 
   getLocalidad(){
