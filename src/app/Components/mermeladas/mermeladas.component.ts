@@ -18,7 +18,6 @@ export class MermeladasComponent implements OnInit {
   ngOnInit(): void {
     this._productosService.getProductos()
       .subscribe( (productos:any) => {
-        console.log(productos);
         this.productos = productos;
       } )
   }
