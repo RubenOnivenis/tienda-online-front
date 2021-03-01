@@ -1,12 +1,12 @@
-<div class="modal-body">
-  <form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma" *ngIf="usuario">
+
+<form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma" *ngIf="usuario">
+  <div class="m-3">
     <div class="row">
       <!--Email-->
       <div class="form-group col-md-6 col-12">
         <label for="disabledTextInput">E-mail</label>
         <input type="email" 
               class="form-control" 
-              
               formControlName="correo"
               placeholder="E-mail"
               [class.is-invalid]="!valido('correo')">
@@ -17,7 +17,6 @@
         <label for="inputAddress">Nombre de usuario</label>
         <input class="form-control"
                 type="text"
-                
                 placeholder="Nombre de usuario"
                 formControlName="nombre_usuario"
                 [class.is-invalid]="!valido('nombre_usuario')">
@@ -28,7 +27,6 @@
         <label for="inputAddress">Nombre</label>
         <input class="form-control"
               type="text"
-              
               placeholder="Nombre"
               formControlName="nombre"
               [class.is-invalid]="!valido('nombre')">
@@ -39,11 +37,10 @@
           <label for="inputAddress">Apellidos</label>
           <input class="form-control"
                 type="text"
-                
                 placeholder="Apellidos"
-                formControlName="apellido"
-                [class.is-invalid]="!valido('apellido')">
-            <small class="form-text text-danger" *ngIf="!valido('apellido')">Debe tener al menos 5 carácteres</small>
+                formControlName="apellidos"
+                [class.is-invalid]="!valido('apellidos')">
+            <small class="form-text text-danger" *ngIf="!valido('apellidos')">Debe tener al menos 5 carácteres</small>
         </div>
         
       </div>
@@ -52,8 +49,7 @@
         <!--Domicilio-->
         <div class="form-group col-md-6 col-12">
           <label for="inputAddress">Dirección</label>
-          <input type="text" 
-                
+          <input type="text"
                 class="form-control"
                 formControlName="direccion" 
                 placeholder="Dirección">
@@ -64,7 +60,6 @@
           <input type="text" 
                 class="form-control" 
                 id="inputCity" 
-                
                 formControlName="ciudad"
                 placeholder="Ciudad, municipio, pueblo...">
         </div>
@@ -83,7 +78,6 @@
           <input type="text" 
                   class="form-control"  
                   placeholder="Código postal"
-                  
                   formControlName="cod_postal"
                   [class.is-invalid]="!valido('vivienda.cod_postal')">
           <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
@@ -94,7 +88,6 @@
           <input type="text" 
                   class="form-control" 
                   id="inputAddress2" 
-                  
                   formControlName="direccion2"
                   placeholder="Dirección">
         </div>
@@ -104,7 +97,6 @@
           <input type="text" 
                   class="form-control" 
                   id="inputCity" 
-                 
                   formControlName="ciudad2"
                   placeholder="Ciudad, municipio, pueblo...">
         </div>
@@ -123,7 +115,6 @@
           <input type="text" 
                   class="form-control"  
                   placeholder="Código postal"
-                  
                   formControlName="cod_postal2"
                   [class.is-invalid]="!valido('vivienda.cod_postal2')">
           <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
@@ -137,7 +128,6 @@
                   class="form-control" 
                   formControlName="telefono"
                   placeholder="Teléfono"
-                  
                   [class.is-invalid]="!valido('telefono')">
           <small class="form-text text-danger" *ngIf="!valido('telefono')">El teléfono no es válido</small>
         </div>
@@ -148,14 +138,13 @@
                   class="form-control" 
                   placeholder="Tarjeta de crédito"
                   formControlName="tarjeta"
-                 
                   [class.is-invalid]="!valido('tarjeta')">
           <small class="form-text text-danger" *ngIf="!valido('tarjeta')">La tarjeta de credito no es válida</small>
         </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-dark">Guardar cambios</button>
-    </div>
-  </form>
-</div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-dark">Guardar cambios</button>
+  </div>
+</form>

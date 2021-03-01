@@ -73,9 +73,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   usuarioNuevo(){
     this._usuariosService.crearUsuario(this.usuario)
-      .subscribe(respuesta => {
-        
-      });
+      .subscribe(respuesta => {});
   }
 
   rellenar() {

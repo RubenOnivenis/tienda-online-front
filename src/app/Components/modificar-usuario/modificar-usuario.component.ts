@@ -41,7 +41,7 @@ export class ModificarUsuarioComponent implements OnInit {
       //pass:['', Validators.minLength(5)],
       //pass2:[''],
       nombre:['', Validators.minLength(3)],
-      apellido:['', Validators.minLength(5)],
+      apellidos:['', Validators.minLength(5)],
       nombre_usuario: ['', Validators.minLength(5)],
       vivienda: this.formBuilder.group({
         direccion:[''],
@@ -63,9 +63,9 @@ export class ModificarUsuarioComponent implements OnInit {
   rellenarUsuarios(){
     this.usuarioEnviar.nombre_usuario = this.forma.value.nombre_usuario;
     this.usuarioEnviar.nombre = this.forma.value.nombre;
-    this.usuarioEnviar.apellidos = this.forma.value.apellido;
+    this.usuarioEnviar.apellidos = this.forma.value.apellidos;
     this.usuarioEnviar.correo = this.forma.value.correo;
-    //this.usuarioEnviar.pass = this.forma.value.pass;
+    this.usuarioEnviar.pass = this.forma.value.pass;
     this.usuarioEnviar.cod_postal = this.forma.value.vivienda.cod_postal;
     this.usuarioEnviar.domicilio = this.forma.value.vivienda.direccion;
     this.usuarioEnviar.localidad = this.forma.value.vivienda.ciudad;
@@ -138,19 +138,19 @@ export class ModificarUsuarioComponent implements OnInit {
     return !(elemento.invalid && elemento.touched);
   }
 
-  get pass2Valido() {
+  /*get pass2Valido() {
     const pass1:any = this.forma.get('pass')!.value;
     const pass2:any = this.forma.get('pass2')!.value;
     return (pass1 === pass2) ? true : false;
-  }
+  }*/
 
   formulario_reset(){
     this.forma.reset({
       correo:this.usuario.correo,
-      //pass:this.usuario.pass,
+      pass:this.usuario.pass,
       //pass2:this.usuario.pass2,
       nombre:this.usuario.nombre,
-      apellido:this.usuario.apellido,
+      apellidos:this.usuario.apellidos,
       nombre_usuario: this.usuario.nombre_usuario,
       vivienda:{
         direccion:this.usuario.domicilio,

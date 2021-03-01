@@ -45,6 +45,10 @@ export class UsuarioService {
     return this.http.put(`${this.API_URI}/usuarios/${id}`, usuario);
   }
 
+  modificarUsuarioPass(usuario: usuariosDatos, id:number){
+    return this.http.put(`${this.API_URI}/usuarios/pass/${id}`, usuario);
+  }
+
   getLocalidad(){
     return this.http.get("https://public.opendatasoft.com/api/records/1.0/search/?dataset=provincias-espanolas&q=&sort=provincia&facet=ccaa&facet=provincia");
   } 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service';
 
@@ -10,6 +11,7 @@ import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service'
 export class PerfilComponent implements OnInit {
 
   usuario:any = {};
+  forma!: FormGroup;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,5 +27,9 @@ export class PerfilComponent implements OnInit {
         err="ERROR";
         console.log(err);
       })
+  }
+
+  modificarPass(){
+    
   }
 }
