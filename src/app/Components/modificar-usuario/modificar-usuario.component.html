@@ -45,24 +45,7 @@
                 [class.is-invalid]="!valido('apellido')">
             <small class="form-text text-danger" *ngIf="!valido('apellido')">Debe tener al menos 5 carácteres</small>
         </div>
-        <!--Contraseñas-->
-        <div class="form-group col-md-6 col-12">
-          <label for="disabledSelect">Contraseña nueva</label>
-          <input type="password" 
-                class="form-control" 
-                placeholder="Contraseña"
-                formControlName="pass">
-          <small class="form-text text-danger" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>
-        </div>
-        <div class="form-group col-md-6 col-12">
-          <label for="disabledSelect">Repetir contraseña nueva</label>
-          <input type="password" 
-                class="form-control" 
-                placeholder="Repetir contraseña"
-                formControlName="pass2"
-                [class.is-invalid]="!valido('pass2')">
-          <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
-        </div>
+        
       </div>
       <!--Vivienda-->
       <div class="row" formGroupName="vivienda">

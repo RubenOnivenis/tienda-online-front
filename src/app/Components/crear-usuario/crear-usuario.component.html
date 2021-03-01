@@ -179,7 +179,7 @@
         <label for="inputZip">Fecha de caducidad (opcional)</label>
         <input type="text" 
                 class="form-control" 
-                placeholder="Fecha de caducidad (mm/YY)"
+                placeholder="Fecha de caducidad (MM/AA)"
                 formControlName="caducidad"
                 [class.is-invalid]="!valido('caducidad')">
         <small class="form-text text-danger" *ngIf="!valido('caducidad')">La fecha de caducidad no es válida</small>

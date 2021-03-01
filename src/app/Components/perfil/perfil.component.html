@@ -112,7 +112,47 @@
               </div>
             </div>
           </div>
-          <input style="margin-left: 20px;" type="button" class="btn btn-outline-danger" name="cerrar" value="Cerrar sesión" [routerLink]="['/iniciarSesion']"/>
+          <button type="button" class=" ml-3 btn btn-outline-dark" data-toggle="modal" data-target="#cambiar_pass">
+            Cambiar contraseña
+          </button>
+          <div class="modal fade" id="cambiar_pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" >
+              <div class="modal-content" id="modificarDatos">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModal3Label">Cambiar contraseña</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="form-group offset-md-3 col-md-6 col-12">
+                  <label for="disabledSelect">Contraseña antigua</label>
+                  <input type="password" 
+                        class="form-control" 
+                        placeholder="Contraseña antigua"
+                        formControlName="pass">
+                  <!--<small class="form-text text-danger" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>-->
+                </div>
+                <div class="form-group offset-md-3 col-md-6 col-12">
+                  <label for="disabledSelect">Contraseña nueva</label>
+                  <input type="password" 
+                        class="form-control" 
+                        placeholder="Contraseña nueva"
+                        formControlName="pass">
+                  <!--<small class="form-text text-danger" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>-->
+                </div>
+                <div class="form-group offset-md-3 col-md-6 col-12">
+                  <label for="disabledSelect">Repetir contraseña nueva</label>
+                  <input type="password" 
+                        class="form-control" 
+                        placeholder="Repetir contraseña"
+                        formControlName="pass2"
+                        >
+                  <!--<small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="button" class="btn btn-outline-danger ml-3" name="cerrar" value="Cerrar sesión" [routerLink]="['/iniciarSesion']"/>
         </div>
       </div>
     </div>
@@ -201,3 +241,23 @@
     </div>
   </div>
 </div>
+<!--
+  Contraseñas
+  <div class="form-group col-md-6 col-12">
+    <label for="disabledSelect">Contraseña nueva</label>
+    <input type="password" 
+          class="form-control" 
+          placeholder="Contraseña"
+          formControlName="pass">
+    <small class="form-text text-danger" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>
+  </div>
+  <div class="form-group col-md-6 col-12">
+    <label for="disabledSelect">Repetir contraseña nueva</label>
+    <input type="password" 
+          class="form-control" 
+          placeholder="Repetir contraseña"
+          formControlName="pass2"
+          [class.is-invalid]="!valido('pass2')">
+    <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
+  </div>
+-->

@@ -37,9 +37,9 @@ export class ModificarUsuarioComponent implements OnInit {
 
   formulario_modificar(){
     this.forma = this.formBuilder.group({
-      correo:['', Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")],
-      pass:['', Validators.minLength(5)],
-      pass2:[''],
+      correo:['', Validators.email],
+      //pass:['', Validators.minLength(5)],
+      //pass2:[''],
       nombre:['', Validators.minLength(3)],
       apellido:['', Validators.minLength(5)],
       nombre_usuario: ['', Validators.minLength(5)],
@@ -56,7 +56,7 @@ export class ModificarUsuarioComponent implements OnInit {
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
     },{
-      validators:this._usuariosService.passwordsIguales('pass', 'pass2')
+      //validators:this._usuariosService.passwordsIguales('pass', 'pass2')
     })
   }
 
@@ -65,7 +65,7 @@ export class ModificarUsuarioComponent implements OnInit {
     this.usuarioEnviar.nombre = this.forma.value.nombre;
     this.usuarioEnviar.apellidos = this.forma.value.apellido;
     this.usuarioEnviar.correo = this.forma.value.correo;
-    this.usuarioEnviar.pass = this.forma.value.pass;
+    //this.usuarioEnviar.pass = this.forma.value.pass;
     this.usuarioEnviar.cod_postal = this.forma.value.vivienda.cod_postal;
     this.usuarioEnviar.domicilio = this.forma.value.vivienda.direccion;
     this.usuarioEnviar.localidad = this.forma.value.vivienda.ciudad;
@@ -147,8 +147,8 @@ export class ModificarUsuarioComponent implements OnInit {
   formulario_reset(){
     this.forma.reset({
       correo:this.usuario.correo,
-      pass:this.usuario.pass,
-      pass2:this.usuario.pass2,
+      //pass:this.usuario.pass,
+      //pass2:this.usuario.pass2,
       nombre:this.usuario.nombre,
       apellido:this.usuario.apellido,
       nombre_usuario: this.usuario.nombre_usuario,

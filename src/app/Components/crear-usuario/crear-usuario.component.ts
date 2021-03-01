@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service';
@@ -11,6 +12,7 @@ import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service'
 })
 export class CrearUsuarioComponent implements OnInit {
 
+  diaActual:Date = new Date;
   usuario!: usuariosDatos;
   forma!:FormGroup;
   condicionesAceptadas:boolean = false;
@@ -47,7 +49,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   formularioCrear(){
     this.forma = this.formBuilder.group({
-      correo:['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
+      correo:['', [Validators.required, Validators.email]],
       pass:['', [Validators.required, Validators.minLength(5)]],
       pass2:['', Validators.required],
       nombre:['', [Validators.required, Validators.minLength(3)]],
@@ -63,7 +65,7 @@ export class CrearUsuarioComponent implements OnInit {
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta_credito: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
       cvv: ["", Validators.pattern(/^[0-9]{3}$/)],
-      caducidad: ["", Validators.pattern(/^\d{2}\/\d{2}$/)] 
+      caducidad: ["", [Validators.pattern(/^\d{2}\/\d{2}$/)]] 
     },{
       validators:this._usuariosService.passwordsIguales('pass', 'pass2')
     })
@@ -72,8 +74,7 @@ export class CrearUsuarioComponent implements OnInit {
   usuarioNuevo(){
     this._usuariosService.crearUsuario(this.usuario)
       .subscribe(respuesta => {
-        respuesta = "FUNCIONA";
-        console.log(respuesta);
+        
       });
   }
 
@@ -101,11 +102,9 @@ export class CrearUsuarioComponent implements OnInit {
     if (this.forma.invalid)
       this.recursivaRegistrarse(this.forma);
     else{
-
       this.rellenar();
       this.usuarioNuevo();
-      location.reload();
-      //Vaciar inputs /////////////////////////////////////////////////////////////////////////////////
+      this.forma.reset();
     }
   }
 
