@@ -65,11 +65,10 @@
         <!--Provincia-->
         <div class="form-group col-md-6 col-12">
           <label for="inputState">Provincia</label>
-          <select id="inputState" 
-                  class="form-control"
-                  name="provincia">
-            <option *ngFor="let provincia of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia.name}}</option>
-          </select>
+          <input type="text" 
+                class="form-control" 
+                formControlName="provincia"
+                placeholder="Provincia">
         </div>
         <!--Código postal-->
         <div class="form-group col-md-6 col-12">
@@ -88,7 +87,7 @@
                   class="form-control" 
                   id="inputAddress2" 
                   formControlName="direccion2"
-                  placeholder="Dirección">
+                  placeholder="Dirección 2º">
         </div>
         <!--Localidad 2º-->
         <div class="form-group col-md-6 col-12">
@@ -102,11 +101,10 @@
         <!--Provincia 2º-->
         <div class="form-group col-md-6 col-12">
           <label for="inputState">Localidad 2º</label>
-          <select id="inputState" 
-                  class="form-control"
-                  name="provincia_2">
-            <option *ngFor="let provincia_2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia_2.name}}</option>
-          </select>
+          <input type="text" 
+                class="form-control" 
+                formControlName="provincia_2"
+                placeholder="provincia 2º">
         </div>
         <!--Código postal 2º-->
         <div class="form-group col-md-6 col-12">
