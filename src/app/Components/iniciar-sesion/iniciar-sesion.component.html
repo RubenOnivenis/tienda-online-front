@@ -8,7 +8,7 @@
                 placeholder="E-mail"
                 formControlName="email"
                 [class.is-invalid]="!valido('email')">
-            <small class="form-text text-danger" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
+            <small class="form-text avisoError" *ngIf="!valido('email')">Debe estar rellenado y escrito correctamente</small>
         </div>
         <!--CONTRASEÑA-->
         <div class="form-group">
@@ -18,11 +18,11 @@
                 placeholder="Contraseña"
                 formControlName="pass"
                 [class.is-invalid]="!valido('pass')">
-            <small class="form-text text-danger" *ngIf="!valido('pass')">Debe estar rellenado y escrito correctamente</small>
+            <small class="form-text avisoError" *ngIf="!valido('pass')">Debe estar rellenado y escrito correctamente</small>
         </div>
         <div>
             <label>¿No tienes cuenta creada? pulsa <a [routerLink]="['/crearUsuario']">aquí</a></label><br/>
-            <button class="btn btn-dark">Iniciar sesión</button>
+            <button class="btn btn-outline-light">Iniciar sesión</button>
         </div>
     </form>
 </div>

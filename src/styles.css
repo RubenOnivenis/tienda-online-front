@@ -41,8 +41,9 @@ body,  #modificarDatos, .tabla_pedidos{
     position: absolute;
 }    
 /****/
-.perfil, #pedidosInfo{
-    background-color: #FFD966; 
+#pedidosInfo{
+    background-color: #343A40;
+    color: white;
 }
 .modal-footer, .modal-header{
     background-color: #343A40;
@@ -85,17 +86,24 @@ body,  #modificarDatos, .tabla_pedidos{
 #tramitar_pedido{
     height: 220px; width: 25px;
 }
+/*INICIAR SESIO Y CREAR USUARIO*/
 #iniciarSesion{
-    background-color: #ffd96654; 
+    background-color: #343A40;
+    color: white;
     width: 350px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+.avisoError{
+    color: rgb(255, 117, 117);
+}
 #crearUsuario{
-    background-color: #ffd96654; 
+    background-color: #343A40;
+    color: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #devolucion{
-    background-color: #ffd96654; 
+    background-color: #343A40;
+    color: white;
     width: 650px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

@@ -9,7 +9,7 @@
                 placeholder="E-mail"
                 formControlName="correo"
                 [class.is-invalid]="!valido('correo')">
-          <small class="form-text text-danger" *ngIf="!valido('correo')">Debe estar rellenado y escrito correctamente</small>
+          <small class="form-text avisoError" *ngIf="!valido('correo')">Debe estar rellenado y escrito correctamente</small>
       </div>
       <!--Nombre de usuario-->
       <div class="form-group col-md-6 col-12">
@@ -19,7 +19,7 @@
                 placeholder="Nombre de usuario"
                 formControlName="nombre_usuario"
                 [class.is-invalid]="!valido('nombre_usuario')">
-          <small class="form-text text-danger" *ngIf="!valido('nombre_usuario')">Debe tener al menos 5 carácteres</small>
+          <small class="form-text avisoError" *ngIf="!valido('nombre_usuario')">Debe tener al menos 5 carácteres</small>
       </div>
       <!--Contraseñas-->
       <div class="form-group col-md-6 col-12">
@@ -29,7 +29,7 @@
                 placeholder="Contraseña"
                 formControlName="pass"
                 [class.is-invalid]="!valido('pass')">
-        <small class="form-text text-danger" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>
+        <small class="form-text avisoError" *ngIf="!valido('pass')">Debe tener más de 5 carácteres</small>
       </div>
       <div class="form-group col-md-6 col-12">
         <label for="disabledSelect">Repetir Contraseña*</label>
@@ -39,7 +39,7 @@
               formControlName="pass2"
               [class.is-invalid]="!pass2Valido || !valido('pass2')">
         <!--<small class="form-text text-danger" *ngIf="!valido('pass2')">Debe estar rellenado y escrito correctamente</small>-->
-        <small class="form-text text-danger" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
+        <small class="form-text avisoError" *ngIf="!pass2Valido">Las contraseñas deben ser iguales</small>
       </div>
     </div>
     <!--Nombre-->
@@ -51,7 +51,7 @@
               placeholder="Nombre"
               formControlName="nombre"
               [class.is-invalid]="!valido('nombre')">
-          <small class="form-text text-danger" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
+          <small class="form-text avisoError" *ngIf="!valido('nombre')">Debe tener al menos 3 carácteres</small>
       </div>
       <!--Apellidos-->
       <div class="form-group col-md-6 col-12">
@@ -61,7 +61,7 @@
               placeholder="Apellido"
               formControlName="apellidos"
               [class.is-invalid]="!valido('apellidos')">
-          <small class="form-text text-danger" *ngIf="!valido('apellidos')">Debe tener al menos 5 carácteres</small>
+          <small class="form-text avisoError" *ngIf="!valido('apellidos')">Debe tener al menos 5 carácteres</small>
       </div>
     </div>
     <!--Domicilio-->
@@ -73,7 +73,7 @@
                 formControlName="domicilio"
                 placeholder="Calle inventada, Nº XX"
                 [class.is-invalid]="!valido('vivienda.domicilio')">
-                <small class="form-text text-danger" *ngIf="!valido('vivienda.domicilio')">Debe rellenarese correctamente el campo</small>
+                <small class="form-text avisoError" *ngIf="!valido('vivienda.domicilio')">Debe rellenarese correctamente el campo</small>
       </div>
       <!--Localidad-->
       <div class="form-group col-md-6 col-12">
@@ -84,7 +84,7 @@
                 placeholder="Ciudad, municipio, pueblo..."
                 formControlName="localidad"
                 [class.is-invalid]="!valido('vivienda.localidad')">
-        <small class="form-text text-danger" *ngIf="!valido('vivienda.localidad') && !valido('vivienda.localidad')">Debe completarse el campo ciudad correctamente</small>
+        <small class="form-text avisoError" *ngIf="!valido('vivienda.localidad') && !valido('vivienda.localidad')">Debe completarse el campo ciudad correctamente</small>
       </div>
       <!--Provincia-->
       <div class="form-group col-md-6 col-12">
@@ -96,7 +96,7 @@
                 [class.is-invalid]="!valido('vivienda.provincia')">
           <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
         </select>
-        <small class="form-text text-danger" *ngIf="!valido('vivienda.provincia')">Debes seleccionar una localidad</small>
+        <small class="form-text avisoError" *ngIf="!valido('vivienda.provincia')">Debes seleccionar una localidad</small>
       </div>
       <!--Código postal-->
       <div class="form-group col-md-6 col-12">
@@ -106,7 +106,7 @@
                 placeholder="Código postal"
                 formControlName="cod_postal"
                 [class.is-invalid]="!valido('vivienda.cod_postal')">
-        <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
+        <small class="form-text avisoError" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
       </div>
       <!--Domicilio 2º-->
       <div class="form-group col-md-6 col-12">
@@ -144,7 +144,7 @@
                 placeholder="Código postal"
                 formControlName="cod_postal_2"
                 [class.is-invalid]="!valido('vivienda.cod_postal_2')">
-        <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
+        <small class="form-text avisoError" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
       </div>
     </div>
     <div class="row col-12">
@@ -156,7 +156,7 @@
                 formControlName="telefono"
                 placeholder="Teléfono"
                 [class.is-invalid]="!valido('telefono')">
-        <small class="form-text text-danger" *ngIf="!valido('telefono')">El teléfono no es válido</small>
+        <small class="form-text avisoError" *ngIf="!valido('telefono')">El teléfono no es válido</small>
       </div>
       <!--Tarjeta de crédito-->
       <div class="form-group col-md-6 col-12">
@@ -166,7 +166,7 @@
                 placeholder="Tarjeta de crédito"
                 formControlName="tarjeta_credito"
                 [class.is-invalid]="!valido('tarjeta_credito')">
-        <small class="form-text text-danger" *ngIf="!valido('tarjeta_credito')">La tarjeta de credito no es válida</small>
+        <small class="form-text avisoError" *ngIf="!valido('tarjeta_credito')">La tarjeta de credito no es válida</small>
       </div>
       <div class="form-group col-md-6 col-12">
         <label for="inputZip">CVV (opcional)</label>
@@ -176,7 +176,7 @@
                 placeholder="CVV"
                 formControlName="cvv"
                 [class.is-invalid]="!valido('cvv')">
-        <small class="form-text text-danger" *ngIf="!valido('cvv')">CVV no es válido</small>
+        <small class="form-text avisoError" *ngIf="!valido('cvv')">CVV no es válido</small>
       </div>
       <div class="form-group col-md-6 col-12">
         <label for="inputZip">Fecha de caducidad (opcional)</label>
@@ -185,7 +185,7 @@
                 placeholder="Fecha de caducidad (MM/AA)"
                 formControlName="caducidad"
                 [class.is-invalid]="!valido('caducidad')">
-        <small class="form-text text-danger" *ngIf="!valido('caducidad')">La fecha de caducidad no es válida</small>
+        <small class="form-text avisoError" *ngIf="!valido('caducidad')">La fecha de caducidad no es válida</small>
       </div>
     </div>
     <!--Términos y condiciones-->
@@ -200,6 +200,6 @@
         </label>
       </div>
     </div>
-    <input type="submit" class="btn btn-dark ml-3" name="enviar" value="Registrarse" [disabled]="!condicionesAceptadas"/>
+    <input type="submit" class="btn btn-outline-light ml-3" name="enviar" value="Registrarse" [disabled]="!condicionesAceptadas"/>
   </form>
 </div>

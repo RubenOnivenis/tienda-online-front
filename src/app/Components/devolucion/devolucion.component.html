@@ -10,7 +10,7 @@
                     formControlName="n_pedido"
                     maxlength="4"
                     [class.is-invalid]="!valido('n_pedido')">
-                <small class="form-text text-danger" *ngIf="!valido('n_pedido')">Este campo debe ser estar correcto</small>
+                <small class="form-text avisoError" *ngIf="!valido('n_pedido')">Este campo debe ser estar correcto</small>
             </div>
             <!--Dirección de recogida-->
             <div class="form-group col-md-6 col-12">
@@ -21,7 +21,7 @@
                     <option>Novelda del guadiana, Badajoz, Calle inventada Nº XX, 06183</option> <!--Dirección 1º-->
                     <option>Badajoz, Badajoz, Calle inventada Nº XX, 06000</option><!--Dircción 2º-->
                 </select>
-                <small class="form-text text-danger" *ngIf="!valido('direccion')">Debes seleccionar una de las direcciones guardadas</small>
+                <small class="form-text avisoError" *ngIf="!valido('direccion')">Debes seleccionar una de las direcciones guardadas</small>
             </div>
             <!--Motivo de la devolución-->
             <div class="form-group col-md-6 col-12">
@@ -36,7 +36,7 @@
                     <option>Producto diferente al pedido</option>
                     <option>Otro</option>
                 </select>
-                <small class="form-text text-danger" *ngIf="!valido('motivo')">Debes seleccionar uno de los motivos</small>
+                <small class="form-text avisoError" *ngIf="!valido('motivo')">Debes seleccionar uno de los motivos</small>
             </div>
             <!--COMENTARIO-->
             <div class="form-group col-md-6 col-12">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div>
-            <input type="submit" class="btn btn-outline-primary" name="enviar" value="Enviar" />
+            <input type="submit" class="btn btn-outline-light" name="enviar" value="Enviar" />
             <a href="http://localhost:4200/#/perfil/1"><input type="button" class="btn btn-outline-dark ml-3" name="atras" value="Atrás" /></a>
         </div>
     </form>
