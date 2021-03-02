@@ -1,7 +1,7 @@
 <div class="d-flex flex-column align-items-center row">
   <form id="crearUsuario" autocomplete="off" (ngSubmit)="registrarse()" [formGroup]="forma" class="p-md-3">
     <div class="row col-12">
-      <!--Email-->
+      <!--Correo-->
       <div class="form-group col-md-6 col-12">
           <label for="disabledTextInput">E-mail*</label>
           <input type="email" 
@@ -108,29 +108,32 @@
                 [class.is-invalid]="!valido('vivienda.cod_postal')">
         <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal')">El código postal no es válido</small>
       </div>
-      <!--Dirección 2º-->
+      <!--Domicilio 2º-->
       <div class="form-group col-md-6 col-12">
         <label for="inputAddress2">Dirección 2º (opcional)</label>
         <input type="text" 
                 class="form-control" 
+                formControlName="domicilio_2"
                 id="inputAddress2" 
                 placeholder="Calle inventada, Nº XX">
       </div>
-      <!--Ciudad 2º-->
+      <!--Localidad 2º-->
       <div class="form-group col-md-6 col-12">
-        <label for="inputCity">Ciudad 2º (opcional)</label>
+        <label for="inputCity">Localidad 2º (opcional)</label>
         <input type="text" 
                 class="form-control" 
+                formControlName="localidad_2"
                 id="inputCity" 
                 placeholder="Ciudad, municipio, pueblo...">
       </div>
-      <!--Localidad 2º-->
+      <!--Provincia 2º-->
       <div class="form-group col-md-6 col-12">
-        <label for="inputState">Localidad 2º (opcional)</label>
+        <label for="inputState">Provincia 2º (opcional)</label>
         <select id="inputState" 
                 class="form-control"
-                name="localidad2">
-          <option *ngFor="let localidad2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad2.name}}</option>
+                formControlName="provincia_2"
+                name="provincia_2">
+          <option *ngFor="let provincia_2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia_2.name}}</option>
         </select>
       </div>
       <!--Código postal 2º-->
@@ -139,8 +142,8 @@
         <input type="text" 
                 class="form-control"  
                 placeholder="Código postal"
-                formControlName="cod_postal2"
-                [class.is-invalid]="!valido('vivienda.cod_postal2')">
+                formControlName="cod_postal_2"
+                [class.is-invalid]="!valido('vivienda.cod_postal_2')">
         <small class="form-text text-danger" *ngIf="!valido('vivienda.cod_postal2')">El código postal no es válido</small>
       </div>
     </div>

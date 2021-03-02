@@ -12,7 +12,7 @@ export class ModificarUsuarioComponent implements OnInit {
 
   usuario:any = {};
   usuarioEnviar:any = {};
-  forma!: FormGroup;
+  forma_modificar!: FormGroup;
 
   localidades: any = { 
     facet_groups:[
@@ -36,7 +36,7 @@ export class ModificarUsuarioComponent implements OnInit {
   }
 
   formulario_modificar(){
-    this.forma = this.formBuilder.group({
+    this.forma_modificar = this.formBuilder.group({
       correo:['', Validators.email],
       //pass:['', Validators.minLength(5)],
       //pass2:[''],
@@ -45,37 +45,35 @@ export class ModificarUsuarioComponent implements OnInit {
       nombre_usuario: ['', Validators.minLength(5)],
       vivienda: this.formBuilder.group({
         direccion:[''],
-        ciudad:[''],
         localidad:[''],
+        provincia:[''],
         cod_postal: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")],
         direccion2:[''],
-        ciudad2:[''],
-        localidad2:[''],
+        localidad_2:[''],
+        provincia_2:[''],
         cod_postal2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
       }),
       telefono: ['', Validators.pattern("[0-9]{9}")],
-      tarjeta: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
-    },{
-      //validators:this._usuariosService.passwordsIguales('pass', 'pass2')
+      tarjeta_credito: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
     })
   }
 
   rellenarUsuarios(){
-    this.usuarioEnviar.nombre_usuario = this.forma.value.nombre_usuario;
-    this.usuarioEnviar.nombre = this.forma.value.nombre;
-    this.usuarioEnviar.apellidos = this.forma.value.apellidos;
-    this.usuarioEnviar.correo = this.forma.value.correo;
-    this.usuarioEnviar.pass = this.forma.value.pass;
-    this.usuarioEnviar.cod_postal = this.forma.value.vivienda.cod_postal;
-    this.usuarioEnviar.domicilio = this.forma.value.vivienda.direccion;
-    this.usuarioEnviar.localidad = this.forma.value.vivienda.ciudad;
-    this.usuarioEnviar.provincia = this.forma.value.vivienda.localidad;
-    this.usuarioEnviar.cod_postal_2 = this.forma.value.vivienda.cod_postal2;
-    this.usuarioEnviar.domicilio_2 = this.forma.value.vivienda.direccion2;
-    this.usuarioEnviar.localidad_2 = this.forma.value.vivienda.ciudad2;
-    this.usuarioEnviar.provincia_2 = this.forma.value.vivienda.localidad2;
-    this.usuarioEnviar.tarjeta_credito = this.forma.value.tarjeta_credito;
-    this.usuarioEnviar.telefono = this.forma.value.telefono;
+    this.usuarioEnviar.nombre_usuario = this.forma_modificar.value.nombre_usuario;
+    this.usuarioEnviar.nombre = this.forma_modificar.value.nombre;
+    this.usuarioEnviar.apellidos = this.forma_modificar.value.apellidos;
+    this.usuarioEnviar.correo = this.forma_modificar.value.correo;
+    this.usuarioEnviar.pass = this.forma_modificar.value.pass;
+    this.usuarioEnviar.cod_postal = this.forma_modificar.value.vivienda.cod_postal;
+    this.usuarioEnviar.domicilio = this.forma_modificar.value.vivienda.direccion;
+    this.usuarioEnviar.localidad = this.forma_modificar.value.vivienda.localidad;
+    this.usuarioEnviar.provincia = this.forma_modificar.value.vivienda.provincia;
+    this.usuarioEnviar.cod_postal_2 = this.forma_modificar.value.vivienda.cod_postal2;
+    this.usuarioEnviar.domicilio_2 = this.forma_modificar.value.vivienda.direccion2;
+    this.usuarioEnviar.localidad_2 = this.forma_modificar.value.vivienda.localidad_2;
+    this.usuarioEnviar.provincia_2 = this.forma_modificar.value.vivienda.provincia_2;
+    this.usuarioEnviar.tarjeta_credito = this.forma_modificar.value.tarjeta_credito;
+    this.usuarioEnviar.telefono = this.forma_modificar.value.telefono;
   }
   
   mostrarLocalidad(){ //Usar localidades de una API
@@ -102,18 +100,18 @@ export class ModificarUsuarioComponent implements OnInit {
 
   modificarUsuario(){
     this._usuariosService.modificarUsuario(this.usuarioEnviar, this.activatedRoute.snapshot.params.id)
-    .subscribe(respuesta =>{
-    },
-      (err) => {
-        err="ERROR";
-        console.log(err);
-      } 
-    )
+      .subscribe(respuesta =>{
+      },
+        (err) => {
+          err="ERROR";
+          console.log(err);
+        } 
+      )
   }
 
   modificar(){
-    this.recursivaModificar(this.forma);
-    if(this.forma.valid){
+    this.recursivaModificar(this.forma_modificar);
+    if(this.forma_modificar.valid){
       this.rellenarUsuarios();
       this.modificarUsuario();
       location.reload();
@@ -128,7 +126,7 @@ export class ModificarUsuarioComponent implements OnInit {
   }
 
   valido(texto:string){
-    let elemento:any = this.forma.get(texto);
+    let elemento:any = this.forma_modificar.get(texto);
     if(elemento==null){
       elemento = {
         valid:false,
@@ -139,31 +137,31 @@ export class ModificarUsuarioComponent implements OnInit {
   }
 
   /*get pass2Valido() {
-    const pass1:any = this.forma.get('pass')!.value;
-    const pass2:any = this.forma.get('pass2')!.value;
+    const pass1:any = this.forma_modificar.get('pass')!.value;
+    const pass2:any = this.forma_modificar.get('pass2')!.value;
     return (pass1 === pass2) ? true : false;
   }*/
 
   formulario_reset(){
-    this.forma.reset({
+    this.forma_modificar.reset({
       correo:this.usuario.correo,
-      pass:this.usuario.pass,
+     //pass:this.usuario.pass,
       //pass2:this.usuario.pass2,
       nombre:this.usuario.nombre,
       apellidos:this.usuario.apellidos,
       nombre_usuario: this.usuario.nombre_usuario,
       vivienda:{
         direccion:this.usuario.domicilio,
-        ciudad:this.usuario.localidad,
-        localidad:this.usuario.provincia,
+        localidad:this.usuario.localidad,
+        provincia:this.usuario.provincia,
         cod_postal: this.usuario.cod_postal,
         direccion2:this.usuario.domicilio_2,
-        ciudad2:this.usuario.localidad_2,
-        localidad2:this.usuario.provincia_2,
+        localidad_2:this.usuario.localidad_2,
+        provincia_2:this.usuario.provincia_2,
         cod_postal2: this.usuario.cod_postal_2
       },
       telefono: this.usuario.telefono, 
-      tarjeta: this.usuario.tarjeta_credito
+      tarjeta_credito: this.usuario.tarjeta_credito
     })
   }
 

@@ -1,5 +1,4 @@
-
-<form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma" *ngIf="usuario">
+<form id="modificarUsuario" autocomplete="off" (ngSubmit)="modificar()" [formGroup]="forma_modificar" *ngIf="usuario">
   <div class="m-3">
     <div class="row">
       <!--Email-->
@@ -60,7 +59,7 @@
           <input type="text" 
                 class="form-control" 
                 id="inputCity" 
-                formControlName="ciudad"
+                formControlName="localidad"
                 placeholder="Ciudad, municipio, pueblo...">
         </div>
         <!--Provincia-->
@@ -68,8 +67,8 @@
           <label for="inputState">Provincia</label>
           <select id="inputState" 
                   class="form-control"
-                  name="localidad">
-            <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
+                  name="provincia">
+            <option *ngFor="let provincia of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia.name}}</option>
           </select>
         </div>
         <!--Código postal-->
@@ -97,7 +96,7 @@
           <input type="text" 
                   class="form-control" 
                   id="inputCity" 
-                  formControlName="ciudad2"
+                  formControlName="localidad_2"
                   placeholder="Ciudad, municipio, pueblo...">
         </div>
         <!--Provincia 2º-->
@@ -105,8 +104,8 @@
           <label for="inputState">Localidad 2º</label>
           <select id="inputState" 
                   class="form-control"
-                  name="localidad2">
-            <option *ngFor="let localidad2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad2.name}}</option>
+                  name="provincia_2">
+            <option *ngFor="let provincia_2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia_2.name}}</option>
           </select>
         </div>
         <!--Código postal 2º-->
@@ -137,14 +136,14 @@
           <input type="text" 
                   class="form-control" 
                   placeholder="Tarjeta de crédito"
-                  formControlName="tarjeta"
-                  [class.is-invalid]="!valido('tarjeta')">
-          <small class="form-text text-danger" *ngIf="!valido('tarjeta')">La tarjeta de credito no es válida</small>
+                  formControlName="tarjeta_credito"
+                  [class.is-invalid]="!valido('tarjeta_credito')">
+          <small class="form-text text-danger" *ngIf="!valido('tarjeta_credito')">La tarjeta de credito no es válida</small>
         </div>
     </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-    <button type="submit" class="btn btn-dark">Guardar cambios</button>
+    <button type="submit" class="btn btn-outline-light">Guardar cambios</button>
   </div>
 </form>

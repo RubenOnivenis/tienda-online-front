@@ -30,6 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DetallesProductoComponent } from './Components/detalles-producto/detalles-producto.component';
 import { DevolucionComponent } from './Components/devolucion/devolucion.component';
 import { productosService } from './services/productos.service';
+import { ModificarPassComponent } from './Components/modificar-pass/modificar-pass.component';
 
 registerLocaleData(localEs);
 
@@ -53,7 +54,8 @@ registerLocaleData(localEs);
     ModificarUsuarioComponent,
     CookiesComponent,
     DetallesProductoComponent,
-    DevolucionComponent
+    DevolucionComponent,
+    ModificarPassComponent
   ],
   imports: [
     ReactiveFormsModule,

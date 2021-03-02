@@ -41,8 +41,14 @@ body,  #modificarDatos, .tabla_pedidos{
     position: absolute;
 }    
 /****/
-.perfil, .modal-header, .modal-footer, #pedidosInfo, #productos_cartas{
+.perfil, #pedidosInfo, #productos_cartas{
     background-color: #FFD966; 
+}
+.modal-footer, .modal-header{
+    background-color: #343A40;
+}
+.modal-title{
+    color: white;
 }
 .elementos_menu:hover{
     background-color: #5d6670;

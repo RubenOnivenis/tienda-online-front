@@ -60,7 +60,10 @@ export class CrearUsuarioComponent implements OnInit {
         localidad: ['', Validators.required],
         provincia: ['0', [Validators.required, Validators.min(1)]],
         cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
-        cod_postal2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
+        domicilio_2:[''],
+        localidad_2:[''],
+        provincia_2:[''],
+        cod_postal_2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
       }),
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta_credito: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
@@ -88,21 +91,23 @@ export class CrearUsuarioComponent implements OnInit {
       localidad:this.forma.value.vivienda.localidad,
       provincia:this.forma.value.vivienda.provincia,
       cod_postal_2:this.forma.value.vivienda.cod_postal_2,
-      domicilio_2:this.forma.value.domicilio_2,
-      localidad_2:this.forma.value.localidad_2,
-      provincia_2:this.forma.value.provincia_2,
+      domicilio_2:this.forma.value.vivienda.domicilio_2,
+      localidad_2:this.forma.value.vivienda.localidad_2,
+      provincia_2:this.forma.value.vivienda.provincia_2,
       tarjeta_credito:this.forma.value.tarjeta_credito,
       telefono:this.forma.value.telefono
     }
   }
 
   registrarse(){
+    console.log(this.forma);
     if (this.forma.invalid)
       this.recursivaRegistrarse(this.forma);
     else{
       this.rellenar();
       this.usuarioNuevo();
       this.forma.reset();
+      location.reload();
     }
   }
 
