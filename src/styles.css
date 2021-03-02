@@ -50,6 +50,9 @@ body,  #modificarDatos, .tabla_pedidos{
 .modal-title{
     color: white;
 }
+.cerrarModal{
+    color: white;
+}
 .elementos_menu:hover{
     background-color: #5d6670;
     transition: background-color .5s;  

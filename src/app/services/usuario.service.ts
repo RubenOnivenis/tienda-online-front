@@ -38,7 +38,6 @@ export class UsuarioService {
   }
 
   crearUsuario(usuario: usuariosDatos){
-    console.log(usuario);
     return this.http.post(`${this.API_URI}/usuarios`, usuario);
   }
 

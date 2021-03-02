@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class ModificarPassComponent implements OnInit {
 
+  usuarioActual:any = {};
   usuario:any = {};
   forma_pass!: FormGroup;
 
@@ -21,11 +22,23 @@ export class ModificarPassComponent implements OnInit {
 
   ngOnInit(): void {
     this.formularioPass();
+    this.datosUsuario();
+  }
+
+  datosUsuario(){
+    this._usuariosService.getUsuario(this.activatedRoute.snapshot.params.id)
+      .subscribe(respuesta => {
+        this.usuarioActual = respuesta;
+      },
+      (err) => {
+        err="ERROR";
+        console.log(err);
+      })
   }
 
   formularioPass(){
     this.forma_pass = this.formBuilder.group({
-      pass_antigua:['', Validators.required],
+     // pass_antigua:['', Validators.required],
       pass_nueva:['', [Validators.minLength(5), Validators.required]],
       pass_nueva_2:[''],
     }),{
@@ -39,22 +52,21 @@ export class ModificarPassComponent implements OnInit {
 
   cambioPass(){
     this._usuariosService.modificarUsuarioPass(this.usuario, this.activatedRoute.snapshot.params.id)
-        .subscribe(respuesta =>{
-        },
-          (err) => {
-            err="ERROR";
-            console.log(err);
-          } 
-        )
+      .subscribe(respuesta =>{
+      },
+        (err) => {
+          err="ERROR";
+          console.log(err);
+        } 
+      )
   }
 
   modificarPass(){
-    console.log(this.forma_pass);
     this.recursivaModificar(this.forma_pass);
     if(this.forma_pass.valid){
       this.rellenarPass();
       this.cambioPass();
-      //location.reload();
+      location.reload();
     } 
   }
 
@@ -80,6 +92,12 @@ export class ModificarPassComponent implements OnInit {
     const pass_nueva:any = this.forma_pass.get('pass_nueva')!.value;
     const pass_nueva_2:any = this.forma_pass.get('pass_nueva_2')!.value;
     return (pass_nueva === pass_nueva_2) ? true : false;
+  }
+
+  formulario_reset(){
+    this.forma_pass.reset({
+      pass_nueva: this.usuario.pass
+    })
   }
 
 }

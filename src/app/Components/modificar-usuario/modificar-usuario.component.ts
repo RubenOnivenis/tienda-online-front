@@ -38,8 +38,6 @@ export class ModificarUsuarioComponent implements OnInit {
   formulario_modificar(){
     this.forma_modificar = this.formBuilder.group({
       correo:['', Validators.email],
-      //pass:['', Validators.minLength(5)],
-      //pass2:[''],
       nombre:['', Validators.minLength(3)],
       apellidos:['', Validators.minLength(5)],
       nombre_usuario: ['', Validators.minLength(5)],
@@ -136,17 +134,9 @@ export class ModificarUsuarioComponent implements OnInit {
     return !(elemento.invalid && elemento.touched);
   }
 
-  /*get pass2Valido() {
-    const pass1:any = this.forma_modificar.get('pass')!.value;
-    const pass2:any = this.forma_modificar.get('pass2')!.value;
-    return (pass1 === pass2) ? true : false;
-  }*/
-
   formulario_reset(){
     this.forma_modificar.reset({
       correo:this.usuario.correo,
-     //pass:this.usuario.pass,
-      //pass2:this.usuario.pass2,
       nombre:this.usuario.nombre,
       apellidos:this.usuario.apellidos,
       nombre_usuario: this.usuario.nombre_usuario,

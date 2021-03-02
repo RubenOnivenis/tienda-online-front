@@ -100,7 +100,6 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   registrarse(){
-    console.log(this.forma);
     if (this.forma.invalid)
       this.recursivaRegistrarse(this.forma);
     else{
