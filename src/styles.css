@@ -41,11 +41,20 @@ body,  #modificarDatos, .tabla_pedidos{
     position: absolute;
 }    
 /****/
-.perfil, #pedidosInfo, #productos_cartas{
+.perfil, #pedidosInfo{
     background-color: #FFD966; 
 }
 .modal-footer, .modal-header{
     background-color: #343A40;
+}
+#productos_cartas{
+    background-color: #FFD966; 
+    color: #343A40;
+}
+.informacionBoton{
+    background-color:  #343A40;
+    color:  white;
+    transition: all .4s;
 }
 .modal-title{
     color: white;
@@ -92,6 +101,10 @@ body,  #modificarDatos, .tabla_pedidos{
 }
 .perfil, #pedidos, #videoYT{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.perfil{
+    background-color: #343A40;
+    color: white;
 }
 #tablaPedidos{
     width: 100%;
