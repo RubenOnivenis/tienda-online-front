@@ -18,6 +18,7 @@
                 <select class="form-control"
                         formControlName="direccion"
                         [class.is-invalid]="!valido('direccion')">
+                        <option disabled value="" selected hidden>Selecciona una dirección</option>
                     <option>Novelda del guadiana, Badajoz, Calle inventada Nº XX, 06183</option> <!--Dirección 1º-->
                     <option>Badajoz, Badajoz, Calle inventada Nº XX, 06000</option><!--Dircción 2º-->
                 </select>
@@ -29,7 +30,8 @@
                 <select class="form-control"
                         formControlName="motivo"
                         [class.is-invalid]="!valido('motivo')">
-                    <option>Defectuoso</option>
+                    <option disabled value="" selected hidden>Selecciona un motivo</option>
+                    <option value="Defectuoso">Defectuoso</option>
                     <option>Abierto con anterioridad</option>
                     <option>Embase deteriorado</option>
                     <option>Caducado</option>

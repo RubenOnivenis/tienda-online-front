@@ -163,7 +163,7 @@
         <label for="inputZip">Tarjeta de crédito (opcional)</label>
         <input type="text" 
                 class="form-control" 
-                placeholder="Tarjeta de crédito"
+                placeholder="Visa, Mastercard y Discovery"
                 formControlName="tarjeta_credito"
                 [class.is-invalid]="!valido('tarjeta_credito')">
         <small class="form-text avisoError" *ngIf="!valido('tarjeta_credito')">La tarjeta de credito no es válida</small>

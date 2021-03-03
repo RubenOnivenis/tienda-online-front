@@ -41,7 +41,7 @@ body,  #modificarDatos, .tabla_pedidos{
     position: absolute;
 }    
 /****/
-#pedidosInfo{
+#pedidosInfo, .comentarios{
     background-color: #343A40;
     color: white;
 }

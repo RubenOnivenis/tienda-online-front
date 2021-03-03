@@ -17,6 +17,10 @@ export class MermeladaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getProducto();
+  }
+
+  getProducto(){
     this._productosService.getProducto(this.activatedRoute.snapshot.params.id)
       .subscribe(respuesta => {
         this.producto = respuesta;

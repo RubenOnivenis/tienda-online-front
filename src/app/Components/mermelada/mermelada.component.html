@@ -30,10 +30,18 @@
     </div>
   </div>
   <hr />
-  <div>
-    <h4>Comentar</h4>
-    <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
-    <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
-    <input type="button" class="btn btn-outline-dark" value="Enviar comentario" />
+  <p>
+    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Ver comentarios
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body comentarios">
+      <div>
+        <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
+        <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
+        <input type="button" class="btn btn-outline-light" value="Enviar comentario" />
+      </div>
+    </div>
   </div>
 </div>
