@@ -10,7 +10,8 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class CompraComponent implements OnInit {
 
-  productoCesta: any [] = [];
+
+  productosCesta: any [] = [];
   @Input() mermelada!:productosDatos;
 
   constructor(
@@ -19,7 +20,6 @@ export class CompraComponent implements OnInit {
     private _cestaService:CestaService
   ) { 
     this.activatedRoute.params.subscribe(parametros => {
-      //this.mermelada = this._productosService.getProducto(parametros.id);
     })
   }
 
@@ -28,9 +28,10 @@ export class CompraComponent implements OnInit {
   }
   
   verProductosCesta(){
-    this._cestaService.productosCesta()
+    this._cestaService.productosCesta(1)
       .subscribe((respuesta:any) => {
-        this.productoCesta = respuesta;
+        this.productosCesta = respuesta;
+        
       })
   }
 

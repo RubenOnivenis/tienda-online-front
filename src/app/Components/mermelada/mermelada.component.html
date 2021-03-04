@@ -21,11 +21,11 @@
         <ul>
           <li>{{producto.ingredientes}}</li>
         </ul>
-        <input type="button"
-               class="btn btn-outline-dark" 
-               [routerLink]="['/compra', producto.id]" 
-               value="Añadir a la cesta" 
-               style="margin-top: 20px;"/>
+        <button class="btn btn-outline-dark" 
+               (click)="cestaAniadir()"
+               style="margin-top: 20px;">
+               Añadir a la cesta
+        </button>
       </div>
     </div>
   </div>

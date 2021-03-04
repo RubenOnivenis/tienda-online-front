@@ -3,17 +3,17 @@
 <div class="row ml-md-5 ml-1 mr-1">
     <div class="col-md-7 col-12" id="productos_cesta">
         <div class="card-body">
-            <div class="row" *ngFor="let producto of productoCesta">
+            <div class="row" *ngFor="let productoCesta of productosCesta">
                 <div class="col-md-3 col-12">
-                    <img class="card-img-top" src="assets/img/fresa2.png" >
+                    <img class="card-img-top" src="{{productoCesta.imagen}}" >
                 </div>
                 <div class="col-md-6 mb-4 col-12">
-                    <h3>{{producto.id_producto}}</h3>
+                    <h3>{{productoCesta.nombre}}</h3>
                     <div class="form-outline row ml-1 mb-4 mt-4">
                         <input type="number" min="1" max="10"  placeholder="Cantidad" class="form-control col-4" />
                         <input type="submit" class="btn btn-link" value="Eliminar" />
                     </div>
-                    <h4>2,80€</h4>
+                    <h4>{{productoCesta.precio}}</h4>
                 </div>
                 <hr class="borde_hr_compra col-10 offset-1"/>
             </div>

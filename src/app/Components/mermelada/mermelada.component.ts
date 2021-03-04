@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CestaService } from 'src/app/services/cesta.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -9,12 +10,16 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class MermeladaComponent implements OnInit {
 
-  producto:any = {};
+  cesta: any = {}
+  producto: any = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _productosService: productosService
-  ) {}
+    private _productosService: productosService,
+    private _cestaService: CestaService
+  ) {
+    
+  }
 
   ngOnInit(): void {
     this.getProducto();
@@ -31,8 +36,20 @@ export class MermeladaComponent implements OnInit {
       } );
   }
 
-  /*public anadirCesta(){
-    this.router.navigate(['/compra', this.index]);
-  }*/
+  cestaAniadir(){
+    this.cestaRellenar();
+    this._cestaService.aniadirCesta(this.cesta)
+      .subscribe(respuesta=>{
+        
+      })
+  }
+
+  cestaRellenar(){
+    this.cesta={
+      id_cesta:1,
+      id_producto:this.producto.id,
+      id_usuario:1
+    }
+  }
 
 }

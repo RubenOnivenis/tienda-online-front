@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-export interface productosDatos {
+export interface cestaDatos {
   id_cesta?:number,
   id_usuario:number,
   id_producto:number,
@@ -19,7 +19,11 @@ export class CestaService {
     private http:HttpClient
   ) { }
 
-  productosCesta(){
-      return this.http.get(`${this.API_URI}/cesta`);
+  productosCesta(id_cesta:number){
+    return this.http.get(`${this.API_URI}/cestaDatos/${id_cesta}`);
+  }
+
+  aniadirCesta(cesta: cestaDatos){
+    return this.http.post(`${this.API_URI}/cesta`, cesta);
   }
 }
