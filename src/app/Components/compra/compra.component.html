@@ -2,37 +2,21 @@
 <hr />
 <div class="row ml-md-5 ml-1 mr-1">
     <div class="col-md-7 col-12" id="productos_cesta">
-        <div class="card-body ">
-            <div class="row">
+        <div class="card-body">
+            <div class="row" *ngFor="let producto of productoCesta">
                 <div class="col-md-3 col-12">
                     <img class="card-img-top" src="assets/img/fresa2.png" >
                 </div>
                 <div class="col-md-6 mb-4 col-12">
-                    <h3>Fresa</h3>
-                    <input type="checkbox" class="mr-2 mb-4">Es un regalo<br/>
-                    <div class="form-outline row mb-4 ">
+                    <h3>{{producto.id_producto}}</h3>
+                    <div class="form-outline row ml-1 mb-4 mt-4">
                         <input type="number" min="1" max="10"  placeholder="Cantidad" class="form-control col-4" />
                         <input type="submit" class="btn btn-link" value="Eliminar" />
                     </div>
                     <h4>2,80€</h4>
                 </div>
+                <hr class="borde_hr_compra col-10 offset-1"/>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3 col-12">
-                    <img class="card-img-top" src="assets/img/melocoton.png" >
-                </div>
-                <div class="col-md-6 mb-4 col-12">
-                    <h3>Melocotón</h3>
-                    <input type="checkbox" class="mr-2 mb-4">Es un regalo<br/>
-                    <div class="form-outline row mb-4 ">
-                        <input type="number" min="1" max="10" placeholder="Cantidad" class="form-control col-4" />
-                        <input type="submit" class="btn btn-link" value="Eliminar" />
-                    </div>
-                    <h4>1,80€</h4>
-                </div>
-            </div>
-            <hr>
             <div class="row">
                 <div class="col-md-3 offset-md-9 col-12">
                     <h3 class="mb-0" style="float: right;">Subtotal: 4,60€</h3>
@@ -42,6 +26,6 @@
     </div>
     <div class="col-md-3 mt-3 p-5 offset-md-1 col-12" id="tramitar_pedido" >
         <h4>Subtotal (2 productos) + IVA: <b>5,06€</b></h4><br/>    <!--El iva es el 10% del subtotal-->
-        <button type="button" class="btn btn-outline-dark">Tramitar pedido</button>
+        <button type="button" class="btn btn-outline-light">Tramitar pedido</button>
     </div>
 </div>

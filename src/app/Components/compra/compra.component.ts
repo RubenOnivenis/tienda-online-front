@@ -1,34 +1,37 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { CestaService } from 'src/app/services/cesta.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-compra',
   templateUrl: './compra.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class CompraComponent implements OnInit {
 
+  productoCesta: any [] = [];
   @Input() mermelada!:productosDatos;
-  //NUM_CARACTERES:number;
-  //@Input() index!:number | undefined;
 
   constructor(
-    //private router:Router
     private activatedRoute:ActivatedRoute,
-    private _productosService:productosService
+    private _productosService:productosService,
+    private _cestaService:CestaService
   ) { 
-    //this.NUM_CARACTERES = 120;
     this.activatedRoute.params.subscribe(parametros => {
       //this.mermelada = this._productosService.getProducto(parametros.id);
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.verProductosCesta();
+  }
+  
+  verProductosCesta(){
+    this._cestaService.productosCesta()
+      .subscribe((respuesta:any) => {
+        this.productoCesta = respuesta;
+      })
+  }
 
-  /*public puntos_suspensivos():string{
-    if(this.mermelada.descr.length > this.NUM_CARACTERES) return "...";
-    return "";
-  }*/
 }

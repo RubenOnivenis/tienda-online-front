@@ -79,9 +79,15 @@ body,  #modificarDatos, .tabla_pedidos{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10%;
 }
+/*DEVOLUCIÓN*/
 #productos_cesta, #tramitar_pedido{
-    background-color: #ffd96654; 
+    background-color: #343A40;
+    color: white;
     border-radius: 5%;
+}
+.borde_hr_compra{
+    border: 0px solid wheat;
+    background-color: wheat;
 }
 #tramitar_pedido{
     height: 220px; width: 25px;

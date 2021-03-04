@@ -16,7 +16,7 @@ const APP_ROUTES: Routes =
     { path: 'crearUsuario', component: CrearUsuarioComponent },
     { path: 'iniciarSesion', component: IniciarSesionComponent },
     { path: 'perfil/:id', component: PerfilComponent },
-    { path: 'compra', component: CompraComponent},
+    { path: 'compra/:id', component: CompraComponent},
     { path: 'devolucion', component: DevolucionComponent },
     { path: 'mermelada/:id', component:MermeladaComponent },
     { path: 'buscar/:nombre', component:BuscadorComponent },

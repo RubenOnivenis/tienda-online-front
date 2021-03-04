@@ -37,15 +37,15 @@ export class ModificarUsuarioComponent implements OnInit {
 
   formulario_modificar(){
     this.forma_modificar = this.formBuilder.group({
-      correo:['', Validators.email],
-      nombre:['', Validators.minLength(3)],
-      apellidos:['', Validators.minLength(5)],
-      nombre_usuario: ['', Validators.minLength(5)],
+      correo:['', [Validators.required, Validators.email]],
+      nombre:['', [Validators.required, Validators.minLength(3)]],
+      apellidos:['', [Validators.required, Validators.minLength(5)]],
+      nombre_usuario: ['', [Validators.required, Validators.minLength(5)]],
       vivienda: this.formBuilder.group({
-        direccion:[''],
-        localidad:[''],
-        provincia:[''],
-        cod_postal: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")],
+        direccion:['', Validators.required],
+        localidad:['', Validators.required,],
+        provincia:['', Validators.required,],
+        cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
         direccion2:[''],
         localidad_2:[''],
         provincia_2:[''],

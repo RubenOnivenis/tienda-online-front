@@ -22,9 +22,4 @@ export class MermeladasComponent implements OnInit {
       } )
   }
 
-  /*public verMermelada(id:number){
-    //this.router.navigate(['/mermelada', id]);
-    console.log(this._mermeladasListaService.getMermelada(id));
-  }*/
-
 }
