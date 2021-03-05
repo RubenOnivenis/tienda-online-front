@@ -26,4 +26,8 @@ export class CestaService {
   aniadirCesta(cesta: cestaDatos){
     return this.http.post(`${this.API_URI}/cesta`, cesta);
   }
+
+  borrarProductoCesta(id_cesta: number){
+    return this.http.delete(`${this.API_URI}/cesta/${id_cesta}`);
+  }
 }

@@ -12,7 +12,8 @@ export class CompraComponent implements OnInit {
 
 
   productosCesta: any [] = [];
-  @Input() mermelada!:productosDatos;
+  precioTotal!:number;
+  //@Input() mermelada!:productosDatos;
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -31,8 +32,23 @@ export class CompraComponent implements OnInit {
     this._cestaService.productosCesta(1)
       .subscribe((respuesta:any) => {
         this.productosCesta = respuesta;
-        
+        this.calcularTotal();
       })
+  }
+
+  eliminarProducto(id_cesta:number){
+    this._cestaService.borrarProductoCesta(id_cesta)
+      .subscribe(respuesta => {
+        this.verProductosCesta();
+      })
+  }
+
+  calcularTotal(){
+    this.precioTotal = 0;
+    for(let precioProducto of this.productosCesta){
+      this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio);
+    }
+    return this.precioTotal;
   }
 
 }

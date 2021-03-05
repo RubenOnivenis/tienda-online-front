@@ -11,21 +11,22 @@
                     <h3>{{productoCesta.nombre}}</h3>
                     <div class="form-outline row ml-1 mb-4 mt-4">
                         <input type="number" min="1" max="10"  placeholder="Cantidad" class="form-control col-4" />
-                        <input type="submit" class="btn btn-link" value="Eliminar" />
+                        <input type="submit" class="btn eliminarProducto" value="Eliminar" (click)="eliminarProducto(productoCesta.id)"/>
                     </div>
-                    <h4>{{productoCesta.precio}}</h4>
+                    <h4>{{productoCesta.precio | currency:'EUR'}}</h4>
                 </div>
                 <hr class="borde_hr_compra col-10 offset-1"/>
             </div>
             <div class="row">
                 <div class="col-md-3 offset-md-9 col-12">
-                    <h3 class="mb-0" style="float: right;">Subtotal: 4,60€</h3>
+                    <h3 class="mb-0" style="float: right;">Subtotal: {{calcularTotal() | currency:'EUR'}}</h3>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3 mt-3 p-5 offset-md-1 col-12" id="tramitar_pedido" >
-        <h4>Subtotal (2 productos) + IVA: <b>5,06€</b></h4><br/>    <!--El iva es el 10% del subtotal-->
+    <div class="col-md-3 mt-3 px-5 py-4 offset-md-1 col-12" id="tramitar_pedido" >
+        <h3 class="mb-3">TOTAL</h3>
+        <h4>Subtotal + IVA (10%): {{calcularTotal()*1.1 | currency:'EUR'}}</h4><br/>    <!--El iva es el 10% del subtotal-->
         <button type="button" class="btn btn-outline-light">Tramitar pedido</button>
     </div>
 </div>

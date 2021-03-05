@@ -102,6 +102,10 @@ body,  #modificarDatos, .tabla_pedidos{
 .avisoError{
     color: rgb(255, 117, 117);
 }
+.eliminarProducto{
+    color: rgb(255, 117, 117);
+    background-color: #343A40;
+}
 #crearUsuario{
     background-color: #343A40;
     color: white;
