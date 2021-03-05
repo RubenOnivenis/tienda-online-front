@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export interface cestaDatos {
   id_cesta?:number,
   id_usuario:number,
-  id_producto:number,
+  id_producto:number
 }
 
 @Injectable({
@@ -18,6 +18,14 @@ export class CestaService {
   constructor(
     private http:HttpClient
   ) { }
+
+  cestaCompleta(){
+    return this.http.get(`${this.API_URI}/cesta`);
+  }
+
+  cestaFila(id_cesta:number){
+    return this.http.get(`${this.API_URI}/cesta/${id_cesta}`);
+  }
 
   productosCesta(id_cesta:number){
     return this.http.get(`${this.API_URI}/cestaDatos/${id_cesta}`);

@@ -6,7 +6,7 @@ body,  #modificarDatos, .tabla_pedidos{
 .tabla_pedidos{
     border: 0;
 }
-#navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #devolucion, #iniciarSesion, .perfil, #infoM{
+#pedidosInfo, .comentarios, .modal-footer, .modal-header, #productos_cartas, .modal-body, #navegacion, section, #quienes, footer, #mermeladasMostrar, #mermeladaInfo, #crearUsuario, #devolucion, #iniciarSesion, .perfil, #infoM, body, #modificarDatos, .tabla_pedidos{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #quienes, #crearUsuario, #iniciarSesion, #mermeladasMostrar, #devolucion{
@@ -79,6 +79,11 @@ body,  #modificarDatos, .tabla_pedidos{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10%;
 }
+/*Añadir al carrito*/
+.anadirCarrito{
+    text-align: center;
+    background-color: #FFF2CC;
+}
 /*DEVOLUCIÓN*/
 #productos_cesta, #tramitar_pedido{
     background-color: #343A40;
@@ -92,7 +97,7 @@ body,  #modificarDatos, .tabla_pedidos{
 #tramitar_pedido{
     height: 220px; width: 25px;
 }
-/*INICIAR SESIO Y CREAR USUARIO*/
+/*INICIAR SESIÓN Y CREAR USUARIO*/
 #iniciarSesion{
     background-color: #343A40;
     color: white;
@@ -117,7 +122,7 @@ body,  #modificarDatos, .tabla_pedidos{
     width: 650px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.perfil, #pedidos, #videoYT{
+.perfil, #pedidos, #videoYT, #productos_cesta, #tramitar_pedido{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .perfil{
@@ -127,7 +132,6 @@ body,  #modificarDatos, .tabla_pedidos{
 #tablaPedidos{
     width: 100%;
 }
-
 /*COOKIES*/
 .cuadro_cookies{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

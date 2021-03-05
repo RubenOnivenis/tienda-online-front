@@ -1,7 +1,7 @@
-<h2 class="mt-3 ml-4">Cesta</h2>
+<h1 class="mt-3 ml-5">Cesta</h1>
 <hr />
 <div class="row ml-md-5 ml-1 mr-1">
-    <div class="col-md-7 col-12" id="productos_cesta">
+    <div class="col-md-6 offset-md-1 col-12" id="productos_cesta">
         <div class="card-body">
             <div class="row" *ngFor="let productoCesta of productosCesta">
                 <div class="col-md-3 col-12">
@@ -18,7 +18,7 @@
                 <hr class="borde_hr_compra col-10 offset-1"/>
             </div>
             <div class="row">
-                <div class="col-md-3 offset-md-9 col-12">
+                <div class="col-md-5 offset-md-7 col-12">
                     <h3 class="mb-0" style="float: right;">Subtotal: {{calcularTotal() | currency:'EUR'}}</h3>
                 </div>
             </div>

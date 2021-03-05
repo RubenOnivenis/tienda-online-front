@@ -5,8 +5,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class NavbarComponent implements OnInit {
 

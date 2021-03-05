@@ -21,11 +21,37 @@
         <ul>
           <li>{{producto.ingredientes}}</li>
         </ul>
-        <button class="btn btn-outline-dark" 
-               (click)="cestaAniadir()"
-               style="margin-top: 20px;">
-               Añadir a la cesta
-        </button>
+        <div>
+          <button id="anadirCestaBoton"
+                class="btn btn-outline-dark" 
+                (click)="getCesta()"
+                style="margin-top: 20px;"
+                data-toggle="modal" 
+                data-target="#anadirCesta">
+                Añadir a la cesta
+          </button>
+          <div class="modal fade" id="anadirCesta" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModal3Label">Producto añadido</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="cerrarModal">&times;</span>
+                  </button>
+                </div>
+                <div class="anadirCarrito p-md-2">
+                  <h3>{{producto.nombre}}</h3><br/>
+                  <img [src]="producto.imagen | noImage" class="img-fluid p-md-3"/><br/>
+                  <h4>¡Añadido a la cesta!</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" [routerLink]="['/mermeladas']" data-dismiss="modal">Seguir comprando</button>
+                  <button type="button" class="btn btn-outline-light" [routerLink]="['/compra', usuario.id_usuario]" data-dismiss="modal">Ir a la cesta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
