@@ -13,6 +13,7 @@ export class CompraComponent implements OnInit {
 
   productosCesta: any [] = [];
   precioTotal!:number;
+  cantidadProducto!:number;
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -43,14 +44,14 @@ export class CompraComponent implements OnInit {
   }
 
   calcularTotal(){
+    this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[0]).value);
     this.precioTotal = 0;
     for(let precioProducto of this.productosCesta){
       if(parseFloat(precioProducto.precio_oferta)){
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio_oferta);
+        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio_oferta)*this.cantidadProducto;
       }else{
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio);
+        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio)*this.cantidadProducto;
       }
-      
     }
     return this.precioTotal;
   }

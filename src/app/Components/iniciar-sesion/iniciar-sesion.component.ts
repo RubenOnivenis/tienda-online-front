@@ -1,6 +1,7 @@
 import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -13,7 +14,8 @@ export class IniciarSesionComponent implements OnInit {
   forma!:FormGroup;
 
   constructor(
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private router:Router
   ) {
     this.formularioInicio();
    }
@@ -37,6 +39,9 @@ export class IniciarSesionComponent implements OnInit {
           control.markAsTouched();
       })
       return;
+    }
+    else{
+      this.router.navigate(['/perfil/1']);
     }
   }
 
