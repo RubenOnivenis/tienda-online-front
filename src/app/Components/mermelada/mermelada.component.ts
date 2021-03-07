@@ -11,9 +11,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class MermeladaComponent implements OnInit {
 
+  cestaProducto: any [] = [];
   cesta: any = {}
   producto: any = {};
   usuario: any = {};
+  ocultar: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,7 +31,7 @@ export class MermeladaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducto();
-    this.getCesta();
+    this.ocultarBoton();
   }
 
   getProducto(){
@@ -43,29 +45,22 @@ export class MermeladaComponent implements OnInit {
       } );
   }
 
-  getCesta(){
-    this._cestaService.cestaFila(this.activatedRoute.snapshot.params.id)
-      .subscribe(respuesta => {
-        this.cesta = respuesta;
-        this.comprobarCesta();
+  ocultarBoton(){
+    this._cestaService.productosCesta(1)
+      .subscribe((respuesta: any) => {
+        this.cestaProducto = respuesta;
+        for(let productoCesta of this.cestaProducto){
+          if(this.producto.id == productoCesta.id_producto){
+            this.ocultar = false;
+          }
+        }
       })
-  }
-
-  comprobarCesta(){
-    console.log(this.cesta);
-    console.log(this.usuario.id_usuario);
-    if((this.cesta.id_producto == this.activatedRoute.snapshot.params.id) && (this.usuario.id_usuario == 1)){
-      let esconderBoton = <HTMLFormElement>document.getElementById('anadirCestaBoton');
-      esconderBoton.style.display='none';
-    }
   }
 
   cestaAniadir(){
     this.cestaRellenar();
     this._cestaService.aniadirCesta(this.cesta)
-      .subscribe(respuesta=>{
-        
-      })
+      .subscribe(respuesta=>{})
   }
 
   cestaRellenar(){

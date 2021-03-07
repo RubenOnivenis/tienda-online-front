@@ -6,6 +6,7 @@ export interface productosDatos {
     id?:number,
     nombre:string,
     precio:number,
+    precio_oferta:number,
     imagen?:string,
     descr:string,
     diasConsumicion:number,

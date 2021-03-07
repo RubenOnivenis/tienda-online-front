@@ -27,8 +27,8 @@ export class CestaService {
     return this.http.get(`${this.API_URI}/cesta/${id_cesta}`);
   }
 
-  productosCesta(id_cesta:number){
-    return this.http.get(`${this.API_URI}/cestaDatos/${id_cesta}`);
+  productosCesta(id_usuario:number){
+    return this.http.get(`${this.API_URI}/cestaDatos/${id_usuario}`);
   }
 
   aniadirCesta(cesta: cestaDatos){

@@ -1,8 +1,8 @@
 <div id="mermeladaInfo" *ngIf="producto">
   <h1 style="margin:10px 0px 20px 20px ;">{{producto.nombre | uppercase}} 
-    <small *ngIf="!producto.imagen_oferta">{{producto.precio | currency:'EUR'}}</small>
-    <small *ngIf="producto.imagen_oferta" class="text-muted"><s>{{producto.precio | currency:'EUR'}}</s></small>
-    <span *ngIf="producto.imagen_oferta" class="ml-2">{{producto.precio*0.5 | currency:'EUR'}}</span>
+    <small *ngIf="!producto.precio_oferta">{{producto.precio | currency:'EUR'}}</small>
+    <small *ngIf="producto.precio_oferta" class="text-muted"><s>{{producto.precio | currency:'EUR'}}</s></small>
+    <span *ngIf="producto.precio_oferta" class="ml-2">{{producto.precio_oferta | currency:'EUR'}}</span>
   </h1>
   <div class="row">
     <div class="col-md-3">
@@ -24,7 +24,8 @@
         <div>
           <button id="anadirCestaBoton"
                 class="btn btn-outline-dark" 
-                (click)="getCesta()"
+                (click)="cestaAniadir()"
+                *ngIf="ocultar"
                 style="margin-top: 20px;"
                 data-toggle="modal" 
                 data-target="#anadirCesta">

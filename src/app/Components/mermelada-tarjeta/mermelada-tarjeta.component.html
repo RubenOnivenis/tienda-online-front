@@ -9,11 +9,11 @@
             <h5 class="card-title">{{producto.nombre}}</h5>
             <p class="card-text">{{producto.descr | slice:0:this.NUM_CARACTERES}}{{puntos_suspensivos()}}</p>
             <p class="card-text">
-                <b *ngIf="!producto.imagen_oferta" class="text-muted">{{producto.precio | currency:'EUR'}}</b>
+                <b *ngIf="!producto.precio_oferta" class="text-muted">{{producto.precio | currency:'EUR'}}</b>
                 <small class="text-muted">
                     <b *ngIf="producto.imagen_oferta"><s>{{producto.precio | currency:'EUR'}}</s></b>
                 </small>
-                <b *ngIf="producto.imagen_oferta" class="ml-3 text-muted">{{producto.precio*0.7 | currency:'EUR'}}</b>
+                <b *ngIf="producto.precio_oferta" class="ml-3 text-muted">{{producto.precio_oferta | currency:'EUR'}}</b>
             </p>
         </div>
     </div>
