@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { parse } from 'path';
 import { CestaService } from 'src/app/services/cesta.service';
+import { encargosDatos, EncargosService } from 'src/app/services/encargos.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -10,15 +12,20 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class CompraComponent implements OnInit {
 
-
+  encargos: any = {};
+  producto_x_encargo: any = {};
+  productos: any = {};
   productosCesta: any [] = [];
   precioTotal!:number;
   cantidadProducto!:number;
+  hoy: Date = new Date();
+  maniana: Date = new Date(this.hoy.getDate());
 
   constructor(
     private activatedRoute:ActivatedRoute,
     private _productosService:productosService,
-    private _cestaService:CestaService
+    private _cestaService:CestaService,
+    private _encargosService:EncargosService
   ) { 
     this.activatedRoute.params.subscribe(parametros => {
     })
@@ -26,6 +33,7 @@ export class CompraComponent implements OnInit {
 
   ngOnInit(): void {
     this.verProductosCesta();
+    console.log(this.rellenarProducto_x_encargo());
   }
   
   verProductosCesta(){
@@ -44,16 +52,81 @@ export class CompraComponent implements OnInit {
   }
 
   calcularTotal(){
-    this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[0]).value);
+    //this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[0]).value);
     this.precioTotal = 0;
     for(let precioProducto of this.productosCesta){
       if(parseFloat(precioProducto.precio_oferta)){
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio_oferta)*this.cantidadProducto;
+        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio_oferta)/**this.cantidadProducto*/;
       }else{
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio)*this.cantidadProducto;
+        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio)/**this.cantidadProducto*/;
       }
     }
     return this.precioTotal;
+  }
+
+  //PRODUCTOS
+
+  getProductos(){
+    this._productosService.getProductos()
+      .subscribe( (productos:any) => {
+        this.productos = productos;
+      } )
+  }
+
+  ///////////////////ENCARGOS
+
+  encargarProducto(){
+    console.log(this.encargos);
+    console.log(this.producto_x_encargo);
+    console.log(this.aniadirProducto_x_encargo());
+    //this.aniadirEncargo();
+    //this.aniadirProducto_x_encargo();
+  }
+
+  //AÑADIR ENCARGO
+
+  aniadirEncargo(){
+    this.rellenarEncargo();
+    this._encargosService.aniadirEncargo(this.encargos)
+      .subscribe(respuesta => {});
+  }
+
+  rellenarEncargo(){
+    this.encargos = {
+      id_usuario:1,
+      precio_encargo:this.precioTotal*1.1,
+      fch_pedido: new Date,
+      fch_encargo_enviado: this.hoy.getDate()+1,
+      fch_encargo_recibido: this.hoy.getDate()+8
+    }
+  }
+
+  //AÑADIR PRODUCTO_X_ENCARGO
+
+  aniadirProducto_x_encargo(){
+    this.rellenarProducto_x_encargo();
+    this._encargosService.aniadirProducto_x_encargo(this.producto_x_encargo)
+      .subscribe(respuesta => {});
+  }
+
+  rellenarProducto_x_encargo(){
+    for(let productoCesta of this.productosCesta){
+      if(parseFloat(productoCesta.precio_oferta)){
+        this.producto_x_encargo = {
+          id_encargo: this.encargos.id_encargo,
+          id_producto: productoCesta.id,
+          cantidad:1,
+          precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
+        }
+      }else{
+        this.producto_x_encargo = {
+          id_encargo: this.encargos.id_encargo,
+          id_producto: productoCesta.id,
+          cantidad:1,
+          precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
+        }
+      }
+    }
   }
 
 }
