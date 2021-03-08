@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 export interface usuariosDatos {
   id_usuario?:number,
   nombre_usuario:string,
+  imagen_usuario?:string,
   nombre:string,
   apellidos:string,
   correo:string,

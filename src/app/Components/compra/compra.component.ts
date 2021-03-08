@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { parse } from 'path';
 import { CestaService } from 'src/app/services/cesta.service';
 import { encargosDatos, EncargosService } from 'src/app/services/encargos.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
@@ -78,7 +77,8 @@ export class CompraComponent implements OnInit {
   encargarProducto(){
     console.log(this.encargos);
     console.log(this.producto_x_encargo);
-    console.log(this.aniadirProducto_x_encargo());
+    console.log(this.rellenarEncargo());
+    console.log(this.rellenarProducto_x_encargo());
     //this.aniadirEncargo();
     //this.aniadirProducto_x_encargo();
   }
