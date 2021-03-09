@@ -1,5 +1,5 @@
 <div class="d-flex flex-column align-items-center row">
-  <form id="crearUsuario" autocomplete="off" (ngSubmit)="registrarse()" [formGroup]="forma" class="p-md-3">
+  <form id="crearUsuario" autocomplete="off" method="POST" enctype="multipart/form-data" (ngSubmit)="registrarse()" [formGroup]="forma" class="p-md-3">
     <div class="row col-12">
       <!--Correo-->
       <div class="form-group col-md-6 col-12">
@@ -131,9 +131,9 @@
         <label for="inputState">Provincia 2º (opcional)</label>
         <select id="inputState" 
                 class="form-control"
-                formControlName="provincia_2"
-                name="provincia_2">
-          <option *ngFor="let provincia_2 of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{provincia_2.name}}</option>
+                name="provincia_2"
+                formControlName="provincia_2">
+          <option *ngFor="let localidad of localidades.facet_groups[1].facets; let i = index" value="{{i}}" [disabled] = 'i==0'>{{localidad.name}}</option>
         </select>
       </div>
       <!--Código postal 2º-->
@@ -187,6 +187,13 @@
                 [class.is-invalid]="!valido('caducidad')">
         <small class="form-text avisoError" *ngIf="!valido('caducidad')">La fecha de caducidad no es válida</small>
       </div>
+      <!--Imagen de perfil-->
+      <!--<div class="form-group col-md-6 col-12">
+        <label>Imagen de perfil</label>
+        <input type="file"
+              class="form-control"
+              formControlName="imgaen_usuario">
+      </div>-->
     </div>
     <!--Términos y condiciones-->
     <div class="form-group ml-3">

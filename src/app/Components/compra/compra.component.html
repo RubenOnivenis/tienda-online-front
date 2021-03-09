@@ -10,7 +10,7 @@
                 <div class="col-md-6 mb-4 col-12">
                     <h3>{{productoCesta.nombre}}</h3>
                     <div class="form-outline row ml-1 mb-4 mt-4">
-                        <input type="number" min="1" max="10" step="1" placeholder="Cantidad" value=1 name="cantidadProducto" class="form-control col-4" />
+                        <input type="number" min="1" max="10" step="1" placeholder="Cantidad" value=1 (change)="calcularTotal()" name="cantidadProducto" class="form-control col-4" />
                         <input type="submit" class="btn eliminarProducto" value="Eliminar" (click)="eliminarProducto(productoCesta.id)"/>
                     </div>
                     <span class="tamanio-4" *ngIf="!productoCesta.precio_oferta">{{productoCesta.precio | currency:'EUR'}}</span>

@@ -7,8 +7,7 @@ import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service'
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styles: [
-
-  ]
+]
 })
 export class CrearUsuarioComponent implements OnInit {
 
@@ -62,13 +61,14 @@ export class CrearUsuarioComponent implements OnInit {
         cod_postal: ['', [Validators.required, Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]],
         domicilio_2:[''],
         localidad_2:[''],
-        provincia_2:[''],
+        provincia_2:['0'],
         cod_postal_2: ['', Validators.pattern("((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}")]
       }),
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta_credito: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
       cvv: ["", Validators.pattern(/^[0-9]{3}$/)],
-      caducidad: ["", [Validators.pattern(/^\d{2}\/\d{2}$/)]] 
+      caducidad: ["", [Validators.pattern(/^\d{2}\/\d{2}$/)]], 
+      //imgaen_usuario: [""]
     },{
       validators:this._usuariosService.passwordsIguales('pass', 'pass2')
     })
@@ -95,7 +95,8 @@ export class CrearUsuarioComponent implements OnInit {
       localidad_2:this.forma.value.vivienda.localidad_2,
       provincia_2:this.forma.value.vivienda.provincia_2,
       tarjeta_credito:this.forma.value.tarjeta_credito,
-      telefono:this.forma.value.telefono
+      telefono:this.forma.value.telefono,
+      //imagen_usuario:this.forma.value.imagen_usuario
     }
   }
 
@@ -106,7 +107,7 @@ export class CrearUsuarioComponent implements OnInit {
       this.rellenar();
       this.usuarioNuevo();
       this.forma.reset();
-      location.reload();
+      //location.reload();
     }
   }
 

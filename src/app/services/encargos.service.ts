@@ -38,6 +38,10 @@ export class EncargosService {
     return this.http.get(`${this.API_URI}/encargos/${id_encargo}`);
   }
 
+  ultimoId(id_usuario:number){
+    return this.http.get(`${this.API_URI}/encargosId/${id_usuario}`);
+  }
+
   aniadirEncargo(encargo: encargosDatos){
     return this.http.post(`${this.API_URI}/encargos`, encargo);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { EncargosService } from 'src/app/services/encargos.service';
 import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -14,10 +15,15 @@ export class PerfilComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _usuariosService: UsuarioService
+    private _usuariosService: UsuarioService,
+    private _encargosService: EncargosService
   ) {}
 
   ngOnInit(): void {
+    this.getUsuario();
+  }
+
+  getUsuario(){
     this._usuariosService.getUsuario(this.activatedRoute.snapshot.params.id)
       .subscribe(respuesta => {
         this.usuario = respuesta;

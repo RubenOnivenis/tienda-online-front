@@ -32,7 +32,6 @@ export class CompraComponent implements OnInit {
 
   ngOnInit(): void {
     this.verProductosCesta();
-    console.log(this.rellenarProducto_x_encargo());
   }
   
   verProductosCesta(){
@@ -51,13 +50,13 @@ export class CompraComponent implements OnInit {
   }
 
   calcularTotal(){
-    //this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[0]).value);
     this.precioTotal = 0;
-    for(let precioProducto of this.productosCesta){
-      if(parseFloat(precioProducto.precio_oferta)){
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio_oferta)/**this.cantidadProducto*/;
+    for(let i = 0; i < document.getElementsByName("cantidadProducto").length; i++){
+      this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[i]).value);
+      if(parseFloat(this.productosCesta[i].precio_oferta)){
+        this.precioTotal = this.precioTotal + parseFloat(this.productosCesta[i].precio_oferta)*this.cantidadProducto;
       }else{
-        this.precioTotal = this.precioTotal + parseFloat(precioProducto.precio)/**this.cantidadProducto*/;
+        this.precioTotal = this.precioTotal + parseFloat(this.productosCesta[i].precio)*this.cantidadProducto;
       }
     }
     return this.precioTotal;
@@ -75,12 +74,13 @@ export class CompraComponent implements OnInit {
   ///////////////////ENCARGOS
 
   encargarProducto(){
-    console.log(this.encargos);
-    console.log(this.producto_x_encargo);
-    console.log(this.rellenarEncargo());
-    console.log(this.rellenarProducto_x_encargo());
-    //this.aniadirEncargo();
-    //this.aniadirProducto_x_encargo();
+    /*console.log(this.encargos);
+    console.log(this.producto_x_encargo);*/
+    /*console.log(this.aniadirEncargo());
+    this.aniadirProducto_x_encargo();*/
+    //console.log(this.aniadirProducto_x_encargo());
+    /*this.aniadirEncargo();
+    this.aniadirProducto_x_encargo();*/
   }
 
   //AÑADIR ENCARGO
@@ -111,6 +111,7 @@ export class CompraComponent implements OnInit {
 
   rellenarProducto_x_encargo(){
     for(let productoCesta of this.productosCesta){
+      console.log(this.activatedRoute.snapshot.params.id);
       if(parseFloat(productoCesta.precio_oferta)){
         this.producto_x_encargo = {
           id_encargo: this.encargos.id_encargo,
@@ -127,6 +128,6 @@ export class CompraComponent implements OnInit {
         }
       }
     }
+    
   }
-
 }

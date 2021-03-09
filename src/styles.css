@@ -69,7 +69,7 @@ body,  #modificarDatos, .tabla_pedidos{
 .elementos_menu:hover{
     background-color: #5d6670;
     transition: background-color .5s;  
-    border-radius: 15%;
+    border-radius: 5%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .carousel-inner{
@@ -91,7 +91,6 @@ body,  #modificarDatos, .tabla_pedidos{
 #productos_cesta, #tramitar_pedido{
     background-color: #343A40;
     color: white;
-    border-radius: 5%;
 }
 .borde_hr_compra{
     border: 0px solid wheat;
