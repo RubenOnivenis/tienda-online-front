@@ -153,41 +153,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row" class="id_pedido">#1A</th>
-                <td class="fch_envio">11/1/2021</td>
-                <td class="fch_entrega">21/1/2021</td>
+              <tr *ngFor="let encargo of encargos">
+                <th scope="row" class="id_pedido">{{encargo.id_encargo}}</th>
+                <td class="fch_envio">{{encargo.fch_pedido}}</td>
+                <td class="fch_entrega">{{encargo.fch_encargo_recibido}}</td>
                 <td>Entregado</td>
                 <td>
                   <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button> |
-                  <button type="button" class="btn btn-link p-0" [routerLink]="['/devolucion']" style="color: red;">Cancelar/Devolver</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="id_pedido">#2A</th>
-                <td class="fch_envio">20/1/2021</td>
-                <td class="fch_entrega"> - </td>
-                <td>Cancelado</td>
-                <td>
-                  <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="id_pedido">#3A</th>
-                <td class="fch_envio">23/1/2021</td>
-                <td class="fch_entrega">02/02/2021</td>
-                <td>Devuelto</td>
-                <td>
-                  <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#detalles">Detalles</button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="id_pedido">#4A</th>
-                <td class="fch_envio">11/02/2021</td>
-                <td class="fch_entrega">21/02/2021</td>
-                <td>En tramite</td>
-                <td>
-                  <button type="button" class="btn btn-link p-0">Detalles</button> | 
                   <button type="button" class="btn btn-link p-0" [routerLink]="['/devolucion']" style="color: red;">Cancelar/Devolver</button>
                 </td>
               </tr>

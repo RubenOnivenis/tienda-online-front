@@ -12,13 +12,13 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 export class CompraComponent implements OnInit {
 
   encargos: any = {};
+  encargosArray: any [] = [];
   producto_x_encargo: any = {};
   productos: any = {};
   productosCesta: any [] = [];
   precioTotal!:number;
   cantidadProducto!:number;
   hoy: Date = new Date();
-  maniana: Date = new Date(this.hoy.getDate());
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -34,6 +34,8 @@ export class CompraComponent implements OnInit {
     this.verProductosCesta();
   }
   
+  //PRODUCTOS DE LA CESTA
+
   verProductosCesta(){
     this._cestaService.productosCesta(1)
       .subscribe((respuesta:any) => {
@@ -71,6 +73,15 @@ export class CompraComponent implements OnInit {
       } )
   }
 
+  //ENCARGOS GET
+
+  getEncargos(){
+    this._encargosService.getEncargos()
+      .subscribe((respuesta: any) => {
+        this.encargosArray = respuesta;
+      })
+  }
+
   ///////////////////ENCARGOS
 
   encargarProducto(){
@@ -79,8 +90,8 @@ export class CompraComponent implements OnInit {
     /*console.log(this.aniadirEncargo());
     this.aniadirProducto_x_encargo();*/
     //console.log(this.aniadirProducto_x_encargo());
-    /*this.aniadirEncargo();
-    this.aniadirProducto_x_encargo();*/
+    this.aniadirEncargo();
+    this.aniadirProducto_x_encargo();
   }
 
   //AÑADIR ENCARGO
@@ -89,6 +100,7 @@ export class CompraComponent implements OnInit {
     this.rellenarEncargo();
     this._encargosService.aniadirEncargo(this.encargos)
       .subscribe(respuesta => {});
+    this.getEncargos();
   }
 
   rellenarEncargo(){
@@ -111,18 +123,17 @@ export class CompraComponent implements OnInit {
 
   rellenarProducto_x_encargo(){
     for(let productoCesta of this.productosCesta){
-      console.log(this.activatedRoute.snapshot.params.id);
       if(parseFloat(productoCesta.precio_oferta)){
         this.producto_x_encargo = {
-          id_encargo: this.encargos.id_encargo,
-          id_producto: productoCesta.id,
+          id_encargo: this.encargosArray.length,
+          id_producto: 4,
           cantidad:1,
           precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
         }
       }else{
         this.producto_x_encargo = {
-          id_encargo: this.encargos.id_encargo,
-          id_producto: productoCesta.id,
+          id_encargo: this.encargosArray.length,
+          id_producto: 5,
           cantidad:1,
           precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
         }

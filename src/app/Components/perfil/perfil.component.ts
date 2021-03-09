@@ -12,6 +12,7 @@ import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service'
 export class PerfilComponent implements OnInit {
 
   usuario:any = {};
+  encargos:any [] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,6 +22,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsuario();
+    this.productosEncargos();
   }
 
   getUsuario(){
@@ -31,6 +33,13 @@ export class PerfilComponent implements OnInit {
       (err) => {
         err="ERROR";
         console.log(err);
+      })
+  }
+
+  productosEncargos(){
+    this._encargosService.getEncargo(this.activatedRoute.snapshot.params.id)
+      .subscribe((respuesta:any) => {
+        this.encargos = respuesta;
       })
   }
 

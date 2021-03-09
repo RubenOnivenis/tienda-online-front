@@ -34,8 +34,8 @@ export class EncargosService {
     return this.http.get(`${this.API_URI}/encargos`);
   }
 
-  getEncargo(id_encargo:number){
-    return this.http.get(`${this.API_URI}/encargos/${id_encargo}`);
+  getEncargo(id_usuario:number){
+    return this.http.get(`${this.API_URI}/encargo/${id_usuario}`);
   }
 
   ultimoId(id_usuario:number){
@@ -66,6 +66,12 @@ export class EncargosService {
 
   borrarProducto_x_encargo(id: number){
     return this.http.delete(`${this.API_URI}/productos_x_encargos/${id}`);
+  }
+
+  //DETALLES PRODUCTO
+
+  detallesProducto(id_encargo: number){
+    return this.http.get(`${this.API_URI}/detallesProducto/${id_encargo}`);
   }
 
 }

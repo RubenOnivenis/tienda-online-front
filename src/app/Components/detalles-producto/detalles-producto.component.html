@@ -1,59 +1,22 @@
 <div class="row">
     <div class="col-md-12 col-12" >
         <div class="card-body ">
-            <div class="row">
+            <div class="row" *ngFor="let detalleProducto of detallesProductos">
                 <div class="col-md-3 col-12">
-                    <img class="card-img-top" src="assets/img/fresa2.png" >
+                    <img class="card-img-top" [src]="detalleProducto.imagen" >
                 </div>
                 <div class="row col-md-9 col-12">
                     <div class="col-md-6">
-                        <h4>Fresa</h4>
-                        <b>Fecha de entrega</b>: XX/XX/2021<br/>
-                        <b>Dirección del envío</b>:
-                        <ul>
-                            <li>
-                                Calle inventada, Nº XX
-                            </li>
-                            <li>
-                                Novelda del Guadiana, Badajoz, 06183
-                            </li>
-                        </ul> 
+                        <h4>{{detalleProducto.nombre}}</h4>
+                        <b>Fecha del pedido</b>:<br/> {{detalleProducto.fch_pedido}}
                     </div>
                     <div class="col-md-6 mt-md-4">
-                        <b>Método de pago</b>:<br/>
-                        ************7899<br/>
-                        <b>Subtotal del producto(s)</b>: 2.80<br/>
-                        <b>Impuestos</b>: 0.28€<br/>
-                        <b>Importe total</b>: 3.08€
+                        <b>Subtotal del producto(s)</b>: {{detalleProducto.precio_producto | currency:'EUR'}}<br/>
+                        <b>Cantidad</b> {{detalleProducto.cantidad}}<br/>
+                        <b>IVA</b>: 10%<br/>
+                        <b>Importe total</b>: {{detalleProducto.precio_encargo | currency:'EUR'}}
                     </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3 col-12">
-                    <img class="card-img-top" src="assets/img/melocoton.png" >
-                </div>
-                <div class="row col-md-9 col-12">
-                    <div class="col-md-6">
-                        <h4>Melocotón</h4>
-                        <b>Fecha de entrega</b>: XX/XX/2021<br/>
-                        <b>Dirección del envío</b>:
-                        <ul>
-                            <li>
-                                Calle inventada, Nº XX
-                            </li>
-                            <li>
-                                Novelda del Guadiana, Badajoz, 06183
-                            </li>
-                        </ul> 
-                    </div>
-                    <div class="col-md-6 mt-md-4">
-                        <b>Método de pago</b>:<br/>
-                        ************7899<br/>
-                        <b>Subtotal del producto(s)</b>: 1.80<br/>
-                        <b>Impuestos</b>: 0.18€<br/>
-                        <b>Importe total</b>: 1.62€
-                    </div>
+                    <hr>
                 </div>
             </div>
         </div>
