@@ -22,7 +22,7 @@ export class DevolucionComponent implements OnInit {
 
   formularioDevolucion(){
     this.forma = this.formBuilder.group({
-      n_pedido:['', Validators.required],
+      //n_pedido:['', Validators.required],
      // direccion:['', Validators.required],
       motivo:['', Validators.required]
     })

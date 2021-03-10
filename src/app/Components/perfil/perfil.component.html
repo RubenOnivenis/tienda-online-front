@@ -6,15 +6,17 @@
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
               <!--Imagen de perfil-->
-              <img [src]="usuario.imagen_usuario | noImage:true" alt="Admin" class="rounded-circle" width="150">
+              <img [src]="usuario.imagen_usuario" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-2">
                 <h4>Rubén Onivenis Muñoz</h4>
               </div>
               <!--Imagen de cambiar foto de perfil-->
-              <a href="#" class="badge mt-1" style="color: white; ">
-                Cambiar imagen de perfil
-                <img src="assets/img/modificar_icono.png" class="img-pulgar" />
-              </a>
+              <!--<span>Cambiar imagen de perfil</span>
+              <form method="POST" enctype="multipart/form-data" [formGroup] (ngSubmit)="subidaImagen()">
+                <input type="file" (change)="cambioImagen($event)" formControlName="imagen_usuario"/>
+                <input type="submit" />
+                src="data:image/png;base64,{{usuario.imagen_usuario}} | noImage"
+              </form>-->
             </div>
           </div>
         </div>
@@ -85,12 +87,13 @@
               </div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row" *ngIf="usuario.localidad_2 || usuario.provincia_2 || usuario.domicilio_2 || usuario.cod_postal_2">
               <div class="col-sm-3">
                 <h6 class="mb-0"><b>Dirección 2ª:</b></h6>
               </div>
               <div class="col-sm-9">
-                {{usuario.localidad_2}}, {{usuario.provincia_2}}, {{usuario.domicilio_2}}, {{usuario.cod_postal_2}}
+                {{usuario.localidad_2}}<span *ngIf="usuario.provincia_2 && usuario.localidad_2">,</span> {{usuario.provincia_2}}<span *ngIf="usuario.domicilio_2 && usuario.provincia_2">,</span> 
+                {{usuario.domicilio_2}}<span *ngIf="usuario.cod_postal_2 && usuario.domicilio_2">,</span> {{usuario.cod_postal_2}}
               </div>
             </div>
           </div>

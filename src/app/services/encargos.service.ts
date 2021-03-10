@@ -60,7 +60,8 @@ export class EncargosService {
     return this.http.get(`${this.API_URI}/productos_x_encargos/${id}`);
   }
 
-  aniadirProducto_x_encargo(producto_x_encargo: productos_x_encargosDatos){
+  aniadirProducto_x_encargo(producto_x_encargo: any){
+    console.log(producto_x_encargo);
     return this.http.post(`${this.API_URI}/productos_x_encargos`, producto_x_encargo);
   }
 

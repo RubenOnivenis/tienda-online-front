@@ -33,7 +33,6 @@ export class CompraComponent implements OnInit {
 
   ngOnInit(): void {
     this.verProductosCesta();
-    //console.log(this.ultimoId());
   }
   
   //PRODUCTOS DE LA CESTA
@@ -75,23 +74,15 @@ export class CompraComponent implements OnInit {
       } )
   }
 
-  ///////////////////ENCARGOS
-
   //AÑADIR ENCARGO
 
   aniadirEncargo(){
     this.rellenarEncargo();
     this._encargosService.aniadirEncargo(this.encargos)
       .subscribe(respuesta => {
-        this.ultimoId();
+        this.aniadirProducto_x_encargo();
       });
-    //this.aniadirProducto_x_encargo();
-    //this.vaciarCesta();
-  }
-
-  aniadir(){
-    this.aniadirEncargo();
-    this.aniadirProducto_x_encargo();
+    this.vaciarCesta();
   }
 
   rellenarEncargo(){
@@ -105,35 +96,22 @@ export class CompraComponent implements OnInit {
   //AÑADIR PRODUCTO_X_ENCARGO
 
   aniadirProducto_x_encargo(){
+    this.rellenarProducto_x_encargo();
     this._encargosService.aniadirProducto_x_encargo(this.producto_x_encargo)
       .subscribe(respuesta => {});
   }
 
-  ultimoId(){
-    this._encargosService.ultimoId(1)
-      .subscribe(respuesta => {
-        this.idUltimo = respuesta;
-        this.rellenarProducto_x_encargo();
-      })
-  }
-
   rellenarProducto_x_encargo(){
-    console.log(this.idUltimo);
     for(let productoCesta of this.productosCesta){
+      this.producto_x_encargo = {
+        id_usuario:1,
+        id_producto: productoCesta.id_producto,
+        cantidad:1
+      }
       if(parseFloat(productoCesta.precio_oferta)){
-        this.producto_x_encargo = {
-          id_encargo: this.idUltimo,
-          id_producto: productoCesta.id_producto,
-          cantidad:1,
-          precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
-        }
+        this.producto_x_encargo.precio_producto=this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
       }else{
-        this.producto_x_encargo = {
-          id_encargo: this.idUltimo,
-          id_producto: productoCesta.id_producto,
-          cantidad:1,
-          precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
-        }
+        this.producto_x_encargo.precio_producto=this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
       }
     }
   }
