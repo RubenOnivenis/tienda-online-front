@@ -19,8 +19,8 @@ export class ComentariosService {
     private http:HttpClient
   ) { }
 
-  comentariosProducto(id_comentario:number){
-    return this.http.get(`${this.API_URI}/comentariosDatos/${id_comentario}`);
+  comentariosProducto(id_producto:number){
+    return this.http.get(`${this.API_URI}/comentariosDatos/${id_producto}`);
   }
 
   anadirComentario(comentario: comentariosDatos){

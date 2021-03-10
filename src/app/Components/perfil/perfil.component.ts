@@ -11,6 +11,7 @@ import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service'
 })
 export class PerfilComponent implements OnInit {
 
+  id_encargo:number = 4;
   usuario:any = {};
   encargos:any [] = [];
 
@@ -41,6 +42,10 @@ export class PerfilComponent implements OnInit {
       .subscribe((respuesta:any) => {
         this.encargos = respuesta;
       })
+  }
+
+  cambiarId(id_encargo:number){
+    this.id_encargo = id_encargo;
   }
 
 }

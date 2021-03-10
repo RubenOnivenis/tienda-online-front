@@ -11,6 +11,7 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class CompraComponent implements OnInit {
 
+  idUltimo:any = {}; 
   encargos: any = {};
   encargosArray: any [] = [];
   producto_x_encargo: any = {};
@@ -32,6 +33,7 @@ export class CompraComponent implements OnInit {
 
   ngOnInit(): void {
     this.verProductosCesta();
+    //console.log(this.ultimoId());
   }
   
   //PRODUCTOS DE LA CESTA
@@ -73,72 +75,75 @@ export class CompraComponent implements OnInit {
       } )
   }
 
-  //ENCARGOS GET
-
-  getEncargos(){
-    this._encargosService.getEncargos()
-      .subscribe((respuesta: any) => {
-        this.encargosArray = respuesta;
-      })
-  }
-
   ///////////////////ENCARGOS
-
-  encargarProducto(){
-    /*console.log(this.encargos);
-    console.log(this.producto_x_encargo);*/
-    /*console.log(this.aniadirEncargo());
-    this.aniadirProducto_x_encargo();*/
-    //console.log(this.aniadirProducto_x_encargo());
-    this.aniadirEncargo();
-    this.aniadirProducto_x_encargo();
-  }
 
   //AÑADIR ENCARGO
 
   aniadirEncargo(){
     this.rellenarEncargo();
     this._encargosService.aniadirEncargo(this.encargos)
-      .subscribe(respuesta => {});
-    this.getEncargos();
+      .subscribe(respuesta => {
+        this.ultimoId();
+      });
+    //this.aniadirProducto_x_encargo();
+    //this.vaciarCesta();
+  }
+
+  aniadir(){
+    this.aniadirEncargo();
+    this.aniadirProducto_x_encargo();
   }
 
   rellenarEncargo(){
     this.encargos = {
       id_usuario:1,
       precio_encargo:this.precioTotal*1.1,
-      fch_pedido: new Date,
-      fch_encargo_enviado: this.hoy.getDate()+1,
-      fch_encargo_recibido: this.hoy.getDate()+8
+      fch_pedido: this.hoy
     }
   }
 
   //AÑADIR PRODUCTO_X_ENCARGO
 
   aniadirProducto_x_encargo(){
-    this.rellenarProducto_x_encargo();
     this._encargosService.aniadirProducto_x_encargo(this.producto_x_encargo)
       .subscribe(respuesta => {});
   }
 
+  ultimoId(){
+    this._encargosService.ultimoId(1)
+      .subscribe(respuesta => {
+        this.idUltimo = respuesta;
+        this.rellenarProducto_x_encargo();
+      })
+  }
+
   rellenarProducto_x_encargo(){
+    console.log(this.idUltimo);
     for(let productoCesta of this.productosCesta){
       if(parseFloat(productoCesta.precio_oferta)){
         this.producto_x_encargo = {
-          id_encargo: this.encargosArray.length,
-          id_producto: 4,
+          id_encargo: this.idUltimo,
+          id_producto: productoCesta.id_producto,
           cantidad:1,
           precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
         }
       }else{
         this.producto_x_encargo = {
-          id_encargo: this.encargosArray.length,
-          id_producto: 5,
+          id_encargo: this.idUltimo,
+          id_producto: productoCesta.id_producto,
           cantidad:1,
           precio_producto: this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
         }
       }
     }
-    
+  }
+
+  //VACIAR CESTA AL ENCARGAR PEDIDO
+
+  vaciarCesta(){
+    this._cestaService.borrarCesta(1)
+      .subscribe(respuesta => {
+        
+      })
   }
 }

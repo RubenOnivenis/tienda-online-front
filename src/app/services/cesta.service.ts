@@ -38,4 +38,8 @@ export class CestaService {
   borrarProductoCesta(id_cesta: number){
     return this.http.delete(`${this.API_URI}/cesta/${id_cesta}`);
   }
+
+  borrarCesta(id_usuario: number){
+    return this.http.delete(`${this.API_URI}/cestaCompleta/${id_usuario}`);
+  }
 }

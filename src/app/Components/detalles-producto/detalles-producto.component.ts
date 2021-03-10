@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EncargosService } from 'src/app/services/encargos.service';
 
@@ -10,6 +10,7 @@ import { EncargosService } from 'src/app/services/encargos.service';
 export class DetallesProductoComponent implements OnInit {
 
   detallesProductos: any [] = [];
+  @Input() id_encargo!: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -17,10 +18,9 @@ export class DetallesProductoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._encargosService.detallesProducto(this.activatedRoute.snapshot.params.id)
+    this._encargosService.detallesProducto(this.id_encargo)
       .subscribe((respuesta:any) => {
         this.detallesProductos = respuesta;
-        console.log(respuesta);
       })
   }
 

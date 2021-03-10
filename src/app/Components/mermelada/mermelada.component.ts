@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CestaService } from 'src/app/services/cesta.service';
+import { ComentariosService } from 'src/app/services/comentarios.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -16,10 +17,12 @@ export class MermeladaComponent implements OnInit {
   producto: any = {};
   usuario: any = {};
   ocultar: boolean = true;
+  comentarios: any [] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private _productosService: productosService,
+    private _comentarioService:ComentariosService,
     private _cestaService: CestaService,
     private _usuarioService: UsuarioService
   ) {
@@ -31,6 +34,7 @@ export class MermeladaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducto();
+    this.verComentarios();
     this.ocultarBoton();
   }
 
@@ -69,6 +73,13 @@ export class MermeladaComponent implements OnInit {
       id_producto:this.producto.id,
       id_usuario:1
     }
+  }
+
+  verComentarios(){
+    this._comentarioService.comentariosProducto(this.activatedRoute.snapshot.params.id)
+      .subscribe((respuesta:any) =>{
+        this.comentarios = respuesta;
+      })
   }
 
 }

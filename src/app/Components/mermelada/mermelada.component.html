@@ -64,6 +64,11 @@
   </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body comentarios">
+      <div *ngFor="let comentario of comentarios">
+        <p><b>{{comentario.nombre_usuario}}</b> | {{comentario.nombre}}</p>
+        <p>{{comentario.comentario}}</p>
+      </div>
+      <hr style="border: .5px solid wheat;"/>
       <div>
         <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
         <b>Tu valoración:</b> <img src="assets/img/valoracion.png" class="img-fluid imp-pulgar col-md-1 col-5 mb-3 mt-3" style="cursor: pointer;"/><br/>
