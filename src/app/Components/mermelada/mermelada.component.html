@@ -68,8 +68,8 @@
       </div>
       <hr style="border: .5px solid wheat;"/>
       <div>
-        <textarea class="form-control" rows="4" maxlength="2000" placeholder="Deja tu comentario..."></textarea>
-        <input type="button" class="btn btn-outline-light mt-3" value="Enviar comentario" />
+        <textarea class="form-control" rows="4" maxlength="2000" name="comentario" placeholder="Deja tu comentario..."></textarea>
+        <input type="button" class="btn btn-outline-light mt-3" (click)="aniadirComentario()" value="Enviar comentario" />
       </div>
     </div>
   </div>

@@ -17,6 +17,7 @@ export class MermeladaComponent implements OnInit {
   producto: any = {};
   usuario: any = {};
   ocultar: boolean = true;
+  comentarioUsuario: any = {};
   comentarios: any [] = [];
 
   constructor(
@@ -36,6 +37,7 @@ export class MermeladaComponent implements OnInit {
     this.getProducto();
     this.verComentarios();
     this.ocultarBoton();
+    
   }
 
   getProducto(){
@@ -80,6 +82,22 @@ export class MermeladaComponent implements OnInit {
       .subscribe((respuesta:any) =>{
         this.comentarios = respuesta;
       })
+  }
+
+  aniadirComentario(){
+    this.rellenarComentario();
+    this._comentarioService.anadirComentario(this.comentarioUsuario)
+      .subscribe(respuesta =>{
+        location.reload();
+      })
+  }
+
+  rellenarComentario(){
+    this.comentarioUsuario = {
+      comentario: (<HTMLInputElement>document.getElementsByName("comentario")[0]).value,
+      id_producto: this.activatedRoute.snapshot.params.id,
+      id_usuario: 1
+    }
   }
 
 }

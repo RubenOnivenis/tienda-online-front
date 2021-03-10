@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CestaService } from 'src/app/services/cesta.service';
 import { encargosDatos, EncargosService } from 'src/app/services/encargos.service';
 import { productosDatos, productosService } from 'src/app/services/productos.service';
@@ -11,9 +11,7 @@ import { productosDatos, productosService } from 'src/app/services/productos.ser
 })
 export class CompraComponent implements OnInit {
 
-  idUltimo:any = {}; 
   encargos: any = {};
-  encargosArray: any [] = [];
   producto_x_encargo: any = {};
   productos: any = {};
   productosCesta: any [] = [];
@@ -25,7 +23,8 @@ export class CompraComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private _productosService:productosService,
     private _cestaService:CestaService,
-    private _encargosService:EncargosService
+    private _encargosService:EncargosService,
+    private router:Router
   ) { 
     this.activatedRoute.params.subscribe(parametros => {
     })
@@ -81,8 +80,10 @@ export class CompraComponent implements OnInit {
     this._encargosService.aniadirEncargo(this.encargos)
       .subscribe(respuesta => {
         this.aniadirProducto_x_encargo();
+        this.vaciarCesta();
+        this.rutaPerfil();
       });
-    this.vaciarCesta();
+    
   }
 
   rellenarEncargo(){
@@ -106,12 +107,16 @@ export class CompraComponent implements OnInit {
       this.producto_x_encargo = {
         id_usuario:1,
         id_producto: productoCesta.id_producto,
-        cantidad:1
+        //cantidad:this.cantidadProducto
+      }
+      for(let i = 0; i < document.getElementsByName("cantidadProducto").length; i++){
+        this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[i]).value);
+        this.producto_x_encargo.cantidad = this.cantidadProducto;        
       }
       if(parseFloat(productoCesta.precio_oferta)){
-        this.producto_x_encargo.precio_producto=this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
+        this.producto_x_encargo.precio_producto = this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio_oferta)
       }else{
-        this.producto_x_encargo.precio_producto=this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
+        this.producto_x_encargo.precio_producto = this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
       }
     }
   }
@@ -120,8 +125,10 @@ export class CompraComponent implements OnInit {
 
   vaciarCesta(){
     this._cestaService.borrarCesta(1)
-      .subscribe(respuesta => {
-        
-      })
+      .subscribe(respuesta => {})
+  }
+
+  rutaPerfil(){
+    this.router.navigate(['/perfil', 1]);
   }
 }

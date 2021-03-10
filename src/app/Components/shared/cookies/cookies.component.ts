@@ -15,8 +15,11 @@ export class CookiesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._cookieService.set('miCookie', 'Valor de la cookie');
-    this._cookieService.get('miCookie')
+    this._cookieService.set('CookieRuben', 'Valor de la cookie');
+    this._cookieService.get('CookieRuben');
+    if(!this.visible){
+      this.visible = false;
+    }
   }
 
   visible: boolean = true;
