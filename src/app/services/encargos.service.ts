@@ -56,7 +56,6 @@ export class EncargosService {
   }
 
   modificarEstado(encargo: any, id_encargo:number){
-    console.log(encargo);
     return this.http.put(`${this.API_URI}/encargosEstado/${id_encargo}`, encargo);
   }
 

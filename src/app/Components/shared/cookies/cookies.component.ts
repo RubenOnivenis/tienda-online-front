@@ -8,23 +8,25 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CookiesComponent implements OnInit {
 
-  nombre:string = 'Ruben';
+  visible: boolean = true;
+  cookieExist!:boolean;
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private _cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
-    this._cookieService.set('CookieRuben', 'Valor de la cookie');
-    this._cookieService.get('CookieRuben');
-    
+    this.cookieExist = this._cookieService.check('CookieRuben');
   }
 
-  visible: boolean = true;
-
-  @Output() close: EventEmitter<any> = new EventEmitter();
+  gestionarCookie(){
+    this._cookieService.set('CookieRuben', 'Valor de la cookie');
+    this._cookieService.get('CookieRuben');
+  }
 
   aceptarCookies(){
+    this.gestionarCookie();
     this.visible = !this.visible;
     if(this.visible){
       this.close.emit(null);

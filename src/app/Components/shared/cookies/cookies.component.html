@@ -1,4 +1,4 @@
-<div class="cookies" [hidden]="!visible">
+<div class="cookies" [hidden]="!visible" *ngIf="cookieExist==false">
   <div class="alert alert-warning cuadro_cookies" role="alert" >
     <p>
       <b>GDPR (General Data Protection Regulation - Reglamento General Protección de Datos)</b><br>
