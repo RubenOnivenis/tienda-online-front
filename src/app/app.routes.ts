@@ -17,10 +17,10 @@ const APP_ROUTES: Routes =
     { path: 'iniciarSesion', component: IniciarSesionComponent },
     { path: 'perfil/:id', component: PerfilComponent },
     { path: 'compra/:id', component: CompraComponent},
-    { path: 'devolucion', component: DevolucionComponent },
+    { path: 'devolucion/:id', component: DevolucionComponent },
     { path: 'mermelada/:id', component:MermeladaComponent },
     { path: 'buscar/:nombre', component:BuscadorComponent },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: 'mermeladas' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});

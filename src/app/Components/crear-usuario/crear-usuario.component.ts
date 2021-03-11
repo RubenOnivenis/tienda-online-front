@@ -1,6 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { usuariosDatos, UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class CrearUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder:FormBuilder,
-    private _usuariosService: UsuarioService
+    private _usuariosService: UsuarioService,
+    private router:Router
   ) { 
     this.formularioCrear();
   }
@@ -67,8 +69,7 @@ export class CrearUsuarioComponent implements OnInit {
       telefono: ['', Validators.pattern("[0-9]{9}")],
       tarjeta_credito: ['', Validators.pattern(/^(?:4\d([\- ])?\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ])?\d{4}\2\d{4}\2\d{4})$/)], //Visa, master y discover                                        
       cvv: ["", Validators.pattern(/^[0-9]{3}$/)],
-      caducidad: ["", [Validators.pattern(/^\d{2}\/\d{2}$/)]], 
-      //imgaen_usuario: [""]
+      caducidad: ["", [Validators.pattern(/^\d{2}\/\d{2}$/)]]
     },{
       validators:this._usuariosService.passwordsIguales('pass', 'pass2')
     })
@@ -95,8 +96,7 @@ export class CrearUsuarioComponent implements OnInit {
       localidad_2:this.forma.value.vivienda.localidad_2,
       provincia_2:this.forma.value.vivienda.provincia_2,
       tarjeta_credito:this.forma.value.tarjeta_credito,
-      telefono:this.forma.value.telefono,
-      //imagen_usuario:this.forma.value.imagen_usuario
+      telefono:this.forma.value.telefono
     }
   }
 
@@ -106,8 +106,7 @@ export class CrearUsuarioComponent implements OnInit {
     else{
       this.rellenar();
       this.usuarioNuevo();
-      this.forma.reset();
-      //location.reload();
+      this.rutaIniciarSesion();
     }
   }
 
@@ -140,6 +139,10 @@ export class CrearUsuarioComponent implements OnInit {
       this.condicionesAceptadas = true;
     else  
       this.condicionesAceptadas = false;
+  }
+
+  rutaIniciarSesion(){
+    this.router.navigate(['/iniciarSesion']);
   }
 
 }

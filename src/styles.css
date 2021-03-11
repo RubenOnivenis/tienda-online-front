@@ -22,6 +22,9 @@ body,  #modificarDatos, .tabla_pedidos{
     background-color: #5d6670;
     transition: background-color .5s;
 }   
+.colorRojo{
+    color: red;
+}
 /*Tamaños*/
 .img-pulgar {
     width: 35px;
@@ -169,7 +172,7 @@ body,  #modificarDatos, .tabla_pedidos{
 }
 /*CREAR USUARIO*/
 @media (min-width:992px)  {
-    #crearUsuario {
+    #crearUsuario { 
         width: 1024px;
     }
 }

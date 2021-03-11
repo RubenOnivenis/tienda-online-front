@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EncargosService } from 'src/app/services/encargos.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class DetallesProductoComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _encargosService:EncargosService
+    private _encargosService:EncargosService,
   ) { }
 
   ngOnInit(): void {

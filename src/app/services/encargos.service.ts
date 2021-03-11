@@ -7,7 +7,8 @@ export interface encargosDatos{
   precio_encargo:number,
   fch_pedido:Date,
   fch_encargo_enviado:Date,
-  fch_encargo_recibido:Date
+  fch_encargo_recibido:Date,
+  estado:string
 }
 export interface productos_x_encargosDatos{
   id?:number,
@@ -38,6 +39,10 @@ export class EncargosService {
     return this.http.get(`${this.API_URI}/encargo/${id_usuario}`);
   }
 
+  verEncargo(id_encargo:number){
+    return this.http.get(`${this.API_URI}/encargoId/${id_encargo}`);
+  }
+
   ultimoId(id_usuario:number){
     return this.http.get(`${this.API_URI}/encargosId/${id_usuario}`);
   }
@@ -48,6 +53,11 @@ export class EncargosService {
 
   borrarEncargo(id_encargo:number){
     return this.http.delete(`${this.API_URI}/encargos/${id_encargo}`);
+  }
+
+  modificarEstado(encargo: any, id_encargo:number){
+    console.log(encargo);
+    return this.http.put(`${this.API_URI}/encargosEstado/${id_encargo}`, encargo);
   }
 
   //PRODUCTO_X_ENCARGO

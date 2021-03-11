@@ -79,7 +79,7 @@ export class CompraComponent implements OnInit {
     this.rellenarEncargo();
     this._encargosService.aniadirEncargo(this.encargos)
       .subscribe(respuesta => {
-        this.aniadirProducto_x_encargo();
+        this.rellenarProducto_x_encargo();
         this.vaciarCesta();
         this.rutaPerfil();
       });
@@ -90,14 +90,14 @@ export class CompraComponent implements OnInit {
     this.encargos = {
       id_usuario:1,
       precio_encargo:this.precioTotal*1.1,
-      fch_pedido: this.hoy
+      fch_pedido: this.hoy,
     }
+    this.encargos.estado = "P"
   }
 
   //AÑADIR PRODUCTO_X_ENCARGO
 
   aniadirProducto_x_encargo(){
-    this.rellenarProducto_x_encargo();
     this._encargosService.aniadirProducto_x_encargo(this.producto_x_encargo)
       .subscribe(respuesta => {});
   }
@@ -107,7 +107,6 @@ export class CompraComponent implements OnInit {
       this.producto_x_encargo = {
         id_usuario:1,
         id_producto: productoCesta.id_producto,
-        //cantidad:this.cantidadProducto
       }
       for(let i = 0; i < document.getElementsByName("cantidadProducto").length; i++){
         this.cantidadProducto = parseInt((<HTMLInputElement>document.getElementsByName("cantidadProducto")[i]).value);
@@ -118,6 +117,7 @@ export class CompraComponent implements OnInit {
       }else{
         this.producto_x_encargo.precio_producto = this.producto_x_encargo.cantidad*parseFloat(productoCesta.precio)
       }
+      this.aniadirProducto_x_encargo();
     }
   }
 
