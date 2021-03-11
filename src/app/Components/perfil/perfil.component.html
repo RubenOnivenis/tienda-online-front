@@ -1,7 +1,20 @@
 <div class="container" style="margin-top: 20px;" id="perfil" >
   <div class="main-body" >
     <div class="row gutters-sm">
-      <div class="col-md-12">
+      <!--RECUADRO DE FOTO Y NOMBRE-->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body perfilImagen">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img [src]="usuario.imagen_usuario" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4 *ngIf="usuario.nombre">{{usuario.nombre}} {{usuario.apellidos}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
         <div class="card mb-3 perfil">
           <div class="card-body">
             <div class="row">
@@ -71,7 +84,6 @@
               <div class="col-sm-3">
                 <h6 class="mb-0"><b>Dirección 2ª:</b></h6>
               </div>
-              <span class="col-sm-9" *ngIf="!usuario.localidad_2 || !usuario.provincia_2 || !usuario.domicilio_2 || !usuario.cod_postal_2"> ---- </span>
               <div class="col-sm-9" *ngIf="usuario.localidad_2 || usuario.provincia_2 || usuario.domicilio_2 || usuario.cod_postal_2">
                 {{usuario.localidad_2}}<span *ngIf="usuario.provincia_2 && usuario.localidad_2">,</span> {{usuario.provincia_2}}<span *ngIf="usuario.domicilio_2 && usuario.provincia_2">,</span> 
                 {{usuario.domicilio_2}}<span *ngIf="usuario.cod_postal_2 && usuario.domicilio_2">,</span> {{usuario.cod_postal_2}}
@@ -148,7 +160,8 @@
                 <td *ngIf="encargo.estado == 'D'" class="colorRojo text-center">Devuelto</td>
                 <td>
                   <button type="button" class="btn btn-link p-0" data-toggle="modal" [attr.data-target]="'#detalles' + encargo.id_encargo">Detalles</button>
-                  <button *ngIf="encargo.estado=='P' || encargo.estado=='E'" type="button" class="btn btn-link p-0 colorRojo" [routerLink]="['/devolucion', encargo.id_encargo]">| Cancelar/Devolver</button>
+                  <span *ngIf="encargo.estado=='P' || encargo.estado=='E'"> | </span>
+                  <button *ngIf="encargo.estado=='P' || encargo.estado=='E'" type="button" class="btn btn-link p-0 colorRojo" [routerLink]="['/devolucion', encargo.id_encargo]">Cancelar/Devolver</button>
                 </td>
               </tr>
             </tbody>

@@ -55,7 +55,7 @@ body,  #modificarDatos, .tabla_pedidos{
     background-color: #343A40;
 }
 #productos_cartas{
-    background-color: #FFD966; 
+    background-color: #fae39e; 
     color: #343A40;
 }
 .informacionBoton{
@@ -132,6 +132,12 @@ body,  #modificarDatos, .tabla_pedidos{
 }
 .perfil{
     background-color: #343A40;
+    border: 0.5px solid wheat;
+    color: white;
+}
+.perfilImagen{
+    background-color: #343A40;
+    border: 0.5px solid wheat;
     color: white;
 }
 #tablaPedidos{

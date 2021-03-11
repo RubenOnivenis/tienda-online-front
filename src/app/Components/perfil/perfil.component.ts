@@ -52,11 +52,4 @@ export class PerfilComponent implements OnInit {
       })
   }
 
-  /*detallesProducto(){
-    this._encargosService.detallesProducto(this.encargos.id_encargo)
-      .subscribe((respuesta:any) => {
-        this.detallesProductos = respuesta;
-      })
-  }*/
-
 }

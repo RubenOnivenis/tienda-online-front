@@ -38,7 +38,7 @@ export class ModificarPassComponent implements OnInit {
 
   formularioPass(){
     this.forma_pass = this.formBuilder.group({
-     // pass_antigua:['', Validators.required],
+      pass_antigua:['', Validators.required],
       pass_nueva:['', [Validators.minLength(5), Validators.required]],
       pass_nueva_2:[''],
     }),{

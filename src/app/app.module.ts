@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 //import { AgmCoreModule } from '@agm/core';
 
 import { NavbarComponent } from './Components/shared/navbar/navbar.component';
-import { HomeComponent } from './Components/home/home.component';
+
 import { RouterModule } from '@angular/router';
 import { APP_ROUTING } from './app.routes';
 import { SectionComponent } from './Components/shared/section/section.component';
@@ -31,6 +31,8 @@ import { DetallesProductoComponent } from './Components/detalles-producto/detall
 import { DevolucionComponent } from './Components/devolucion/devolucion.component';
 import { productosService } from './services/productos.service';
 import { ModificarPassComponent } from './Components/modificar-pass/modificar-pass.component';
+import { HomeComponent } from './Components/home/home.component';
+
 
 registerLocaleData(localEs);
 
