@@ -65,15 +65,4 @@ export class UsuarioService {
     }
   }
 
-  /*existeUsuario(control:FormControl): Promise<errorValidate> | Observable<errorValidate>{
-        return new Promise( (resolve:any, reject) => {
-            setTimeout(() =>{
-            if (control.value === "Rubén")
-                resolve({ existe: true })
-            else
-                resolve(null);
-            }, 2000);
-        });
-    }*/
-
 }

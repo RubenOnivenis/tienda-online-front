@@ -29,8 +29,6 @@ export class DevolucionComponent implements OnInit {
 
   formularioDevolucion(){
     this.forma = this.formBuilder.group({
-      //n_pedido:['', Validators.required],
-     // direccion:['', Validators.required],
       motivo:['', Validators.required]
     })
   }
@@ -89,6 +87,7 @@ export class DevolucionComponent implements OnInit {
   }
 
   rutaPerfil(){
+    
     this.router.navigate(['/perfil', 1]);
   }
 
